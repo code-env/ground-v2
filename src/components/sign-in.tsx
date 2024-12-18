@@ -1,16 +1,7 @@
-import useClickOutside from "@/hooks/click-outside";
 import { cn } from "@/lib/utils";
-import {
-  Apple,
-  ArrowRight,
-  CheckCircle2,
-  Github,
-  Lamp,
-  Loader,
-  X,
-} from "lucide-react";
+import { Apple, ArrowRight, Github, X } from "lucide-react";
 import { AnimatePresence, MotionConfig, motion } from "motion/react";
-import { ReactNode, useEffect, useId, useRef, useState } from "react";
+import { ReactNode, useId, useState } from "react";
 
 const TRANSITION = {
   type: "spring",

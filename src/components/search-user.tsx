@@ -3,9 +3,9 @@
 import { cn } from "@/lib/utils";
 import { Search } from "lucide-react";
 // import { Input } from "@/components/";
-import { AnimatePresence, motion, type Variants } from "motion/react";
-import { ReactNode, useEffect, useRef, useState } from "react";
 import useClickOutside from "@/hooks/click-outside";
+import { AnimatePresence, motion, type Variants } from "motion/react";
+import { ReactNode, useRef, useState } from "react";
 
 const searchVariants: Variants = {
   initial: {
@@ -42,7 +42,7 @@ const addVariants: Variants = {
 
 const SearchUser = () => {
   const [active, setActive] = useState(false);
-  const [value, setValue] = useState("");
+  const [_, setValue] = useState("");
   const searchContainer = useRef<HTMLDivElement>(null);
 
   useClickOutside(searchContainer, () => {

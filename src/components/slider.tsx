@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useMotionValue, useSpring, useTransform } from "motion/react";
+import { motion, useSpring, useTransform } from "motion/react";
 import { ChangeEvent, useEffect, useMemo, useRef, useState } from "react";
 
 interface SliderProps {

@@ -1,8 +1,8 @@
 import { AnimatePresence, motion } from "motion/react";
-import { useMemo, useState, useEffect } from "react";
+import { useMemo, useState } from "react";
 import "./styles.css";
 
-export default function App() {
+const TextClickMorph = () => {
   return (
     <main className="flex size-full flex-col items-center justify-center overflow-y-auto p-4 md:p-8">
       <div className="flex w-full max-w-xs items-center justify-center">
@@ -10,7 +10,11 @@ export default function App() {
       </div>
     </main>
   );
-}
+};
+
+export default TextClickMorph;
+
+const WORDS = ["Creative", "Create", "Continue", "Confirm"];
 
 function View() {
   const [text, setText] = useState("Creative");
@@ -71,7 +75,7 @@ function View() {
         </p>
       </div>
       <div className="flex items-center gap-2">
-        {WORDS.map((word, indx) => {
+        {WORDS.map((word) => {
           //something
           return (
             <button
@@ -86,5 +90,3 @@ function View() {
     </div>
   );
 }
-
-const WORDS = ["Creative", "Create", "Continue", "Confirm"];
