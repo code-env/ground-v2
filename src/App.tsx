@@ -1,5 +1,5 @@
 import ComponentPreview from "@/components/animations/component-preview";
-import Feedback from "@/components/animations/feedback";
+import AnimatedFeedback from "@/components/animations/feedback";
 import AmieAction from "@/components/animations/amie-action";
 import Fellaz from "@/components/animations/fellaz";
 import MovieGallery from "@/components/animations/movie-gallery";
@@ -14,16 +14,19 @@ import ImageCarousel from "@/components/animations/carousel";
 import Slider from "@/components/animations/slider";
 import DynamicIsland from "@/components/animations/dynamic-island";
 import SignIn from "@/components/animations/sign-in";
+
 import Hero from "@/components/shared/hero";
 import Footer from "@/components/shared/footer";
+import Feedback from "@/components/shared/feedback";
 
 const App = () => {
   const images = ["/succession.jpeg", "/mirror.jpeg", "/dune.jpg"];
   return (
     <div className="min-h-screen flex flex-col items-center justify-center lg:px-0 px-10">
       <Hero />
+      <Feedback />
       <ComponentPreview>
-        <Feedback />
+        <AnimatedFeedback />
       </ComponentPreview>
       <ComponentPreview>
         <AmieAction />
