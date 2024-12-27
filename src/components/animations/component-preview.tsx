@@ -9,7 +9,7 @@ interface ComponentPreviewProps {
 const ComponentPreview = ({ children, height }: ComponentPreviewProps) => {
   const [minHeight] = useState<number>(500);
   return (
-    <div className="min-h-screen flex items-center justify-center w-full">
+    <div className="min-h-screen md:flex items-center justify-center w-full hidden">
       <div
         className={cn(
           "max-w-screen-lg w-full min-h-[500px] flex items-center justify-center relative  rounded-lg  border bg-gray-100 p-2"

@@ -1,20 +1,21 @@
-import ComponentPreview from "@/components/component-preview";
-import Feedback from "@/components/feedback";
-import AmieAction from "@/components/amie-action";
-import Fellaz from "@/components/fellaz";
-import MovieGallery from "@/components/movie-gallery";
-import Wants from "@/components/wants";
-import Wheel from "@/components/wheel";
-import Counter from "@/components/counter";
-import Bolt from "@/components/bolt";
-import Cashflow from "@/components/cashflow-flow";
-import Typer from "@/components/typer";
-import SearchUser from "@/components/search-user";
-import ImageCarousel from "@/components/carousel";
-import Slider from "@/components/slider";
-import Hero from "@/components/hero";
-import DynamicIsland from "@/components/dynamic-island";
-import SignIn from "./components/sign-in";
+import ComponentPreview from "@/components/animations/component-preview";
+import Feedback from "@/components/animations/feedback";
+import AmieAction from "@/components/animations/amie-action";
+import Fellaz from "@/components/animations/fellaz";
+import MovieGallery from "@/components/animations/movie-gallery";
+import Wants from "@/components/animations/wants";
+import Wheel from "@/components/animations/wheel";
+import Counter from "@/components/animations/counter";
+import Bolt from "@/components/animations/bolt";
+import Cashflow from "@/components/animations/cashflow-flow";
+import Typer from "@/components/animations/typer";
+import SearchUser from "@/components/animations/search-user";
+import ImageCarousel from "@/components/animations/carousel";
+import Slider from "@/components/animations/slider";
+import DynamicIsland from "@/components/animations/dynamic-island";
+import SignIn from "@/components/animations/sign-in";
+import Hero from "@/components/shared/hero";
+import Footer from "@/components/shared/footer";
 
 const App = () => {
   const images = ["/succession.jpeg", "/mirror.jpeg", "/dune.jpg"];
@@ -66,6 +67,7 @@ const App = () => {
       <ComponentPreview>
         <SignIn />
       </ComponentPreview>
+      <Footer />
     </div>
   );
 };

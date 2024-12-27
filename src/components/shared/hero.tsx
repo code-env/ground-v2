@@ -1,3 +1,5 @@
+import Waitlist from "@/components/forms/waitlist";
+
 const Hero = () => {
   return (
     <div className="flex flex-col items-center justify-center pt-40 pb-20 gap-10 border-b mx-auto w-full max-w-screen-lg">
@@ -12,9 +14,11 @@ const Hero = () => {
           We're building a library of animations that are built for performance.
         </p>
       </div>
-      <button className="bg-black text-white px-4 py-2 rounded-lg">
-        Join waitlist
-      </button>
+      <Waitlist>
+        <button className="bg-black text-white px-4 py-2 rounded-lg">
+          Join waitlist
+        </button>
+      </Waitlist>
     </div>
   );
 };
