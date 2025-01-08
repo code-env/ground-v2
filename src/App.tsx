@@ -1,6 +1,6 @@
 import AmieAction from "@/components/animations/amie-action";
 import Bolt from "@/components/animations/bolt";
-import ImageCarousel from "@/components/animations/carousel";
+// import ImageCarousel from "@/components/animations/carousel";
 import Cashflow from "@/components/animations/cashflow-flow";
 import ComponentPreview from "@/components/animations/component-preview";
 import Counter from "@/components/animations/counter";
@@ -18,13 +18,13 @@ import Wheel from "@/components/animations/wheel";
 import Feedback from "@/components/shared/feedback";
 import Footer from "@/components/shared/footer";
 import Hero from "@/components/shared/hero";
-import DropdownNav from "./components/animations/dropdown";
-import { PromptBox } from "./components/animations/prompt-box";
+// import DropdownNav from "./components/animations/dropdown";
+// import { PromptBox } from "./components/animations/prompt-box";
 import TelegramInput from "./components/animations/telegram-input";
 import MagneticLines from "./components/animations/magnetic-tiles";
 
 const App = () => {
-  const images = ["/succession.jpeg", "/mirror.jpeg", "/dune.jpg"];
+  // const images = ["/succession.jpeg", "/mirror.jpeg", "/dune.jpg"];
   return (
     <div className="min-h-screen flex flex-col items-center justify-center lg:px-0 px-10">
       <Hero />

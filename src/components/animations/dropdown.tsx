@@ -1,17 +1,17 @@
 "use client";
-import useClickOutside from "@/hooks/click-outside";
+// import useClickOutside from "@/hooks/click-outside";
 import {
-  ArrowLeft,
+  // ArrowLeft,
   ChevronDown,
   Code,
-  MoreHorizontal,
-  Search,
+  // MoreHorizontal,
+  // Search,
   Smile,
-  Sun,
+  // Sun,
   WalletIcon,
 } from "lucide-react";
-import { motion, MotionConfig, useAnimate } from "motion/react";
-import React, { useRef, useState } from "react";
+// import { motion, MotionConfig, useAnimate } from "motion/react";
+// import React, { useRef, useState } from "react";
 
 const lists = [
   {
@@ -68,4 +68,3 @@ const DropdownNav = () => {
 };
 
 export default DropdownNav;
-("");
