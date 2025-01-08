@@ -32,12 +32,12 @@ const App = () => {
       <ComponentPreview>
         <MagneticLines />
       </ComponentPreview>
-      <ComponentPreview>
+      {/* <ComponentPreview>
         <PromptBox />
-      </ComponentPreview>
-      <ComponentPreview>
+      </ComponentPreview> */}
+      {/* <ComponentPreview>
         <DropdownNav />
-      </ComponentPreview>
+      </ComponentPreview> */}
       <ComponentPreview>
         <AnimatedFeedback />
       </ComponentPreview>
@@ -71,9 +71,9 @@ const App = () => {
       <ComponentPreview>
         <SearchUser />
       </ComponentPreview>
-      <ComponentPreview>
+      {/* <ComponentPreview>
         <ImageCarousel images={images} />
-      </ComponentPreview>
+      </ComponentPreview> */}
       <ComponentPreview>
         <Slider />
       </ComponentPreview>
