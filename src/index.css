@@ -67,3 +67,7 @@
     @apply bg-background text-foreground;
   }
 }
+
+.tiptap.ProseMirror {
+  outline: none !important;
+}

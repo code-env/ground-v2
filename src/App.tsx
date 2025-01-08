@@ -1,23 +1,27 @@
-import ComponentPreview from "@/components/animations/component-preview";
-import AnimatedFeedback from "@/components/animations/feedback";
 import AmieAction from "@/components/animations/amie-action";
+import Bolt from "@/components/animations/bolt";
+import ImageCarousel from "@/components/animations/carousel";
+import Cashflow from "@/components/animations/cashflow-flow";
+import ComponentPreview from "@/components/animations/component-preview";
+import Counter from "@/components/animations/counter";
+import DynamicIsland from "@/components/animations/dynamic-island";
+import AnimatedFeedback from "@/components/animations/feedback";
 import Fellaz from "@/components/animations/fellaz";
 import MovieGallery from "@/components/animations/movie-gallery";
+import SearchUser from "@/components/animations/search-user";
+import SignIn from "@/components/animations/sign-in";
+import Slider from "@/components/animations/slider";
+import Typer from "@/components/animations/typer";
 import Wants from "@/components/animations/wants";
 import Wheel from "@/components/animations/wheel";
-import Counter from "@/components/animations/counter";
-import Bolt from "@/components/animations/bolt";
-import Cashflow from "@/components/animations/cashflow-flow";
-import Typer from "@/components/animations/typer";
-import SearchUser from "@/components/animations/search-user";
-import ImageCarousel from "@/components/animations/carousel";
-import Slider from "@/components/animations/slider";
-import DynamicIsland from "@/components/animations/dynamic-island";
-import SignIn from "@/components/animations/sign-in";
 
-import Hero from "@/components/shared/hero";
-import Footer from "@/components/shared/footer";
 import Feedback from "@/components/shared/feedback";
+import Footer from "@/components/shared/footer";
+import Hero from "@/components/shared/hero";
+import DropdownNav from "./components/animations/dropdown";
+import { PromptBox } from "./components/animations/prompt-box";
+import TelegramInput from "./components/animations/telegram-input";
+import MagneticLines from "./components/animations/magnetic-tiles";
 
 const App = () => {
   const images = ["/succession.jpeg", "/mirror.jpeg", "/dune.jpg"];
@@ -25,6 +29,15 @@ const App = () => {
     <div className="min-h-screen flex flex-col items-center justify-center lg:px-0 px-10">
       <Hero />
       <Feedback />
+      <ComponentPreview>
+        <MagneticLines />
+      </ComponentPreview>
+      <ComponentPreview>
+        <PromptBox />
+      </ComponentPreview>
+      <ComponentPreview>
+        <DropdownNav />
+      </ComponentPreview>
       <ComponentPreview>
         <AnimatedFeedback />
       </ComponentPreview>
@@ -69,6 +82,9 @@ const App = () => {
       </ComponentPreview>
       <ComponentPreview>
         <SignIn />
+      </ComponentPreview>
+      <ComponentPreview>
+        <TelegramInput />
       </ComponentPreview>
       <Footer />
     </div>
