@@ -6,10 +6,12 @@ import {
   Transition,
   Variants,
 } from "motion/react";
-import { useEffect, useRef, useState } from "react";
+import { Dispatch, SetStateAction, useEffect, useRef, useState } from "react";
 
 import useClickOutside from "@/hooks/click-outside";
 import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
+import { useTimer } from "@/hooks/use-timer";
 
 type Variant = "timer" | "coffee" | "car" | "takeoff";
 
@@ -47,13 +49,17 @@ const DynamicIsland = () => {
   const handleVariantChange = (newVariant: Variant) => {
     if (variant === newVariant) return;
 
-    setTransitioning(true);
-    setVariant(null);
+    if (variant) {
+      setTransitioning(true);
+      setVariant(null);
 
-    setTimeout(() => {
+      setTimeout(() => {
+        setVariant(newVariant);
+        setTransitioning(false);
+      }, 500); // Match the transition duration
+    } else {
       setVariant(newVariant);
-      setTransitioning(false);
-    }, 500); // Match the transition duration
+    }
   };
 
   return (
@@ -62,7 +68,9 @@ const DynamicIsland = () => {
         <div className="w-[420px] border-[10px] h-full border-b-0 rounded-[55px] p-4 rounded-b-none border-black flex flex-col">
           <AnimatePresence mode="wait">
             {variant === null && <Island />}
-            {variant && <DynamicIslandContent variant={variant} />}
+            {variant && (
+              <DynamicIslandContent variant={variant} setVariant={setVariant} />
+            )}
           </AnimatePresence>
           <div className="flex justify-between gap-4 mt-auto">
             {items.map((item) => (
@@ -102,10 +110,18 @@ const Island = () => {
   );
 };
 
-const DynamicIslandContent = ({ variant }: { variant: Variant }) => {
+interface DynamicIslandContentProps {
+  variant: Variant;
+  setVariant: Dispatch<SetStateAction<Variant | null>>;
+}
+
+const DynamicIslandContent = ({
+  variant,
+  setVariant,
+}: DynamicIslandContentProps) => {
   return (
     <>
-      {variant === "timer" && <TimerContent />}
+      {variant === "timer" && <TimerContent setVariant={setVariant} />}
       {variant === "coffee" && <CoffeeContent />}
       {variant === "car" && <CarContent />}
       {variant === "takeoff" && <TakeoffContent />}
@@ -113,35 +129,13 @@ const DynamicIslandContent = ({ variant }: { variant: Variant }) => {
   );
 };
 
-const TimerContent = () => {
-  const [timer, setTimer] = useState(42);
-  const [direction, setDirection] = useState<1 | -1>(-1);
-  const [paused, setPaused] = useState(false);
+interface TimerContentProps {
+  setVariant: Dispatch<SetStateAction<Variant | null>>;
+}
 
-  useEffect(() => {
-    if (paused) return;
-    const interval = setInterval(() => {
-      setTimer((prev) => {
-        if (prev <= 0) {
-          return 42;
-        }
-        setDirection(-1);
-        return prev - 1;
-      });
-    }, 1000);
+const TimerContent = ({ setVariant }: TimerContentProps) => {
+  const { formattedTime, paused, setPaused, resetTimer } = useTimer(42, true);
 
-    return () => clearInterval(interval);
-  }, [paused]);
-
-  const formatTime = (time: number) => {
-    const minutes = Math.floor(time / 60)
-      .toString()
-      .padStart(2, "0");
-    const seconds = (time % 60).toString().padStart(2, "0");
-    return `${minutes}:${seconds}`;
-  };
-
-  const formattedTime = formatTime(timer);
   return (
     <motion.div
       variants={variants}
@@ -189,6 +183,10 @@ const TimerContent = () => {
           </Button>
           <Button
             size="icon"
+            onClick={() => {
+              resetTimer();
+              setVariant(null);
+            }}
             className="h-full w-12 rounded-full bg-neutral-600 hover:bg-neutral-600/90"
           >
             <X className=" !fill-white !size-6 " />
@@ -207,9 +205,8 @@ const TimerContent = () => {
                     <NumberAnimation
                       key={`${char}-${index}`}
                       value={parseInt(char)}
-                      direction={direction}
                     />
-                  )
+                  ),
                 )}
             </h1>
           </div>
@@ -220,23 +217,88 @@ const TimerContent = () => {
 };
 
 const CoffeeContent = () => {
+  const ITEMS = 42;
+  const [box, setBox] = useState<{ width: number; height: number } | null>(null);
+
+  const { time } = useTimer(ITEMS, true);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!ref.current) return;
+
+    const { height, width } = ref.current.getBoundingClientRect();
+    setBox({ height, width });
+  }, [ref]);
+
+  useEffect(() => {
+    if (!ref.current || !box) return;
+
+    const container = ref.current;
+    const itemWidth = box.width / ITEMS;
+    const scrollOffset = itemWidth * (time - 1) - box.width / 2 + itemWidth / 2;
+
+    container.scrollTo({
+      left: scrollOffset,
+      behavior: "smooth",
+    });
+  }, [time, box, ITEMS]);
+
   return (
     <motion.div
       variants={variants}
+      ref={ref}
       initial="initial"
       animate="animate"
       exit="exit"
       key="coffee"
       layoutId="dynamic-island-circle"
-      className="h-40 w-full bg-black p-4"
+      className="h-40 w-full bg-black p-4 relative overflow-hidden"
       style={{
         borderRadius: 40,
       }}
     >
-      CoffeeContent
+      <div
+        className="flex items-center gap-2 justify-start"
+        style={{
+          marginRight: box?.width ? box.width / 2 : 0,
+        }}
+      >
+        {Array.from({ length: ITEMS }).map((_, index) => {
+          const newIndex = index + 1;
+          const isDivisibleByTen = newIndex % 10 === 0;
+          return (
+            <motion.div
+              layoutId={`coffee-variant-${newIndex}`}
+              key={index}
+              className="flex flex-col gap-2 items-center"
+            >
+              <motion.p
+                layoutId={`coffee-number-${newIndex}`}
+                className={cn("font-semibold !opacity-0 text-white", {
+                  "!opacity-100": isDivisibleByTen,
+                })}
+              >
+                {newIndex}
+              </motion.p>
+              <motion.div
+                layoutId={`coffee-item-preview-${newIndex}`}
+                className={cn(
+                  "h-10 w-3 min-w-3 rounded-full bg-red-500 transition-all duration-300",
+                  {
+                    "!bg-green-500": time === newIndex,
+                  }
+                )}
+              />
+            </motion.div>
+          );
+        })}
+      </div>
+      <div className="absolute bg-gradient-to-r from-black to-transparent top-0 left-0 w-20 h-full rounded-l-[40px]" />
+      <div className="absolute bg-gradient-to-l from-black to-transparent top-0 right-0 w-20 h-full rounded-r-[40px]" />
     </motion.div>
   );
 };
+
 
 const CarContent = () => {
   return (
@@ -252,7 +314,7 @@ const CarContent = () => {
         borderRadius: 40,
       }}
     >
-      CarContent
+      Cart content
     </motion.div>
   );
 };
@@ -288,36 +350,32 @@ export default DynamicIsland;
 const numberVariants: Variants = {
   hidden: () => ({
     y: 5,
-    // opacity: 0,
-    // filter: "blur(4px)",
+    opacity: 0.5,
+    filter: "blur(3px)",
     // scale: 0.5,
   }),
   visible: {
     y: 0,
-    // opacity: 1,
-    // filter: "blur(0px)",
+    opacity: 1,
+    filter: "blur(0px)",
     // scale: 1,
   },
   exit: () => ({
     y: 5,
-    // opacity: 0,
-    // filter: "blur(4px)",
+    opacity: 0.5,
+    filter: "blur(3px)",
     // scale: 0.5,
   }),
 };
 
 interface NumberAnimationProps {
   value: number;
-  direction: -1 | 1;
 }
 
-const NumberAnimation: React.FC<NumberAnimationProps> = ({
-  value,
-  direction,
-}) => {
+const NumberAnimation: React.FC<NumberAnimationProps> = ({ value }) => {
   return (
     <span className="flex">
-      <AnimatePresence mode="popLayout" custom={direction}>
+      <AnimatePresence mode="popLayout">
         {value
           .toString()
           .split("")
@@ -328,9 +386,9 @@ const NumberAnimation: React.FC<NumberAnimationProps> = ({
               initial="hidden"
               animate="visible"
               exit="exit"
-              custom={direction}
+              // custom={direction}
               transition={{
-                duration: 0.3,
+                duration: 0.2,
                 // type: "spring",
                 // bounce: 0.05,
                 // ease: "easeInOut",
