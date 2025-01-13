@@ -54,6 +54,7 @@ const DropdownNav = () => {
                   </div>
                 </div>
                 <div>
+
                   <h1 className="font-semibold text-xl">{item.title}</h1>
                   <p className="text-neutral-500">{item.description}</p>
                 </div>

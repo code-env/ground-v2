@@ -20,8 +20,9 @@ import Footer from "@/components/shared/footer";
 import Hero from "@/components/shared/hero";
 // import DropdownNav from "./components/animations/dropdown";
 // import { PromptBox } from "./components/animations/prompt-box";
-import TelegramInput from "./components/animations/telegram-input";
 import MagneticLines from "./components/animations/magnetic-tiles";
+import TelegramInput from "./components/animations/telegram-input";
+import NewHero from "./components/animations/animate-text";
 
 const App = () => {
   // const images = ["/succession.jpeg", "/mirror.jpeg", "/dune.jpg"];
@@ -29,6 +30,12 @@ const App = () => {
     <div className="min-h-screen flex flex-col items-center justify-center lg:px-0 px-10">
       <Hero />
       <Feedback />
+      {/* <ComponentPreview>
+        <Cursor />
+      </ComponentPreview> */}
+      <ComponentPreview>
+        <NewHero />
+      </ComponentPreview>
       <ComponentPreview>
         <MagneticLines />
       </ComponentPreview>
