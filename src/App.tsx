@@ -23,6 +23,8 @@ import Hero from "@/components/shared/hero";
 import MagneticLines from "./components/animations/magnetic-tiles";
 import TelegramInput from "./components/animations/telegram-input";
 import NewHero from "./components/animations/animate-text";
+import PeerListBar from "./components/animations/peerlist-bar";
+import TabBars from "./components/animations/tab-bars";
 
 const App = () => {
   // const images = ["/succession.jpeg", "/mirror.jpeg", "/dune.jpg"];
@@ -33,6 +35,12 @@ const App = () => {
       {/* <ComponentPreview>
         <Cursor />
       </ComponentPreview> */}
+      <ComponentPreview>
+        <TabBars />
+      </ComponentPreview>
+      <ComponentPreview>
+        <PeerListBar />
+      </ComponentPreview>
       <ComponentPreview>
         <NewHero />
       </ComponentPreview>
