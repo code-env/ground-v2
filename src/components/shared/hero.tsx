@@ -8,7 +8,7 @@ const Hero = () => {
       </div>
       <div className="flex flex-col items-center justify-center gap-4 max-w-sm">
         <h1 className="md:text-5xl text-2xl font-medium text-center leading-tight">
-          Animations build for performance
+          Animations built for performance
         </h1>
         <p className="md:text-xl text-base text-center">
           We're building a library of animations that are built for performance.

@@ -201,6 +201,7 @@ function Editor({ setInput, handleSubmit, messages }: EditorProps) {
         editor={editor}
         className="max-h-96  overflow-y-auto py-3 outline-none rounded-lg min-h-full"
         onKeyDown={handleKeyDown}
+        starter-kit
       />
 
       <motion.p
