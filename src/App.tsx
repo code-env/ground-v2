@@ -26,6 +26,7 @@ import TelegramInput from "./components/animations/telegram-input";
 import NewHero from "./components/animations/animate-text";
 import PeerListBar from "./components/animations/peerlist-bar";
 import TabBars from "./components/animations/tab-bars";
+import JoiDownloadButton from "./components/animations/joi-download-button";
 
 const App = () => {
   // const images = ["/succession.jpeg", "/mirror.jpeg", "/dune.jpg"];
@@ -36,6 +37,9 @@ const App = () => {
       {/* <ComponentPreview>
         <Cursor />
       </ComponentPreview> */}
+      <ComponentPreview>
+        <JoiDownloadButton />
+      </ComponentPreview>
       <ComponentPreview>
         <LinearTab />
       </ComponentPreview>
