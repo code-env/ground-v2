@@ -14,6 +14,7 @@ import Slider from "@/components/animations/slider";
 import Typer from "@/components/animations/typer";
 import Wants from "@/components/animations/wants";
 import Wheel from "@/components/animations/wheel";
+import LinearTab from "@/components/animations/linear-tab";
 
 import Feedback from "@/components/shared/feedback";
 import Footer from "@/components/shared/footer";
@@ -35,6 +36,9 @@ const App = () => {
       {/* <ComponentPreview>
         <Cursor />
       </ComponentPreview> */}
+      <ComponentPreview>
+        <LinearTab />
+      </ComponentPreview>
       <ComponentPreview>
         <TabBars />
       </ComponentPreview>
