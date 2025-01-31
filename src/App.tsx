@@ -27,7 +27,7 @@ import NewHero from "./components/animations/animate-text";
 import PeerListBar from "./components/animations/peerlist-bar";
 import TabBars from "./components/animations/tab-bars";
 import JoiDownloadButton from "./components/animations/joi-download-button";
-// import YearsTabs from "./components/animations/years-tabs";
+import YearsTabs from "./components/animations/years-tabs";
 
 const App = () => {
   // const images = ["/succession.jpeg", "/mirror.jpeg", "/dune.jpg"];
@@ -38,9 +38,9 @@ const App = () => {
       {/* <ComponentPreview>
         <Cursor />
       </ComponentPreview> */}
-      {/* <ComponentPreview>
+      <ComponentPreview>
         <YearsTabs />
-      </ComponentPreview> */}
+      </ComponentPreview>
       <ComponentPreview>
         <JoiDownloadButton />
       </ComponentPreview>
