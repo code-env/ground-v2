@@ -28,15 +28,33 @@ import PeerListBar from "./components/animations/peerlist-bar";
 import TabBars from "./components/animations/tab-bars";
 import JoiDownloadButton from "./components/animations/joi-download-button";
 import YearsTabs from "./components/animations/years-tabs";
+// import MusicSheet from "./components/animations/music-shit";
+import { useState } from "react";
+import { useMotionValueEvent, useScroll } from "motion/react";
 
 const App = () => {
+  const [isHidden, setIsHidden] = useState(false);
+  const { scrollY } = useScroll();
+
+  useMotionValueEvent(scrollY, "change", (y) => {
+    if (y > 100) {
+      setIsHidden(true);
+    } else {
+      setIsHidden(false);
+    }
+  });
+
   // const images = ["/succession.jpeg", "/mirror.jpeg", "/dune.jpg"];
   return (
     <div className="min-h-screen flex flex-col items-center justify-center lg:px-0 px-10">
-      <Hero />
-      <Feedback />
+      <Hero hidden={isHidden} />
+      <Feedback hidden={isHidden} />
       {/* <ComponentPreview>
         <Cursor />
+      </ComponentPreview> */}
+
+      {/* <ComponentPreview height={200}>
+        <MusicSheet />
       </ComponentPreview> */}
       <ComponentPreview>
         <YearsTabs />

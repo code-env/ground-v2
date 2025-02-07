@@ -32,7 +32,7 @@ const schema = z.object({
 
 type SchemaType = z.infer<typeof schema>;
 
-const Feedback = () => {
+const Feedback = ({ hidden }: { hidden: boolean }) => {
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
@@ -40,38 +40,39 @@ const Feedback = () => {
 
   return (
     <MotionConfig transition={TRANSITION}>
-      <div
-        className=" fixed bottom-10 right-10 text-primary-foreground"
-        ref={ref}
-      >
-        {open ? (
-          <FeedbackForm setOpen={setOpen} />
-        ) : (
-          <motion.button
-            layoutId="feedback-component"
-            className="size-12 bg-primary rounded-full flex items-center justify-center"
-            onClick={() => setOpen(true)}
-            style={{
-              borderRadius: 24,
-            }}
-          >
-            <motion.svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="text size-5"
-              //   layoutId="feedback-icon"
+      {hidden && (
+        <div
+          className="fixed bottom-10 right-10 text-primary-foreground z-50"
+          ref={ref}
+        >
+          {open ? (
+            <FeedbackForm setOpen={setOpen} />
+          ) : (
+            <motion.button
+              layoutId="home-chat-button"
+              className="size-12 bg-primary rounded-full flex items-center justify-center"
+              onClick={() => setOpen(true)}
+              style={{
+                borderRadius: 24,
+              }}
             >
-              <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" />
-            </motion.svg>
-          </motion.button>
-        )}
-        <div></div>
-      </div>
+              <motion.svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="text size-5"
+                layoutId="feedback-icon"
+              >
+                <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" />
+              </motion.svg>
+            </motion.button>
+          )}
+        </div>
+      )}
     </MotionConfig>
   );
 };
@@ -125,7 +126,7 @@ const FeedbackForm = ({ setOpen }: FeedbackFormProps) => {
   const { isSubmitting } = form.formState;
   return (
     <motion.div
-      layoutId="feedback-component"
+      layoutId="home-chat-button"
       className="w-96 h-full bg-primary"
       style={{
         borderRadius: 24,

@@ -15,7 +15,7 @@ const JoiDownloadButton = () => {
     <div className="flex items-center justify-center size-full bg-white rounded-xl">
       <motion.button
         className={buttonVariants({
-          className: "overflow-hidden flex items-center gap-2",
+          className: "overflow-hidden flex items-center gap-2 relative",
         })}
         onMouseEnter={handleToggleMouseState}
         onMouseLeave={handleToggleMouseState}
@@ -27,13 +27,14 @@ const JoiDownloadButton = () => {
           <Icons.apple className="size-5 fill-primary-foreground" />
         </motion.span>
 
-        <motion.span animate={{ x: hovered ? -15 : 0 }} transition={TRANSITION}>
+        <motion.span animate={{ x: hovered ? -22 : 0 }} transition={TRANSITION}>
           Download for IOS
         </motion.span>
 
         <motion.span
-          animate={{ x: hovered ? -10 : 200, opacity: hovered ? 1 : 0 }}
+          animate={{ x: hovered ? -12 : 20, opacity: hovered ? 1 : 0 }}
           transition={TRANSITION}
+          className="absolute right-0 top-0 bottom-0 my-auto size-5 flex items-center justify-center"
         >
           <ArrowRight className="size-5" />
         </motion.span>
