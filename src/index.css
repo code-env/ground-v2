@@ -84,3 +84,7 @@
 .tiptap.ProseMirror {
   outline: none !important;
 }
+
+.CircularProgressbar-path {
+  @apply !stroke-muted-foreground;
+}

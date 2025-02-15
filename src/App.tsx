@@ -32,6 +32,7 @@ import YearsTabs from "./components/animations/years-tabs";
 import { useState } from "react";
 import { useMotionValueEvent, useScroll } from "motion/react";
 import AnimatedCounter from "./components/animations/followers-count";
+import InputCheck from "./components/animations/input-check";
 
 const App = () => {
   const [isHidden, setIsHidden] = useState(false);
@@ -57,6 +58,9 @@ const App = () => {
       {/* <ComponentPreview height={200}>
         <MusicSheet />
       </ComponentPreview> */}
+      <ComponentPreview>
+        <InputCheck />
+      </ComponentPreview>
       <ComponentPreview>
         <AnimatedCounter />
       </ComponentPreview>
