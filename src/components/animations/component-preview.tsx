@@ -14,7 +14,7 @@ const ComponentPreview = ({
 }: ComponentPreviewProps) => {
   const [minHeight] = useState<number>(500);
 
-  if (!notReady && process.env.NODE_ENV === "production") return null;
+  if (notReady && process.env.NODE_ENV === "production") return null;
 
   return (
     <div className="min-h-screen md:flex items-center justify-center w-full hidden relative">
