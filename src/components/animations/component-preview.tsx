@@ -4,10 +4,18 @@ import React, { useState } from "react";
 interface ComponentPreviewProps {
   children: React.ReactNode;
   height?: number;
+  notReady?: boolean;
 }
 
-const ComponentPreview = ({ children, height }: ComponentPreviewProps) => {
+const ComponentPreview = ({
+  children,
+  height,
+  notReady,
+}: ComponentPreviewProps) => {
   const [minHeight] = useState<number>(500);
+
+  if (!notReady && process.env.NODE_ENV === "production") return null;
+
   return (
     <div className="min-h-screen md:flex items-center justify-center w-full hidden relative">
       <div

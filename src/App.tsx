@@ -33,6 +33,8 @@ import { useState } from "react";
 import { useMotionValueEvent, useScroll } from "motion/react";
 import AnimatedCounter from "./components/animations/followers-count";
 import InputCheck from "./components/animations/input-check";
+import ClickSelect from "./components/animations/click-select";
+import LiveBlogs from "./components/animations/live-blocks";
 
 const App = () => {
   const [isHidden, setIsHidden] = useState(false);
@@ -58,6 +60,12 @@ const App = () => {
       {/* <ComponentPreview height={200}>
         <MusicSheet />
       </ComponentPreview> */}
+      <ComponentPreview notReady>
+        <LiveBlogs />
+      </ComponentPreview>
+      <ComponentPreview notReady>
+        <ClickSelect />
+      </ComponentPreview>
       <ComponentPreview>
         <InputCheck />
       </ComponentPreview>
