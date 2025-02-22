@@ -52,7 +52,7 @@ const App = () => {
 
   const images = ["/succession.jpeg", "/mirror.jpeg", "/dune.jpg"];
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center lg:px-0 px-10">
+    <div className="min-h-screen flex flex-col items-center justify-center lg:px-0 px-10 overflow-x-clip">
       <Hero hidden={isHidden} />
       <Feedback hidden={isHidden} />
       <ComponentPreview notReady>

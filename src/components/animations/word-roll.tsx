@@ -3,9 +3,8 @@ import { AnimatePresence, motion as m } from "motion/react";
 import { useEffect, useState } from "react";
 
 const words = [
-  "Zenith",
   "Bossadi",
-  "Animations",
+  "Frontend Animations",
   "Frontend",
   "Development",
   "Engineering",
@@ -49,7 +48,7 @@ const Roller = ({ words, duration = 2000, delay = 1000 }: RollerProps) => {
   const currentWord = words[index];
 
   return (
-    <m.span className="inline-flex">
+    <m.span className="inline-flex" style={{ whiteSpace: "pre" }}>
       <AnimatePresence mode="wait">
         {currentWord.split("").map((letter, i) => (
           <m.span
