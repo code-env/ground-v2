@@ -79,6 +79,10 @@
     );
     transition: background 0.3s ease-in-out;
   }
+
+  .full {
+    @apply size-full rounded-xl bg-background;
+  }
 }
 
 .tiptap.ProseMirror {
