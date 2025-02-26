@@ -37,6 +37,7 @@ import ClickSelect from "./components/animations/click-select";
 import LiveBlogs from "./components/animations/live-blocks";
 import WordRoll from "./components/animations/word-roll";
 import Cursor from "./components/animations/cursor";
+import InputShotcut from "./components/animations/input-shotcut";
 
 const App = () => {
   const [isHidden, setIsHidden] = useState(false);
@@ -54,7 +55,11 @@ const App = () => {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center lg:px-0 px-10 overflow-x-clip">
       <Hero hidden={isHidden} />
-      <Feedback hidden={isHidden} />
+      {/* <Feedback hidden={isHidden} /> */}
+
+      <ComponentPreview>
+        <InputShotcut />
+      </ComponentPreview>
       <ComponentPreview>
         <WordRoll />
       </ComponentPreview>

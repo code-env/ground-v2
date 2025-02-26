@@ -83,6 +83,10 @@
   .full {
     @apply size-full rounded-xl bg-background;
   }
+
+  .center {
+    @apply flex items-center justify-center;
+  }
 }
 
 .tiptap.ProseMirror {
