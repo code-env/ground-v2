@@ -55,7 +55,7 @@ const App = () => {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center lg:px-0 px-10 overflow-x-clip">
       <Hero hidden={isHidden} />
-      {/* <Feedback hidden={isHidden} /> */}
+      <Feedback hidden={isHidden} />
 
       <ComponentPreview>
         <InputShotcut />
