@@ -38,6 +38,7 @@ import LiveBlogs from "./components/animations/live-blocks";
 import WordRoll from "./components/animations/word-roll";
 import Cursor from "./components/animations/cursor";
 import InputShotcut from "./components/animations/input-shotcut";
+import UserSearch from "./components/animations/user-search";
 
 const App = () => {
   const [isHidden, setIsHidden] = useState(false);
@@ -57,6 +58,9 @@ const App = () => {
       <Hero hidden={isHidden} />
       <Feedback hidden={isHidden} />
 
+      <ComponentPreview notReady>
+        <UserSearch />
+      </ComponentPreview>
       <ComponentPreview>
         <InputShotcut />
       </ComponentPreview>
