@@ -5,12 +5,14 @@ interface ComponentPreviewProps {
   children: React.ReactNode;
   height?: number;
   notReady?: boolean;
+  className?: string;
 }
 
 const ComponentPreview = ({
   children,
   height,
   notReady,
+  className,
 }: ComponentPreviewProps) => {
   const [minHeight] = useState<number>(500);
 
@@ -20,7 +22,8 @@ const ComponentPreview = ({
     <div className="min-h-screen md:flex items-center justify-center w-full hidden relative">
       <div
         className={cn(
-          "max-w-screen-lg w-full min-h-[500px] flex items-center justify-center relative  rounded-lg  border bg-gray-100 p-2"
+          "max-w-screen-lg w-full min-h-[500px] flex items-center justify-center relative  rounded-lg  border bg-gray-100 p-2",
+          className
         )}
         style={{
           height: `${Math.max(100, height ? minHeight + height : minHeight)}px`,

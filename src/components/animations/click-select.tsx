@@ -77,7 +77,7 @@ const ClickSelect = () => {
           onMouseLeave={() => {
             setHovered(false);
           }}
-          className="h-10 flex items-center gap-2 overflow-hidden"
+          className="h-10 flex items-center gap-2 overflow-hidden px-2 min-w-96"
         >
           <AnimatePresence mode="popLayout">
             {hovered && selected.length > 0 && (
@@ -122,7 +122,12 @@ const ClickSelect = () => {
             <m.h1 layoutId="filter-text" className="">
               Select filter
             </m.h1>
-            <m.button layoutId="clear" onClick={handleClear}>
+            <m.button
+              layoutId="clear"
+              onClick={handleClear}
+              disabled={items.length === list.length}
+              className="disabled:!opacity-50 disabled:cursor-not-allowed"
+            >
               Clear
             </m.button>
           </div>

@@ -26,6 +26,8 @@ const FollowerCounter = () => {
   const [count, setCount] = useState<number>(0);
   const [direction, setDirection] = useState<1 | -1>(1);
   const [showConfetti, setShowConfetti] = useState<boolean>(false);
+  const [isVisible, setIsVisible] = useState<boolean>(false);
+  const containerRef = useRef<HTMLDivElement | null>(null);
   const intervalRef = useRef<number | null>(null);
   const prevCount = useRef<number>(count);
   const audioContextRef = useRef<AudioContext | null>(null);
@@ -33,6 +35,22 @@ const FollowerCounter = () => {
   const gainNodeRef = useRef<GainNode | null>(null);
 
   useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting);
+      },
+      { threshold: 0.5 }
+    );
+
+    if (containerRef.current) observer.observe(containerRef.current);
+    return () => {
+      if (containerRef.current) observer.unobserve(containerRef.current);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!isVisible) return;
+
     const setupAudio = (): void => {
       try {
         audioContextRef.current = new AudioContext();
@@ -108,10 +126,13 @@ const FollowerCounter = () => {
       if (oscillatorRef.current) oscillatorRef.current.stop();
       if (audioContextRef.current) audioContextRef.current.close();
     };
-  }, []);
+  }, [isVisible]);
 
   return (
-    <div className="size-full items-center justify-center flex bg-background rounded-xl p-8  flex-col relative">
+    <div
+      ref={containerRef}
+      className="size-full items-center justify-center flex bg-background rounded-xl p-8 flex-col relative"
+    >
       {showConfetti && <Confetti />}
       <div className="text-6xl font-bold text-primary mb-2 h-24 flex items-center">
         <AnimatePresence mode="popLayout" custom={direction}>
