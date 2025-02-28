@@ -58,6 +58,10 @@ const App = () => {
       <Hero hidden={isHidden} />
       <Feedback hidden={isHidden} />
 
+      <ComponentPreview>
+        <ClickSelect />
+      </ComponentPreview>
+
       <ComponentPreview notReady>
         <UserSearch />
       </ComponentPreview>
@@ -76,9 +80,6 @@ const App = () => {
       </ComponentPreview>
       <ComponentPreview notReady>
         <LiveBlogs />
-      </ComponentPreview>
-      <ComponentPreview>
-        <ClickSelect />
       </ComponentPreview>
       <ComponentPreview>
         <InputCheck />
