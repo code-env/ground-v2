@@ -1,14 +1,12 @@
 import Waitlist from "@/components/forms/waitlist";
 import { buttonVariants } from "../ui/button";
 import { motion } from "motion/react";
+import Logo from "./logo";
 
 const Hero = ({ hidden }: { hidden: boolean }) => {
   return (
     <div className="flex flex-col items-center justify-center pt-40 pb-20 gap-10 md:border-b mx-auto w-full max-w-screen-lg">
-      <div className="size-20 relative">
-        <img src="/Graound.svg" alt="Graound" className="size-full" />
-        <div className="gradient absolute inset-0 -z-10 size-16 m-auto blur-2xl" />
-      </div>
+      <Logo gradient />
       <div className="flex flex-col items-center justify-center gap-4 max-w-sm">
         <h1 className="md:text-5xl text-2xl font-medium text-center leading-tight">
           Animations built for performance
