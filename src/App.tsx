@@ -77,7 +77,7 @@ const App = () => {
       <ComponentPreview notReady>
         <LiveBlogs />
       </ComponentPreview>
-      <ComponentPreview notReady>
+      <ComponentPreview>
         <ClickSelect />
       </ComponentPreview>
       <ComponentPreview>
