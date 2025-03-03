@@ -61,9 +61,11 @@ export default function AmieAction() {
           <motion.div
             animate={{
               width:
-                openState === "search" || openState === "settings"
+                openState === "search"
                   ? "340px"
-                  : "98px",
+                  : openState === "settings"
+                    ? "auto"
+                    : "98px",
             }}
             initial={false}
           >
@@ -94,7 +96,7 @@ export default function AmieAction() {
                   </Button>
                   <div className="relative w-full">
                     <input
-                      className="h-9 w-full rounded-lg bg-transparent p-2 text-zinc-900 placeholder-zinc-500 outline-none"
+                      className="h-9 w-full rounded-lg bg-transparent p-2 text-primary/80 placeholder-zinc-500 outline-none"
                       autoFocus
                       placeholder="Search notes"
                     />
@@ -114,7 +116,7 @@ export default function AmieAction() {
                       ref={scope}
                       onClick={shake}
                       transition={{ duration: 0.5, delay: 0.1 }}
-                      className="text-sm text-zinc-500 bg-zinc-100 rounded-lg p-2 hover:bg-zinc-200 cursor-pointer min-w-[240px]"
+                      className="text-sm text-zinc-500 bg-zinc-100 rounded-lg p-2 hover:bg-zinc-200 cursor-pointer w-full whitespace-pre"
                     >
                       Meeting Zenith Friday at 7
                     </motion.p>
