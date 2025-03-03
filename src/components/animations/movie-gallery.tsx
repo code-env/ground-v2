@@ -95,7 +95,7 @@ const Movie = ({ setHover, hover, movie }: MovieProps) => {
               >
                 nothing . {movie.item} . graound
               </motion.p>
-              <motion.button className="bg-primary/80 text-sm flex gap-2 text-white items-center rounded-full px-3 py-1.5">
+              <motion.button className="bg-primary/80 dark:bg-background text-sm flex gap-2 text-white items-center rounded-full px-3 py-1.5">
                 Watch{" "}
                 <span>
                   <ChevronRight className="size-4" />

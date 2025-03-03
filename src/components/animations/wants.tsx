@@ -83,7 +83,7 @@ const DefaultItem = ({ item, id, onExpand, index }: DefaultItemsProps) => {
           <motion.div
             key={`default-icon-${index}-${iconIndex}`}
             layoutId={`want-${id}-${index}-${iconIndex}-icon`}
-            className="size-5 bg-primary rounded-full text-white flex items-center justify-center font-semibold text-xs"
+            className="size-5 bg-primary rounded-full text-primary-foreground flex items-center justify-center font-semibold text-xs"
           >
             {icon}
           </motion.div>
@@ -149,7 +149,7 @@ const ClickedView = ({ id, item, onCollapse, index }: ClickedViewProps) => {
           >
             <motion.div
               layoutId={`want-${id}-${index}-${iconIndex}-icon`}
-              className="size-12 bg-primary rounded-full text-white flex items-center justify-center font-semibold text-xl"
+              className="size-12 bg-primary rounded-full text-primary-foreground flex items-center justify-center font-semibold text-xl"
             >
               {icon}
             </motion.div>

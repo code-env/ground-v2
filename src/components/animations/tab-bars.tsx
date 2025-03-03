@@ -13,9 +13,9 @@ const TabBars = () => {
           <li
             key={idx}
             className={cn(
-              "px-6 py-2  border-neutral-500/20 text-sm font-semibold cursor-pointer bg-gray-200/50 z-0 rounded-xl relative transition-all duration-300 ",
+              "px-6 py-2 border text-sm font-semibold cursor-pointer bg-muted z-0 rounded-xl relative transition-all duration-300 ",
               {
-                "text-white": idx === active,
+                "text-background": idx === active,
               },
             )}
             onClick={() => setActive(idx)}

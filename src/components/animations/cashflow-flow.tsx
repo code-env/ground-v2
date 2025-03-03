@@ -354,15 +354,12 @@ const CashflowHeatmap = () => {
                       className={cn(
                         "z-10 relative duration-300 transition-colors text-muted-foreground",
                       )}
-                      style={{
-                        color: view === v.key ? "black" : "",
-                      }}
                     >
                       {v.label}
                     </span>
                     {view === v.key && (
                       <motion.div
-                        className="absolute bg-background inset-0 w-full h-full"
+                        className="absolute bg-background inset-0 w-full h-full "
                         style={{ borderRadius: 8 }}
                         layoutId="indicator"
                       ></motion.div>
