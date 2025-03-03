@@ -140,7 +140,7 @@
 //   return (
 //     <div className="flex flex-col items-center gap-4">
 //       <MotionConfig transition={{ duration: 0.8, type: "spring", bounce: 0.3 }}>
-//         <div className="flex min-h-12 rounded-lg border bg-white px-4 py-4 shadow-sm">
+//         <div className="flex min-h-12 rounded-lg border bg-background px-4 py-4 shadow-sm">
 //           <IconWrapper selectedIndex={currentIndex} />
 //           <div className="flex flex-col gap-0.5">
 //             <TextWrapper selectedIndex={currentIndex} />

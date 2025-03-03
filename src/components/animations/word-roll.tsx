@@ -13,8 +13,8 @@ const words = [
 const WordRoll = () => {
   return (
     <div className="full p-10 pb-0">
-      <div className="w-[400px] border-[10px] h-full border-b-0 rounded-[55px] p-4 rounded-b-none border-black flex flex-col mx-auto gap-10">
-        <div className="w-32 bg-black h-10 mx-auto rounded-full" />
+      <div className="w-[400px] border-[10px] h-full border-b-0 rounded-[55px] p-4 rounded-b-none border-primary dark:border-muted flex flex-col mx-auto gap-10">
+        <div className="w-32 bg-primary dark:bg-muted h-10 mx-auto rounded-full" />
         <div className="w-full border-2 rounded-full p-2 flex items-center gap-2">
           <div className="border size-8 rounded-full bg-muted flex items-center justify-center">
             <Search className="size-4 text-muted-foreground" />

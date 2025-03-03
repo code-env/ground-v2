@@ -50,7 +50,7 @@ const SearchUser = () => {
   });
 
   return (
-    <div className="size-full flex w-full flex-col bg-white rounded-xl">
+    <div className="size-full flex w-full flex-col bg-background rounded-xl">
       <AnimatePresence mode="wait">
         {active ? (
           <motion.div
@@ -98,7 +98,7 @@ const SearchUser = () => {
                   <div className="size-full flex items-center justify-between bg-gray-200 p-5">
                     <motion.div
                       layoutId={`searchUser-icon-${index}`}
-                      className="size-10 bg-white min-w-10 rounded-full"
+                      className="size-10 bg-background min-w-10 rounded-full"
                     ></motion.div>
                     <motion.div
                       layoutId={`searchUser-indicator-second-item-${index}`}
@@ -119,10 +119,13 @@ const SearchUser = () => {
                 later.
               </div>
               <div className="flex flex-col gap-2 w-full">
-                <Button onClick={() => setActive((prev) => !prev)}>
+                <Button
+                  onClick={() => setActive((prev) => !prev)}
+                  className="text-primary-foreground"
+                >
                   Add User
                 </Button>
-                <Button className="text-black bg-gray-200 border-2">
+                <Button className="border-2 bg-secondary text-secondary-foreground">
                   Skip
                 </Button>
               </div>
@@ -144,8 +147,8 @@ const Button = ({ children, className, onClick }: ButtonProps) => {
   return (
     <button
       className={cn(
-        "bg-black w-full text-white py-2 rounded-xl outline-none",
-        className
+        "bg-primary w-full text-white py-2 rounded-xl outline-none",
+        className,
       )}
       onClick={onClick}
     >

@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { cn } from "@/lib/utils";
+import { X } from "lucide-react";
 import {
   AnimatePresence,
   motion as m,
@@ -6,8 +7,7 @@ import {
   Transition,
   Variants,
 } from "motion/react";
-import { X } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { useState } from "react";
 
 type Item = {
   id: number;
@@ -102,11 +102,11 @@ const ClickSelect = () => {
                   layoutId={select.name}
                   className={cn(
                     "flex cursor-pointer items-center gap-2 rounded-full w-fit py-1 px-2 capitalize relative",
-                    select.className
+                    select.className,
                   )}
                 >
                   <span>{select.name}</span>
-                  <button className="size-6 bg-white rounded-full flex items-center justify-center">
+                  <button className="size-6 bg-background rounded-full flex items-center justify-center">
                     <X className="size-4" />
                   </button>
                 </m.li>
@@ -141,7 +141,7 @@ const ClickSelect = () => {
                     onClick={() => handleAdd(item)}
                     className={cn(
                       "flex cursor-pointer items-center gap-4 rounded-full w-fit p-1 px-2 capitalize z-0 relative",
-                      item.className
+                      item.className,
                     )}
                   >
                     <span>{item.name}</span>

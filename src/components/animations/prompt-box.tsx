@@ -1,40 +1,45 @@
-'use client'
+"use client";
 
-import { ArrowRight, File, Image, Link, Plus, Video } from 'lucide-react'
-import { AnimatePresence, MotionConfig, type Variants, motion } from "motion/react"
-import { useState } from "react"
+import { ArrowRight, File, Image, Link, Plus, Video } from "lucide-react";
+import {
+  AnimatePresence,
+  MotionConfig,
+  type Variants,
+  motion,
+} from "motion/react";
+import { useState } from "react";
 
 // Utility function to merge class names
 const cn = (...classes: (string | boolean | undefined)[]) => {
-  return classes.filter(Boolean).join(' ')
-}
+  return classes.filter(Boolean).join(" ");
+};
 
 const TRANSITION = {
   duration: 0.3,
-}
+};
 
 const items = [
   {
     title: "File",
     icon: File,
-    color: { base: '#00CED1', light: '#7FFFD4', dark: '#008B8B' },
+    color: { base: "#00CED1", light: "#7FFFD4", dark: "#008B8B" },
   },
   {
     title: "Image",
     icon: Image,
-    color: { base: '#FFA500', light: '#FFD700', dark: '#CD853F' },
+    color: { base: "#FFA500", light: "#FFD700", dark: "#CD853F" },
   },
   {
     title: "Video",
     icon: Video,
-    color: { base: '#FF0000', light: '#FF4444', dark: '#8B0000' },
+    color: { base: "#FF0000", light: "#FF4444", dark: "#8B0000" },
   },
   {
     title: "Link",
     icon: Link,
-    color: { base: '#808080', light: '#A0A0A0', dark: '#404040' },
+    color: { base: "#808080", light: "#A0A0A0", dark: "#404040" },
   },
-]
+];
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -42,17 +47,17 @@ const containerVariants = {
     opacity: 1,
     transition: {
       delayChildren: 0.1,
-      staggerChildren: 0.1
-    }
+      staggerChildren: 0.1,
+    },
   },
   exit: {
     opacity: 0,
     transition: {
       staggerChildren: 0.05,
-      staggerDirection: -1
-    }
-  }
-}
+      staggerDirection: -1,
+    },
+  },
+};
 
 const itemVariants: Variants = {
   hidden: {
@@ -80,14 +85,14 @@ const itemVariants: Variants = {
       damping: 12,
     },
   },
-}
+};
 
 export const PromptBox = () => {
-  const [select, setSelect] = useState(false)
+  const [select, setSelect] = useState(false);
 
   return (
     <MotionConfig transition={TRANSITION}>
-      <div className="size-full bg-white flex items-center justify-center rounded-xl">
+      <div className="size-full bg-background flex items-center justify-center rounded-xl">
         <motion.div className="h-20 border rounded-full w-1/2 p-2 flex items-center overflow-x-clip gap-2">
           <motion.button
             whileHover={{ scale: 1.05 }}
@@ -100,19 +105,20 @@ export const PromptBox = () => {
                 0 0 30px #00CED140,
                 inset 0 0 30px #00CED140,
                 0 5px 15px rgba(0,0,0,0.1)
-              `
+              `,
             }}
           >
             <div
               className="absolute inset-0 rounded-full"
               style={{
-                background: 'radial-gradient(circle at 30% 30%, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 70%)'
+                background:
+                  "radial-gradient(circle at 30% 30%, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 70%)",
               }}
             />
             <Plus
               className={cn(
                 "relative z-10 transition-all duration-300 stroke-[3] text-white size-8",
-                select && "rotate-45"
+                select && "rotate-45",
               )}
             />
           </motion.button>
@@ -139,13 +145,14 @@ export const PromptBox = () => {
                         0 0 30px ${item.color.base}40,
                         inset 0 0 30px ${item.color.base}40,
                         0 5px 15px rgba(0,0,0,0.3)
-                      `
+                      `,
                     }}
                   >
                     <div
                       className="absolute inset-0 rounded-full"
                       style={{
-                        background: 'radial-gradient(circle at 30% 30%, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 70%)'
+                        background:
+                          "radial-gradient(circle at 30% 30%, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 70%)",
                       }}
                     />
                     <item.icon className="relative z-10 text-white size-8" />
@@ -180,7 +187,8 @@ export const PromptBox = () => {
                   <div
                     className="absolute inset-0 rounded-full"
                     style={{
-                      background: 'radial-gradient(circle at 30% 30%, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 0%)'
+                      background:
+                        "radial-gradient(circle at 30% 30%, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 0%)",
                     }}
                   />
                   <ArrowRight className="relative z-10 transition-all duration-300 stroke-[3] text-white size-8" />
@@ -191,5 +199,5 @@ export const PromptBox = () => {
         </motion.div>
       </div>
     </MotionConfig>
-  )
-}
+  );
+};

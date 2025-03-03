@@ -111,16 +111,16 @@ const Image = ({
   const hoverRotation = isActive
     ? 0
     : firstCard
-    ? 0
-    : isHovered
-    ? (index + 2) * -10 // Negative rotation for hover effect
-    : baseRotation;
+      ? 0
+      : isHovered
+        ? (index + 2) * -10 // Negative rotation for hover effect
+        : baseRotation;
 
   const hoverTranslateY = isActive
     ? 0
     : !firstCard && isHovered
-    ? (totalImages - index - 1) * -10
-    : 0;
+      ? (totalImages - index - 1) * -10
+      : 0;
 
   return (
     <motion.div
@@ -137,7 +137,7 @@ const Image = ({
         height: isActive ? SIZE * 2 : SIZE,
       }}
       onClick={() => setIsActive((prev) => !prev)}
-      className="rounded-3xl bg-white border flex items-center justify-center cursor-pointer"
+      className="rounded-3xl bg-background border flex items-center justify-center cursor-pointer"
     >
       <motion.span
         className="text-2xl font-bold"

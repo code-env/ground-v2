@@ -71,7 +71,7 @@ const DefaultItem = ({ item, id, onExpand, index }: DefaultItemsProps) => {
   return (
     <motion.div
       layoutId={`want-container-${index}`}
-      className="border bg-white p-3 flex gap-3 cursor-pointer"
+      className="border bg-background p-3 flex gap-3 cursor-pointer"
       style={{
         width: 350,
         borderRadius: 10,
@@ -83,7 +83,7 @@ const DefaultItem = ({ item, id, onExpand, index }: DefaultItemsProps) => {
           <motion.div
             key={`default-icon-${index}-${iconIndex}`}
             layoutId={`want-${id}-${index}-${iconIndex}-icon`}
-            className="size-5 bg-black rounded-full text-white flex items-center justify-center font-semibold text-xs"
+            className="size-5 bg-primary rounded-full text-white flex items-center justify-center font-semibold text-xs"
           >
             {icon}
           </motion.div>
@@ -123,7 +123,7 @@ const ClickedView = ({ id, item, onCollapse, index }: ClickedViewProps) => {
   return (
     <motion.div
       layoutId={`want-container-${index}`}
-      className="bg-white p-3 flex flex-col gap-3 overflow-hidden"
+      className="bg-background p-3 flex flex-col gap-3 overflow-hidden"
       style={{ width: 350, borderRadius: 10 }}
     >
       <div className="flex items-center justify-between">
@@ -149,7 +149,7 @@ const ClickedView = ({ id, item, onCollapse, index }: ClickedViewProps) => {
           >
             <motion.div
               layoutId={`want-${id}-${index}-${iconIndex}-icon`}
-              className="size-12 bg-black rounded-full text-white flex items-center justify-center font-semibold text-xl"
+              className="size-12 bg-primary rounded-full text-white flex items-center justify-center font-semibold text-xl"
             >
               {icon}
             </motion.div>

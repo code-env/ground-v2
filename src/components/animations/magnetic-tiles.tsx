@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
-import { useRef, useEffect, CSSProperties } from "react";
-import { motion } from "motion/react"
+import { motion } from "motion/react";
+import { CSSProperties, useEffect, useRef } from "react";
 
 interface MagnetLinesProps {
   rows?: number;
@@ -14,14 +14,13 @@ interface MagnetLinesProps {
   style?: CSSProperties;
 }
 
-
 const MagneticLines = ({
   rows = 9,
   columns = 9,
   // lineColor = "#efefef",
   baseAngle = -10,
   className = "",
-  style = {}
+  style = {},
 }: MagnetLinesProps) => {
   const ref = useRef<HTMLDivElement>(null);
 
@@ -41,7 +40,8 @@ const MagneticLines = ({
         const a = pointer.clientY - centerY;
         const c = Math.sqrt(a * a + b * b) || 1;
         const angle =
-          ((Math.acos(b / c) * 180) / Math.PI) * (pointer.clientY > centerY ? 1 : -1);
+          ((Math.acos(b / c) * 180) / Math.PI) *
+          (pointer.clientY > centerY ? 1 : -1);
 
         item.style.setProperty("--rotate", `${angle}deg`);
       });
@@ -63,8 +63,6 @@ const MagneticLines = ({
 
   const total = rows * columns;
   const spans = Array.from({ length: total }, (_, i) => (
-
-
     <motion.span
       key={i}
       className="block origin-center rounded-xl bg-neutral-800"
@@ -73,30 +71,29 @@ const MagneticLines = ({
         height: 40,
         // @ts-expect-error --rotate is a custom property
         "--rotate": `${baseAngle}deg`,
-        willChange: "transform"
+        willChange: "transform",
       }}
       animate={{
-        transform: "rotate(var(--rotate))"
+        transform: "rotate(var(--rotate))",
       }}
     />
   ));
 
   return (
-    <div className="size-full bg-white rounded-xl flex items-center justify-center">
+    <div className="size-full bg-background rounded-xl flex items-center justify-center">
       <div
         ref={ref}
         className={cn("grid place-items-center size-96 border", className)}
         style={{
           gridTemplateColumns: `repeat(${columns}, 1fr)`,
           gridTemplateRows: `repeat(${rows}, 1fr)`,
-          ...style
+          ...style,
         }}
       >
         {spans}
       </div>
     </div>
-
   );
-}
+};
 
 export default MagneticLines;

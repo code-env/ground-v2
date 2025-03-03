@@ -60,7 +60,7 @@ const Feedback = () => {
           <motion.button
             key="button"
             layoutId={`popover-${uniqueId}`}
-            className="flex h-9 items-center border-2 border-zinc-950/10 bg-white px-3 text-zinc-950"
+            className="flex h-9 items-center border-2 bg-background px-3"
             style={{
               borderRadius: 8,
             }}
@@ -79,13 +79,13 @@ const Feedback = () => {
               <motion.div
                 ref={formContainerRef}
                 layoutId={`popover-${uniqueId}`}
-                className="absolute h-[200px] w-96 overflow-hidden  border-zinc-950/10 bg-zinc-100 border-2 p-1"
+                className="absolute h-[200px] w-96 overflow-hidden   bg-muted-foreground/20 border-2 p-1"
                 style={{
                   borderRadius: 12,
                 }}
               >
                 <form
-                  className="flex h-full flex-col bg-white rounded-lg border-2 border-zinc-950/10"
+                  className="flex h-full flex-col bg-background rounded-lg border-2 border-zinc-950/10"
                   onSubmit={(e) => {
                     e.preventDefault();
                   }}
@@ -124,7 +124,7 @@ const Feedback = () => {
                 <AnimatePresence>
                   {isSent && (
                     <motion.div
-                      className="absolute inset-0 bg-gray-100 flex items-center justify-center flex-col gap-1"
+                      className="absolute inset-0 bg-background flex items-center justify-center flex-col gap-1"
                       initial={{ opacity: 0, y: -100 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -100 }}

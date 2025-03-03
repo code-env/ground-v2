@@ -63,7 +63,7 @@ const Slider = ({
   const notchSize = 100 / range;
   const clampedDefaultValue = Math.min(
     Math.max(defaultValue, minValue),
-    maxValue
+    maxValue,
   );
 
   const [currentValue, setCurrentValue] = useState(clampedDefaultValue);
@@ -96,7 +96,7 @@ const Slider = ({
   return (
     <div className="mx-auto w-full max-w-md">
       <div
-        className="relative flex h-12 items-center gap-5 rounded-full bg-black pl-4 pr-6 dark:bg-white"
+        className="relative flex h-12 items-center gap-5 rounded-full bg-primary pl-4 pr-6 dark:bg-background"
         aria-label="Custom Slider"
       >
         <div className="relative flex h-6 min-w-12 items-center justify-center text-sm font-semibold text-white dark:text-black">
@@ -110,10 +110,10 @@ const Slider = ({
           </div>
 
           <motion.div
-            className="absolute inset-y-0 left-0 z-10 rounded-l-full bg-white dark:bg-black"
+            className="absolute inset-y-0 left-0 z-10 rounded-l-full bg-background dark:bg-primary"
             style={{ width }}
           >
-            <motion.div className="absolute right-0 top-1/2 h-6 w-6 -translate-y-1/2 translate-x-1/2 rounded-full border-2 border-neutral-800 bg-white shadow-md dark:border-neutral-300 dark:bg-black" />
+            <motion.div className="absolute right-0 top-1/2 h-6 w-6 -translate-y-1/2 translate-x-1/2 rounded-full border-2 border-neutral-800 bg-background shadow-md dark:border-neutral-300 dark:bg-primary" />
           </motion.div>
 
           <input

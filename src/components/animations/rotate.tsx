@@ -24,14 +24,14 @@
 //     <div>
 //       <div className="mb-8 flex flex-col items-center justify-center"></div>
 
-//       <div className="relative h-36 w-96 overflow-hidden rounded-3xl bg-black p-4 shadow-2xl">
+//       <div className="relative h-36 w-96 overflow-hidden rounded-3xl bg-primary p-4 shadow-2xl">
 //         <div className="pointer-events-none absolute bottom-0 left-0 right-0 z-30 h-[20%] bg-gradient-to-b from-transparent to-black"></div>
 
 //         <div className="mb-6 flex items-center justify-center text-white">
 //           <NumberFlow value={topIndex} className="text-xl" />
 //         </div>
 
-//         <div className="pointer-events-none absolute left-1/2 z-20 h-full w-1 -translate-x-1/2 -translate-y-3 rounded-full bg-white"></div>
+//         <div className="pointer-events-none absolute left-1/2 z-20 h-full w-1 -translate-x-1/2 -translate-y-3 rounded-full bg-background"></div>
 
 //         <motion.div
 //           drag="x"

@@ -63,7 +63,7 @@ const Movie = ({ setHover, hover, movie }: MovieProps) => {
 
   return (
     <motion.div
-      className="border bg-white flex items-center justify-center rounded-3xl overflow-clip relative group"
+      className="border bg-background flex items-center justify-center rounded-3xl overflow-clip relative group"
       animate={{
         width: hover && hover.item === movie.item ? 300 : 160,
         height: 200,
@@ -74,7 +74,7 @@ const Movie = ({ setHover, hover, movie }: MovieProps) => {
       onMouseEnter={() => setHover(movie)}
       onMouseLeave={() => setHover(null)}
     >
-      <div className="absolute flex items-end justify-center top-0 left-0 size-full bg-black/20 transition-all duration-300 opacity-0 group-hover:opacity-100 text-white">
+      <div className="absolute flex items-end justify-center top-0 left-0 size-full bg-primary/20 transition-all duration-300 opacity-0 group-hover:opacity-100 text-white">
         <AnimatePresence>
           {hover && hover.item === movie.item && (
             <motion.div
@@ -95,7 +95,7 @@ const Movie = ({ setHover, hover, movie }: MovieProps) => {
               >
                 nothing . {movie.item} . graound
               </motion.p>
-              <motion.button className="bg-black/80 text-sm flex gap-2 text-white items-center rounded-full px-3 py-1.5">
+              <motion.button className="bg-primary/80 text-sm flex gap-2 text-white items-center rounded-full px-3 py-1.5">
                 Watch{" "}
                 <span>
                   <ChevronRight className="size-4" />

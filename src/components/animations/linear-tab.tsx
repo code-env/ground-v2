@@ -143,7 +143,7 @@ const Item = ({ item }: ItemProps) => {
               <li
                 key={idx}
                 className={cn(
-                  "flex flex-col p-2 hover:bg-primary/5 transition-all duration-200 border border-transparent hover:border-border rounded-md cursor-pointer"
+                  "flex flex-col p-2 hover:bg-primary/5 transition-all duration-200 border border-transparent hover:border-border rounded-md cursor-pointer",
                 )}
               >
                 <h2 className="text-sm font-medium">{item.title}</h2>
@@ -218,7 +218,7 @@ const LinearTab = () => {
   }
 
   return (
-    <div className="size-full rounded-xl bg-white overflow-hidden">
+    <div className="size-full rounded-xl bg-background overflow-hidden">
       <header className="h-16 border-b font-medium">
         <nav className="flex items-center size-full justify-between px-4">
           <div className="flex items-center gap-2">
@@ -311,7 +311,7 @@ const SelectedItemDropDown = ({
       animate="vissible"
       initial="hidden"
       exit="hidden"
-      className="absolute -left-1/2 -right-1/2 mx-auto w-[calc(100%+300px)] border bg-white top-[calc(100%+10px)] rounded-xl p-2"
+      className="absolute -left-1/2 -right-1/2 mx-auto w-[calc(100%+300px)] border bg-background top-[calc(100%+10px)] rounded-xl p-2"
     >
       <div className="overflow-hidden w-full bg-muted rounded-lg border">
         {tab?.id === selected! && (

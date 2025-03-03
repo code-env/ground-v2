@@ -8,10 +8,10 @@ import {
 } from "motion/react";
 import { Dispatch, SetStateAction, useEffect, useRef, useState } from "react";
 
-import useClickOutside from "@/hooks/click-outside";
 import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
+import useClickOutside from "@/hooks/click-outside";
 import { useTimer } from "@/hooks/use-timer";
+import { cn } from "@/lib/utils";
 
 type Variant = "timer" | "coffee" | "car" | "takeoff";
 
@@ -64,8 +64,8 @@ const DynamicIsland = () => {
 
   return (
     <MotionConfig transition={TRANSITION}>
-      <div className="size-full bg-white rounded-lg pt-10 flex items-center justify-center">
-        <div className="w-[420px] border-[10px] h-full border-b-0 rounded-[55px] p-4 rounded-b-none border-black flex flex-col">
+      <div className="size-full bg-background rounded-lg pt-10 flex items-center justify-center">
+        <div className="w-[420px] border-[10px] h-full border-b-0 rounded-[55px] p-4 rounded-b-none border-primary dark:border-muted flex flex-col">
           <AnimatePresence mode="wait">
             {variant === null && <Island />}
             {variant && (
@@ -81,7 +81,7 @@ const DynamicIsland = () => {
                   !transitioning && handleVariantChange(item.title as Variant)
                 }
               >
-                <div className="size-16 bg-black text-white flex items-center justify-center rounded-2xl">
+                <div className="size-16 bg-primary text-white flex items-center justify-center rounded-2xl">
                   <item.icon className="size-6" />
                 </div>
                 <p className="text-sm capitalize">{item.title}</p>
@@ -104,7 +104,7 @@ const Island = () => {
       style={{
         borderRadius: 20,
       }}
-      className="w-32 bg-black h-10 mx-auto"
+      className="w-32 bg-primary dark:bg-muted h-10 mx-auto"
       layoutId="dynamic-island-circle"
     />
   );
@@ -147,7 +147,7 @@ const TimerContent = ({ setVariant }: TimerContentProps) => {
       style={{
         borderRadius: 40,
       }}
-      className="h-20 w-full bg-black p-4 pr-6 text-white"
+      className="h-20 w-full bg-primary p-4 pr-6 text-white"
     >
       <div className="size-full flex items-center justify-between">
         <div className="size-full flex items-center gap-2">
@@ -218,7 +218,9 @@ const TimerContent = ({ setVariant }: TimerContentProps) => {
 
 const CoffeeContent = () => {
   const ITEMS = 42;
-  const [box, setBox] = useState<{ width: number; height: number } | null>(null);
+  const [box, setBox] = useState<{ width: number; height: number } | null>(
+    null,
+  );
 
   const { time } = useTimer(ITEMS, true);
   const ref = useRef<HTMLDivElement>(null);
@@ -252,7 +254,7 @@ const CoffeeContent = () => {
       exit="exit"
       key="coffee"
       layoutId="dynamic-island-circle"
-      className="h-40 w-full bg-black p-4 relative overflow-hidden"
+      className="h-40 w-full bg-primary p-4 relative overflow-hidden"
       style={{
         borderRadius: 40,
       }}
@@ -286,7 +288,7 @@ const CoffeeContent = () => {
                   "h-10 w-3 min-w-3 rounded-full bg-red-500 transition-all duration-300",
                   {
                     "!bg-green-500": time === newIndex,
-                  }
+                  },
                 )}
               />
             </motion.div>
@@ -299,7 +301,6 @@ const CoffeeContent = () => {
   );
 };
 
-
 const CarContent = () => {
   return (
     <motion.div
@@ -309,7 +310,7 @@ const CarContent = () => {
       exit="exit"
       key="car"
       layoutId="dynamic-island-circle"
-      className="h-40 w-full bg-black p-4"
+      className="h-40 w-full bg-primary p-4"
       style={{
         borderRadius: 40,
       }}
@@ -328,7 +329,7 @@ const TakeoffContent = () => {
       exit="exit"
       key="takeoff"
       layoutId="dynamic-island-circle"
-      className="h-40 w-full bg-black p-4"
+      className="h-40 w-full bg-primary p-4"
       style={{
         borderRadius: 40,
       }}

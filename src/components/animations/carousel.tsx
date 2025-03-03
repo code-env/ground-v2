@@ -1,9 +1,9 @@
 "use client";
 
-import { useState } from "react";
-import { AnimatePresence, motion, useMotionValue } from "motion/react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { AnimatePresence, motion, useMotionValue } from "motion/react";
+import { useState } from "react";
 
 const ImageCarousel: React.FC<{
   images: string[];
@@ -27,13 +27,13 @@ const ImageCarousel: React.FC<{
     <div
       className={cn(
         "group/hover relative aspect-square size-96 overflow-hidden rounded-lg",
-        className
+        className,
       )}
     >
       <div className="pointer-events-none absolute top-1/2 z-10 flex w-full -translate-y-1/2 justify-between px-5 ">
         <button
           style={imgIndex === 0 ? { opacity: 0 } : {}}
-          className="pointer-events-auto h-fit w-fit rounded-full bg-white/80 p-2 opacity-0 transition-all group-hover/hover:opacity-100"
+          className="pointer-events-auto h-fit w-fit rounded-full bg-background/80 p-2 opacity-0 transition-all group-hover/hover:opacity-100"
           onClick={() => {
             if (imgIndex > 0) {
               setImgIndex((pv) => pv - 1);
@@ -44,7 +44,7 @@ const ImageCarousel: React.FC<{
         </button>
         <button
           style={imgIndex === images.length - 1 ? { opacity: 0 } : {}}
-          className="pointer-events-auto h-fit w-fit rounded-full bg-white/80 p-2  opacity-0 transition-all group-hover/hover:opacity-100"
+          className="pointer-events-auto h-fit w-fit rounded-full bg-background/80 p-2  opacity-0 transition-all group-hover/hover:opacity-100"
           onClick={() => {
             if (imgIndex < images.length - 1) {
               setImgIndex((pv) => pv + 1);
@@ -56,7 +56,7 @@ const ImageCarousel: React.FC<{
         </button>
       </div>
       <div className="pointer-events-none absolute bottom-2 z-10 flex w-full items-center justify-center">
-        <div className="flex w-9 items-center justify-center rounded-md bg-black/80 p-0.5 text-xs text-white opacity-0 transition-all group-hover/hover:opacity-100">
+        <div className="flex w-9 items-center justify-center rounded-md bg-primary/80 p-0.5 text-xs text-white opacity-0 transition-all group-hover/hover:opacity-100">
           <div>
             {imgIndex + 1}/{images.length}
           </div>

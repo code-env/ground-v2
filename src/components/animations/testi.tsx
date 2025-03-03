@@ -102,7 +102,7 @@
 //             className={`m-1.5 inline-flex justify-center whitespace-nowrap rounded-full px-3 py-1.5 text-xs shadow-sm transition-colors duration-150 focus-visible:outline-none focus-visible:ring focus-visible:ring-fuchsia-300 dark:focus-visible:ring-fuchsia-600 ${
 //               active === index
 //                 ? "bg-fuchsia-500 text-white shadow-fuchsia-950/10"
-//                 : "bg-white text-fuchsia-900 hover:bg-fuchsia-100"
+//                 : "bg-background text-fuchsia-900 hover:bg-fuchsia-100"
 //             }`}
 //             onClick={() => {
 //               setActive(index);

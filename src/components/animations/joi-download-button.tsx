@@ -1,8 +1,8 @@
 import { Icons } from "@/components/shared/icons";
 import { buttonVariants } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
-import { useState } from "react";
 import { motion, Transition } from "motion/react";
+import { useState } from "react";
 
 const TRANSITION: Transition = { duration: 0.5, ease: "easeInOut" };
 
@@ -12,7 +12,7 @@ const JoiDownloadButton = () => {
   const handleToggleMouseState = () => setHovered((prev) => !prev);
 
   return (
-    <div className="flex items-center justify-center size-full bg-white rounded-xl">
+    <div className="flex items-center justify-center size-full bg-background rounded-xl">
       <motion.button
         className={buttonVariants({
           className: "overflow-hidden flex items-center gap-2 relative",

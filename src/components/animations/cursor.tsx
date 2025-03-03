@@ -1,7 +1,7 @@
-import { motion, useMotionValue, useSpring } from "motion/react";
-import { useRef, useEffect, useState } from "react";
-import Magnet from "./magnet";
 import { ChevronLeft } from "lucide-react";
+import { motion, useMotionValue, useSpring } from "motion/react";
+import { useEffect, useRef, useState } from "react";
+import Magnet from "./magnet";
 
 const Cursor = () => {
   const buttonRef = useRef<HTMLButtonElement>(null);
@@ -11,7 +11,7 @@ const Cursor = () => {
   return (
     <div
       ref={containerRef}
-      className="size-full bg-white rounded-xl relative overflow-hidden"
+      className="size-full bg-background rounded-xl relative overflow-hidden"
     >
       <CustomCursor
         buttonRef={buttonRef}

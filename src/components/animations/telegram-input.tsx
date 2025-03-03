@@ -1,7 +1,7 @@
 import { siteConfig } from "@/lib/config";
 import { EditorContent, useEditor } from "@tiptap/react";
 import Starter from "@tiptap/starter-kit";
-import { Link, Mic, SendHorizonal, Smile, File, Image } from "lucide-react";
+import { File, Image, Link, Mic, SendHorizonal, Smile } from "lucide-react";
 import {
   AnimatePresence,
   motion,
@@ -47,7 +47,7 @@ const TelegramInput = () => {
       <div className="size-full flex flex-col gap-3">
         <Messages messages={messages} message={input} />
         <div className="flex items-end gap-3">
-          <div className="flex-1 flex items-end bg-white rounded-[0.9375rem] rounded-br-none px-4 pr-0 relative">
+          <div className="flex-1 flex items-end bg-background rounded-[0.9375rem] rounded-br-none px-4 pr-0 relative">
             <div className="flex items-center mb-3">
               <div className="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center">
                 <img
@@ -57,7 +57,7 @@ const TelegramInput = () => {
                 />
               </div>
               <button
-                className="w-10 h-10 bg-white rounded-full flex items-center justify-center group"
+                className="w-10 h-10 bg-background rounded-full flex items-center justify-center group"
                 onMouseEnter={() => setOnEmoji(true)}
                 onMouseLeave={() => setOnEmoji(false)}
               >
@@ -68,7 +68,7 @@ const TelegramInput = () => {
             <AnimatePresence>
               {onFile && (
                 <motion.ul
-                  className="absolute bottom-[70px] right-0 bg-white rounded-lg p-2 flex flex-col gap-2"
+                  className="absolute bottom-[70px] right-0 bg-background rounded-lg p-2 flex flex-col gap-2"
                   initial={{ opacity: 0, scale: 0.3 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.3 }}
@@ -90,7 +90,7 @@ const TelegramInput = () => {
             <AnimatePresence>
               {onEmoji && (
                 <motion.div
-                  className="absolute bottom-[70px] left-0 bg-white rounded-lg w-40 p-5 border"
+                  className="absolute bottom-[70px] left-0 bg-background rounded-lg w-40 p-5 border"
                   initial={{ opacity: 0, scale: 0.3 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.3 }}
@@ -127,7 +127,7 @@ const TelegramInput = () => {
             </svg>
           </div>
 
-          <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center">
+          <div className="w-16 h-16 bg-background rounded-full flex items-center justify-center">
             <AnimatePresence mode="wait">
               {input.length > 0 ? (
                 <motion.div
@@ -216,7 +216,7 @@ function Editor({ setInput, handleSubmit, messages }: EditorProps) {
       <motion.div
         key={messages.length}
         layout="position"
-        className="z-10 mt-2 max-w-[250px] break-words rounded  bg-white self-end absolute"
+        className="z-10 mt-2 max-w-[250px] break-words rounded  bg-background self-end absolute"
         layoutId={`messages-[${messages.length - 1}]`}
         transition={trans}
         initial={{ opacity: 0.6, zIndex: -1 }}
@@ -249,7 +249,7 @@ const Messages = ({ messages }: MessagesProps) => {
           <motion.div
             key={message.id}
             layout="position"
-            className="z-10 mt-2 max-w-[250px] break-words rounded  bg-white self-end"
+            className="z-10 mt-2 max-w-[250px] break-words rounded  bg-background self-end"
             transition={trans}
             layoutId={`messages-[${messages.length - 1}]`}
           >

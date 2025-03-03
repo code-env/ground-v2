@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
 import { motion } from "motion/react";
+import { useEffect, useState } from "react";
 
 const NewHero = () => {
   const words = ["COPY", "PASTE", "ANIMATE"];
@@ -13,7 +13,7 @@ const NewHero = () => {
   }, []);
 
   return (
-    <div className="bg-white size-full rounded-xl flex items-center justify-center flex-col">
+    <div className="bg-background size-full rounded-xl flex items-center justify-center flex-col">
       <div className="flex items-center justify-center flex-col max-w-md gap-4">
         <h1 className="text-4xl font-bold flex items-center">
           {words.map((word, idx) => (

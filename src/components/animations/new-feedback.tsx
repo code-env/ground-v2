@@ -1,10 +1,10 @@
 "use client";
 
-import { Angry, Check, Frown, Laugh, Loader2, Smile } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
-import { AnimatePresence, motion } from "motion/react";
-import { twMerge } from "tailwind-merge";
 import { cn } from "@/lib/utils";
+import { Angry, Check, Frown, Laugh, Loader2, Smile } from "lucide-react";
+import { AnimatePresence, motion } from "motion/react";
+import { useEffect, useRef, useState } from "react";
+import { twMerge } from "tailwind-merge";
 
 const feedback = [
   { happiness: 4, emoji: <Laugh size={16} className="stroke-inherit" /> },
@@ -64,7 +64,7 @@ export const Feedback = () => {
         happiness ? { borderRadius: "0.5rem" } : { borderRadius: "2rem" }
       }
       className={twMerge(
-        "w-fit overflow-hidden border py-2 shadow-sm dark:border-neutral-800 dark:bg-neutral-950"
+        "w-fit overflow-hidden border py-2 shadow-sm dark:border-neutral-800 dark:bg-neutral-950",
       )}
     >
       <span className="flex items-center justify-center gap-3 pl-4 pr-2">
@@ -76,14 +76,14 @@ export const Feedback = () => {
             <button
               onClick={() =>
                 setHappiness((prev) =>
-                  e.happiness === prev ? null : e.happiness
+                  e.happiness === prev ? null : e.happiness,
                 )
               }
               className={twMerge(
                 happiness === e.happiness
                   ? "bg-blue-100 stroke-blue-500 dark:bg-sky-900 dark:stroke-sky-500"
                   : "stroke-neutral-500 dark:stroke-neutral-400",
-                "flex h-8 w-8 items-center justify-center rounded-full transition-all hover:bg-blue-100 hover:stroke-blue-500 hover:dark:bg-sky-900 hover:dark:stroke-sky-500"
+                "flex h-8 w-8 items-center justify-center rounded-full transition-all hover:bg-blue-100 hover:stroke-blue-500 hover:dark:bg-sky-900 hover:dark:stroke-sky-500",
               )}
               key={e.happiness}
             >
@@ -113,11 +113,11 @@ export const Feedback = () => {
                     submitFeedback(happiness!, textRef.current!.value || "")
                   }
                   className={cn(
-                    "mt-1 flex h-9 items-center justify-center rounded-md border bg-neutral-950 px-2 text-sm text-white dark:bg-white dark:text-neutral-950",
+                    "mt-1 flex h-9 items-center justify-center rounded-md border bg-neutral-950 px-2 text-sm text-white dark:bg-background dark:text-neutral-950",
                     {
-                      "bg-neutral-500 dark:bg-white dark:text-neutral-500":
+                      "bg-neutral-500 dark:bg-background dark:text-neutral-500":
                         isLoading,
-                    }
+                    },
                   )}
                 >
                   {isLoading ? (

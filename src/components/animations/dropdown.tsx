@@ -34,11 +34,11 @@ const lists = [
 const DropdownNav = () => {
   return (
     <div className="size-full  flex items-center justify-start relative p-10 flex-col gap-10">
-      <button className="bg-transparent duration-300 transition-all px-5 py-2 rounded-full hover:bg-white flex items-center gap-2">
+      <button className="bg-transparent duration-300 transition-all px-5 py-2 rounded-full hover:bg-background flex items-center gap-2">
         <span className="text-xl font-medium">Menu</span>{" "}
         <ChevronDown className="size-5 mt-1" />
       </button>
-      <div className="w-3/4 bg-white border rounded-xl p-2 flex gap-4 ">
+      <div className="w-3/4 bg-background border rounded-xl p-2 flex gap-4 ">
         <div className="flex-1 flex flex-col gap-2 ">
           {lists.map((item, index) => {
             /// some code
@@ -54,7 +54,6 @@ const DropdownNav = () => {
                   </div>
                 </div>
                 <div>
-
                   <h1 className="font-semibold text-xl">{item.title}</h1>
                   <p className="text-neutral-500">{item.description}</p>
                 </div>
@@ -62,7 +61,7 @@ const DropdownNav = () => {
             );
           })}
         </div>
-        <div className="w-80 h-full bg-white border rounded-md"></div>
+        <div className="w-80 h-full bg-background border rounded-md"></div>
       </div>
     </div>
   );

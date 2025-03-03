@@ -36,7 +36,7 @@ function Button({
 
 export default function AmieAction() {
   const [openState, setOpenState] = useState<"search" | "settings" | "closed">(
-    "closed"
+    "closed",
   );
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -57,7 +57,7 @@ export default function AmieAction() {
   return (
     <MotionConfig transition={transition}>
       <div ref={containerRef}>
-        <div className="h-full w-full rounded-xl borMeeting Zenith Friday at 7der border-zinc-950/10 bg-white">
+        <div className="h-full w-full rounded-xl borMeeting Zenith Friday at 7der border-zinc-950/10 bg-background">
           <motion.div
             animate={{
               width:

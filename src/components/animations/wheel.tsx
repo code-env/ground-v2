@@ -101,7 +101,7 @@ const Wheel = () => {
 
   return (
     <div className="relative size-full flex items-center justify-center">
-      <div className="relative size-full flex items-center justify-center overflow-hidden rounded-xl bg-white p-4">
+      <div className="relative size-full flex items-center justify-center overflow-hidden rounded-xl bg-background p-4">
         <motion.div
           drag="x"
           dragConstraints={{ left: 0, right: 0 }}
@@ -160,14 +160,14 @@ const ActiveItem = ({ activeElement, setActiveElement }: ActiveItemProps) => {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.3 }}
-          className="absolute inset-0 flex items-center justify-center z-20 bg-white"
+          className="absolute inset-0 flex items-center justify-center z-20 bg-background"
         >
           <motion.div
             layoutId={`spinner-${activeElement.id}`}
-            className="w-[400px] h-[400px] rounded-3xl overflow-hidden relative bg-white p-2 shadow-lg shadow-black/10"
+            className="w-[400px] h-[400px] rounded-3xl overflow-hidden relative bg-background p-2 shadow-lg shadow-black/10"
           >
             <button
-              className="absolute right-5 top-5 size-10 text-white bg-black/50 backdrop-blur-md rounded-full flex items-center justify-center"
+              className="absolute right-5 top-5 size-10 text-white bg-primary/50 backdrop-blur-md rounded-full flex items-center justify-center"
               onClick={() => setActiveElement(null)}
             >
               <X className="w-6 h-6" />

@@ -24,7 +24,7 @@ const BtnChange = () => {
 
   return (
     <div className="relative size-full overflow-hidden">
-      <div className="size-full bg-white flex items-center justify-center">
+      <div className="size-full bg-background flex items-center justify-center">
         <motion.button
           layoutId="btn-change"
           layout="size"
@@ -50,7 +50,7 @@ const ChatButton = ({ isHidden }: { isHidden: boolean }) => {
             height: 50,
             opacity: isHidden ? 1 : 0,
           }}
-          className="rounded-full bg-black absolute items-center flex justify-center bottom-10 right-10 text-white cursor-pointer"
+          className="rounded-full bg-primary absolute items-center flex justify-center bottom-10 right-10 text-white cursor-pointer"
         >
           <MessageCircle className="h-4 w-4" />
         </motion.div>

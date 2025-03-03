@@ -1,8 +1,8 @@
-import React, { createContext, useContext, useState, ReactNode } from "react";
+import React, { createContext, ReactNode, useContext, useState } from "react";
 
 import { cn } from "@/lib/utils";
-import { AnimatePresence, motion } from "motion/react";
 import { ArrowDownLeft, ArrowUpRight } from "lucide-react";
+import { AnimatePresence, motion } from "motion/react";
 
 interface DayProps {
   classNames: string;
@@ -310,7 +310,7 @@ const CashflowHeatmap = () => {
   return (
     <div className="size-full flex items-center justify-center">
       <div
-        className="relative p-4 w-full border rounded-2xl bg-white"
+        className="relative p-4 w-full border rounded-2xl bg-background"
         style={{
           maxWidth: 672,
         }}
