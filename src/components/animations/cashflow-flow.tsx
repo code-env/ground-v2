@@ -24,7 +24,7 @@ const Day: React.FC<DayProps> = ({ classNames, details, day }) => {
     ? new Date(
         `${currentMonthYear}-${currentMonthDate.getMonth() + 1}-${
           hoveredDay.day
-        }`
+        }`,
       )
     : null;
 
@@ -33,7 +33,7 @@ const Day: React.FC<DayProps> = ({ classNames, details, day }) => {
       <div
         className={cn(
           "relative flex items-center justify-center py-1 duration-300 transition-opacity",
-          classNames
+          classNames,
         )}
         style={{
           height: 80,
@@ -52,7 +52,7 @@ const Day: React.FC<DayProps> = ({ classNames, details, day }) => {
         <motion.div className="flex flex-col items-center justify-center z-10 ">
           <span
             className={cn(
-              "text-lg block mt-1 font-semibold transition-all duration-300"
+              "text-lg block mt-1 font-semibold transition-all duration-300",
             )}
             style={{
               fontSize: day.details ? "1.2rem" : "1rem",
@@ -72,7 +72,7 @@ const Day: React.FC<DayProps> = ({ classNames, details, day }) => {
               <div
                 className={cn(
                   "bg-muted w-full flex justify-center items-start pt-0.5 transition-all duration-300 rounded-t-lg",
-                  isHovered && "bg-green-100 text-green-400"
+                  isHovered && "bg-green-100 text-green-400",
                 )}
                 style={{
                   height: `${(details.income / 1000) * 100}%`,
@@ -90,7 +90,7 @@ const Day: React.FC<DayProps> = ({ classNames, details, day }) => {
             {details.expenses > 0 && (
               <div
                 className={cn(
-                  "bg-muted-foreground w-full flex justify-center items-end pb-0.5  transition-all duration-300"
+                  "bg-muted-foreground w-full flex justify-center items-end pb-0.5  transition-all duration-300",
                 )}
                 style={{
                   height: `${(details.expenses / 1000) * 100}%`,
@@ -292,7 +292,7 @@ const CashflowHeatmap = () => {
 
   const toggleView = (
     newView: "all" | "income" | "expenses",
-    newIndex: number
+    newIndex: number,
   ) => {
     const currentIndex = VIEWS.findIndex((v) => v.key === view);
 
@@ -352,7 +352,7 @@ const CashflowHeatmap = () => {
                   >
                     <span
                       className={cn(
-                        "z-10 relative duration-300 transition-colors text-muted-foreground"
+                        "z-10 relative duration-300 transition-colors text-muted-foreground",
                       )}
                       style={{
                         color: view === v.key ? "black" : "",
@@ -528,7 +528,7 @@ interface CashflowContextProps {
 }
 
 const CashflowContext = createContext<CashflowContextProps | undefined>(
-  undefined
+  undefined,
 );
 
 const CashflowProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
@@ -565,7 +565,7 @@ const Cashflow = () => {
 
 export default Cashflow;
 
-export const useCashflow = () => {
+const useCashflow = () => {
   const context = useContext(CashflowContext);
   if (!context) {
     throw new Error("useCashflow must be used within a CashflowProvider");

@@ -142,7 +142,7 @@ const Home = () => {
       <ComponentPreview>
         <Bolt />
       </ComponentPreview>
-      <ComponentPreview height={100}>
+      <ComponentPreview height={200}>
         <Cashflow />
       </ComponentPreview>
       <ComponentPreview>

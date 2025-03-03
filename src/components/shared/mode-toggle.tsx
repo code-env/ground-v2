@@ -1,37 +1,63 @@
-import { Moon, Sun } from "lucide-react";
+"use client";
 
-import { Button } from "@/components/ui/button";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import { useTheme } from "@/providers/theme";
+import { Laptop, Moon, Sun } from "lucide-react";
+import { motion } from "motion/react";
 
-export function ModeToggle() {
-  const { setTheme } = useTheme();
+import { useMounted } from "@/hooks/use-mounted";
+import { cn } from "@/lib/utils";
+import { Theme, useTheme } from "@/providers/theme";
+
+type ThemeType = {
+  name: Theme;
+  icon: React.FC<React.SVGProps<SVGSVGElement>>;
+};
+
+const themes: ThemeType[] = [
+  {
+    name: "light",
+    icon: Sun,
+  },
+  {
+    name: "dark",
+    icon: Moon,
+  },
+  {
+    name: "system",
+    icon: Laptop,
+  },
+];
+
+const ThemeSwitcher = () => {
+  const { setTheme, theme: justTheme } = useTheme();
+  const mouted = useMounted();
+
+  if (!mouted) return;
 
   return (
-    <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button variant="outline" size="icon" className="fixed bottom-0 left-0">
-          <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-          <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-          <span className="sr-only">Toggle theme</span>
-        </Button>
-      </DropdownMenuTrigger>
-      <DropdownMenuContent align="end">
-        <DropdownMenuItem onClick={() => setTheme("light")}>
-          Light
-        </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme("dark")}>
-          Dark
-        </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme("system")}>
-          System
-        </DropdownMenuItem>
-      </DropdownMenuContent>
-    </DropdownMenu>
+    <div className="fixed border bottom-0 left-0 p-1 border-l-0 border-b-0 !z-[999] bg-muted/40 rounded-tr-xl flex items-center gap-2">
+      {themes.map((theme, index) => {
+        // something
+        return (
+          <button
+            key={index + theme.name}
+            className={cn(
+              "size-6 flex items-center justify-center relative outline-none ring-0",
+            )}
+            onClick={() => setTheme(theme.name)}
+          >
+            <span className="sr-only">{theme.name}</span>
+            <theme.icon className="size-4" />
+            {justTheme === theme.name && (
+              <motion.div
+                layoutId="selected-theme"
+                className="absolute size-full bg-muted -z-10 rounded-md "
+              />
+            )}
+          </button>
+        );
+      })}
+    </div>
   );
-}
+};
+
+export default ThemeSwitcher;

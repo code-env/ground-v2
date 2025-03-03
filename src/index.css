@@ -94,7 +94,11 @@
 }
 
 .CircularProgressbar-path {
-    @apply !stroke-muted-foreground;
+    @apply !stroke-primary;
+}
+
+.dark .CircularProgressbar-path {
+    @apply !stroke-background;
 }
 
 .gradient {
