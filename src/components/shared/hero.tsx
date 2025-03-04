@@ -1,6 +1,6 @@
 import Waitlist from "@/components/forms/waitlist";
-import { buttonVariants } from "../ui/button";
 import { motion } from "motion/react";
+import { buttonVariants } from "../ui/button";
 import Logo from "./logo";
 
 const Hero = ({ hidden }: { hidden: boolean }) => {
@@ -16,7 +16,7 @@ const Hero = ({ hidden }: { hidden: boolean }) => {
         </p>
       </div>
       <Waitlist>
-        {!hidden && (
+        {!hidden ? (
           <motion.button
             layoutId="home-chat-button"
             className={buttonVariants({ size: "lg", className: "!rounded-md" })}
@@ -25,6 +25,15 @@ const Hero = ({ hidden }: { hidden: boolean }) => {
               Join waitlist
             </motion.span>
           </motion.button>
+        ) : (
+          <button
+            className={buttonVariants({
+              size: "lg",
+              className: "!rounded-md opacity-0",
+            })}
+          >
+            <span>Join waitlist</span>
+          </button>
         )}
       </Waitlist>
     </div>
