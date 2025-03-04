@@ -47,7 +47,7 @@ const TelegramInput = () => {
       <div className="size-full flex flex-col gap-3">
         <Messages messages={messages} message={input} />
         <div className="flex items-end gap-3">
-          <div className="flex-1 flex items-end bg-background rounded-[0.9375rem] rounded-br-none px-4 pr-0 relative">
+          <div className="flex-1 flex items-end bg-background border rounded-[0.9375rem] rounded-br-none px-4 pr-0 relative">
             <div className="flex items-center mb-3">
               <div className="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center">
                 <img
@@ -123,6 +123,7 @@ const TelegramInput = () => {
               <path
                 d="M10 17H0V0C0.321667 2.84 1.46 5.767 3.41667 8.782C4.92333 11.107 7.49333 13.267 11.125 15.262C11.373 15.398 11.5466 15.5759 11.6232 15.7722C11.6997 15.9685 11.6756 16.1741 11.5539 16.362C11.4323 16.55 11.2188 16.7114 10.9415 16.8253C10.6642 16.9391 10.336 17 10 17Z"
                 fill="white"
+                className=""
               />
             </svg>
           </div>
