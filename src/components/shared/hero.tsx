@@ -20,7 +20,7 @@ const Hero = ({ hidden }: { hidden: boolean }) => {
           className={buttonVariants({ size: "lg", className: "!rounded-md" })}
         >
           <motion.span layoutId="home-chat-button-text">
-            Browse Components
+            Scroll to browse Components
           </motion.span>
         </motion.button>
       ) : (
