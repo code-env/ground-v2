@@ -148,7 +148,7 @@ const Home = () => {
       <ComponentPreview>
         <Typer />
       </ComponentPreview>
-      <ComponentPreview>
+      <ComponentPreview notReady>
         <SearchUser />
       </ComponentPreview>
       <ComponentPreview notReady>
