@@ -17,7 +17,7 @@ const Bolt = () => {
   };
 
   return (
-    <div className="size-24 bg-background rounded-xl flex items-center justify-center">
+    <div className="size-24 bg-background rounded-xl border flex items-center justify-center">
       <motion.svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"

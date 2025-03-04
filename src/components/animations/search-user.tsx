@@ -84,7 +84,7 @@ const SearchUser = () => {
                 <motion.div
                   layoutId={`searchUser-item-${index}`}
                   key={index}
-                  className="border-4 border-gray-400/30 absolute bg-background overflow-clip rounded-3xl flex items-center justify-center group"
+                  className="border-4 absolute bg-background overflow-clip rounded-3xl flex items-center justify-center group"
                   transition={{
                     duration: 0.2,
                     ease: "linear",

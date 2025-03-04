@@ -57,7 +57,7 @@ export default function AmieAction() {
   return (
     <MotionConfig transition={transition}>
       <div ref={containerRef}>
-        <div className="h-full w-full rounded-xl borMeeting Zenith Friday at 7der border-zinc-950/10 bg-background">
+        <div className="h-full w-full rounded-xl  border bg-background">
           <motion.div
             animate={{
               width:

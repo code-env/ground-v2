@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import { motion, AnimatePresence } from "motion/react";
+import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 import { buttonVariants } from "../ui/button";
 
@@ -46,7 +46,7 @@ const YEARS = [
 
 type Direction = "left" | "right" | null;
 
-const TabBars = () => {
+const YearTabs = () => {
   const [active, setActive] = useState(0);
   const [direction, setDirection] = useState<Direction>(null);
   const [rounded, setRounded] = useState(true);
@@ -85,7 +85,7 @@ const TabBars = () => {
   };
 
   return (
-    <div className="flex flex-col h-full w-3/4 bg-background p-10 relative gap-4 rounded-xl">
+    <div className="flex flex-col h-full w-3/4 bg-background p-10 relative gap-4 rounded-xl border">
       <button
         onClick={toggleCorners}
         className={buttonVariants({ variant: "outline", className: "w-fit" })}
@@ -105,7 +105,7 @@ const TabBars = () => {
                   {
                     "rounded-xl": rounded,
                     "rounded-none": !rounded,
-                  }
+                  },
                 )}
                 onClick={() => handleChangeActive(idx)}
               >
@@ -118,7 +118,7 @@ const TabBars = () => {
                       {
                         "rounded-t-3xl": rounded,
                         "rounded-none": !rounded,
-                      }
+                      },
                     )}
                   >
                     {rounded && (
@@ -126,13 +126,13 @@ const TabBars = () => {
                         <div
                           className={cn(
                             leftActive &&
-                              "size-4 bg-muted absolute bottom-0 -left-4 before:size-full before:bg-background before:-top-0 before:-left-0 before:absolute before:rounded-br-full"
+                              "size-4 bg-muted absolute bottom-0 -left-4 before:size-full before:bg-background before:-top-0 before:-left-0 before:absolute before:rounded-br-full",
                           )}
                         />
                         <div
                           className={cn(
                             rightActive &&
-                              "size-4 bg-muted absolute bottom-0 -right-4 before:size-full before:bg-background before:-top-0 before:-right-0 before:absolute before:rounded-bl-full transition-all duration-300"
+                              "size-4 bg-muted absolute bottom-0 -right-4 before:size-full before:bg-background before:-top-0 before:-right-0 before:absolute before:rounded-bl-full transition-all duration-300",
                           )}
                         />
                       </>
@@ -150,7 +150,7 @@ const TabBars = () => {
               "rounded-tl-3xl": active !== 0 && rounded,
               "rounded-tr-3xl": active !== YEARS.length - 1 && rounded,
               "rounded-none": !rounded,
-            }
+            },
           )}
         >
           <AnimatePresence mode="wait" custom={direction}>
@@ -179,4 +179,4 @@ const TabBars = () => {
   );
 };
 
-export default TabBars;
+export default YearTabs;

@@ -91,7 +91,7 @@ const Home = () => {
       <ComponentPreview>
         <AnimatedCounter />
       </ComponentPreview>
-      <ComponentPreview>
+      <ComponentPreview height={15}>
         <YearsTabs />
       </ComponentPreview>
       <ComponentPreview>
@@ -148,7 +148,7 @@ const Home = () => {
       <ComponentPreview>
         <Typer />
       </ComponentPreview>
-      <ComponentPreview notReady>
+      <ComponentPreview>
         <SearchUser />
       </ComponentPreview>
       <ComponentPreview notReady>

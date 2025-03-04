@@ -218,7 +218,7 @@ const LinearTab = () => {
   }
 
   return (
-    <div className="size-full rounded-xl bg-background overflow-hidden">
+    <div className="size-full rounded-xl bg-background overflow-hidden border">
       <header className="h-16 border-b font-medium">
         <nav className="flex items-center size-full justify-between px-4">
           <div className="flex items-center gap-2">
