@@ -1,5 +1,4 @@
 import { Command, Search } from "lucide-react";
-import { useState } from "react";
 import {
   AnimatePresence,
   motion as m,
@@ -7,6 +6,7 @@ import {
   Transition,
   Variants,
 } from "motion/react";
+import { useState } from "react";
 
 import { Input } from "../ui/input";
 
@@ -50,7 +50,7 @@ const InputShotcut = () => {
           </span>
           <Input
             type="text"
-            autoFocus
+            // autoFocus
             className="border-none px-0 text-muted-foreground -ml-1"
             placeholder="Enter some text..."
             onChange={(e) => setValue(e.target.value)}
