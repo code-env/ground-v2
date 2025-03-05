@@ -115,7 +115,7 @@
         rgb(24, 38, 163) 251.25deg,
         rgb(54, 103, 196) 301.88deg,
         rgb(105, 30, 255) 360deg
-    );
+    ) !important;
 }
 
 ::-webkit-scrollbar {
