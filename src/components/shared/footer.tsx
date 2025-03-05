@@ -3,8 +3,8 @@ import { Icons } from "./icons";
 
 const Footer = () => {
   return (
-    <footer className="mt-40 w-full bg-background">
-      <div className=" mx-auto max-w-5xl w-full border-t border-x flex items-center py-5 justify-between px-10">
+    <footer className="md:mt-40 w-full bg-background">
+      <div className=" mx-auto max-w-5xl w-full border-t md:border-x flex items-center py-5 justify-between md:px-10">
         <p className="flex gap-1 items-center">
           <img
             src={siteConfig.link.imageURl}
@@ -16,13 +16,13 @@ const Footer = () => {
             href="https://x.com/bossadizenith"
             target="_blank"
             rel="noreferrer"
-            className="font-bold"
+            className="font-bold text-sm"
           >
             Bossadi Zenith
           </a>
         </p>
         <a href="https://github.com/code-env/ground-v2" target="_blank">
-          <Icons.github className="size-8" />
+          <Icons.github className="md:size-8 size-4" />
         </a>
       </div>
     </footer>
