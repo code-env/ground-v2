@@ -3,8 +3,8 @@ import { Icons } from "./icons";
 
 const Footer = () => {
   return (
-    <footer className="mt-40 w-full">
-      <div className=" mx-auto max-w-5xl w-full border-t flex items-center py-5 justify-between px-10">
+    <footer className="mt-40 w-full bg-background">
+      <div className=" mx-auto max-w-5xl w-full border-t border-x flex items-center py-5 justify-between px-10">
         <p className="flex gap-1 items-center">
           <img
             src={siteConfig.link.imageURl}

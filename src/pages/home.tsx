@@ -2,45 +2,45 @@ import { useMotionValueEvent, useScroll } from "motion/react";
 import { useState } from "react";
 
 import {
-    AmieAction,
-    AnimatedCounter,
-    AnimatedFeedback,
-    Bolt,
-    Cashflow,
-    ClickSelect,
-    ComponentPreview,
-    Counter,
-    Cursor,
-    DropdownNav,
-    DynamicIsland,
-    Feedback,
-    Fellaz,
-    Footer,
-    Hero,
-    ImageCarousel,
-    InputCheck,
-    InputShotcut,
-    JoiDownloadButton,
-    LinearTab,
-    LiveBlogs,
-    MagneticLines,
-    MovieGallery,
-    MusicSheet,
-    NewHero,
-    PeerListBar,
-    PromptBox,
-    SearchUser,
-    SignIn,
-    Slider,
-    TabBars,
-    TelegramInput,
-    Typer,
-    UserSearch,
-    UserStacked,
-    Wants,
-    Wheel,
-    WordRoll,
-    YearsTabs,
+  AmieAction,
+  AnimatedCounter,
+  AnimatedFeedback,
+  Bolt,
+  Cashflow,
+  ClickSelect,
+  ComponentPreview,
+  Counter,
+  Cursor,
+  DropdownNav,
+  DynamicIsland,
+  Feedback,
+  Fellaz,
+  Footer,
+  Hero,
+  ImageCarousel,
+  InputCheck,
+  InputShotcut,
+  JoiDownloadButton,
+  LinearTab,
+  LiveBlogs,
+  MagneticLines,
+  MovieGallery,
+  MusicSheet,
+  NewHero,
+  PeerListBar,
+  PromptBox,
+  SearchUser,
+  SignIn,
+  Slider,
+  TabBars,
+  TelegramInput,
+  Typer,
+  UserSearch,
+  UserStacked,
+  Wants,
+  Wheel,
+  WordRoll,
+  YearsTabs,
 } from "@/components/animations";
 
 const Home = () => {
@@ -57,12 +57,11 @@ const Home = () => {
 
   const images = ["/succession.jpeg", "/mirror.jpeg", "/dune.jpg"];
 
-
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center lg:px-0 px-10 overflow-x-clip">
+    <div className="min-h-screen flex flex-col gap-20 items-center justify-center lg:px-0 px-10 overflow-x-clip">
+      <div className="h-screen fixed top-0 max-w-screen-lg left-0 w-full mx-auto right-0 border-x -z-20 candy-bg" />
       <Hero hidden={isHidden} />
       <Feedback hidden={isHidden} />
-
       <ComponentPreview>
         <UserStacked />
       </ComponentPreview>
