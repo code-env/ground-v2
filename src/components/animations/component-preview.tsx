@@ -19,11 +19,11 @@ const ComponentPreview = ({
   if (notReady && process.env.NODE_ENV === "production") return null;
 
   return (
-    <div className="md:flex items-center justify-center w-full hidden relative z-0">
+    <div className="md:flex items-center justify-center w-full hidden relative">
       <div className="w-full border-y relative flex items-center justify-center">
         <div
           className={cn(
-            "max-w-screen-lg w-full min-h-[500px] flex items-center justify-center relative p-2 z-10 bg-muted",
+            "max-w-screen-lg w-full flex items-center justify-center relative p-2 bg-muted z-0 border-x",
             className,
           )}
           style={{
