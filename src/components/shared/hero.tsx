@@ -4,7 +4,7 @@ import Logo from "./logo";
 
 const Hero = ({ hidden }: { hidden: boolean }) => {
   return (
-    <div className="w-full md:border-b">
+    <div className="w-full md:border-b bg-background">
       <div className="flex flex-col items-center justify-center pt-40 pb-20 gap-10 mx-auto w-full max-w-screen-lg bg-background md:border-x">
         <Logo gradient={true} />
         <div className="flex flex-col items-center justify-center gap-4 max-w-sm">

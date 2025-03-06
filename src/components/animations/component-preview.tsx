@@ -19,7 +19,7 @@ const ComponentPreview = ({
   if (notReady && process.env.NODE_ENV === "production") return null;
 
   return (
-    <div className="md:flex items-center justify-center w-full hidden relative">
+    <div className="md:flex items-center justify-center w-full hidden relative bg-background">
       <div className="w-full border-y relative flex items-center justify-center">
         <div
           className={cn(
