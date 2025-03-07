@@ -11,6 +11,7 @@ import DropdownNav from "@/components/animations/dropdown";
 import DynamicIsland from "@/components/animations/dynamic-island";
 import AnimatedFeedback from "@/components/animations/feedback";
 import Fellaz from "@/components/animations/fellaz";
+import Uploader from "@/components/animations/file-uploader";
 import AnimatedCounter from "@/components/animations/followers-count";
 import InputCheck from "@/components/animations/input-check";
 import InputShotcut from "@/components/animations/input-shotcut";
@@ -72,6 +73,7 @@ export {
   TabBars,
   TelegramInput,
   Typer,
+  Uploader,
   UserSearch,
   UserStacked,
   Wants,
