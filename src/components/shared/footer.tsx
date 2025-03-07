@@ -30,3 +30,5 @@ const Footer = () => {
 };
 
 export default Footer;
+
+// nothing was pushed
