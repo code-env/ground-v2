@@ -38,6 +38,7 @@ import YearsTabs from "@/components/animations/years-tabs";
 import Feedback from "@/components/shared/feedback";
 import Footer from "@/components/shared/footer";
 import Hero from "@/components/shared/hero";
+import ProfileEdit from "./profile-edit";
 
 export {
   AmieAction,
@@ -66,6 +67,7 @@ export {
   MusicSheet,
   NewHero,
   PeerListBar,
+  ProfileEdit,
   PromptBox,
   SearchUser,
   SignIn,
