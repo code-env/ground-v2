@@ -1,4 +1,5 @@
 import { buttonVariants } from "@/components/ui/button";
+import { Loader2 } from "lucide-react";
 
 import {
   AnimatePresence,
@@ -65,67 +66,36 @@ const Uploader = () => {
 
   return (
     <MotionConfig transition={TRANSITION}>
-      <div className="max-w-md w-full flex flex-col divide-y-2 rounded-xl border-2">
+      <div className="max-w-md w-full flex flex-col divide-y-2 rounded-xl border-2 overflow-hidden">
         {files.map((file) => (
           <div
             key={file.id}
             className="p-4 first:rounded-t-xl last:rounded-b-xl bg-background flex items-center justify-between"
           >
             <div className="flex items-center space-x-2">
-              <div className="size-4 bg-primary rounded-full"></div>
+              <Loader2 className="w-4 h-4 animate-spin" />
               <p>{file.name}</p>
             </div>
             <m.button
-              className={buttonVariants({ variant: "outline" })}
+              className={buttonVariants({
+                variant: "outline",
+                className:
+                  file.state === "success" &&
+                  "bg-blue-100 text-blue-500 border-blue-100 hover:bg-blue-200 hover:text-blue-500",
+              })}
               animate={{ width: "auto" }}
+              layout="position"
             >
               <AnimatePresence mode="popLayout" initial={false}>
-                {file.state === "idle" ? (
-                  <m.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    key="idle"
-                  >
-                    Upload
-                  </m.div>
-                ) : file.state === "processing" ? (
-                  <m.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    key="processing"
-                  >
-                    Processing...
-                  </m.div>
-                ) : file.state === "uploading" ? (
-                  <m.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    key="uploading"
-                  >
-                    Uploading...
-                  </m.div>
-                ) : file.state === "success" ? (
-                  <m.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    key="success"
-                  >
-                    Uploaded
-                  </m.div>
-                ) : (
-                  <m.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    key="error"
-                  >
-                    Error
-                  </m.div>
-                )}
+                <m.div
+                  key={file.state}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  className="capitalize"
+                >
+                  {file.state}
+                </m.div>
               </AnimatePresence>
             </m.button>
           </div>
