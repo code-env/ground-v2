@@ -20,27 +20,28 @@ const TRANSITION: Transition = {
 
 type Item = {
   id: number;
-  name: string;
   className: string;
 };
 
 const list: Item[] = [
-  { name: "marketting", className: "bg-yellow-500" },
-  { name: "product", className: "bg-blue-500" },
-  { name: "Development", className: "bg-green-500" },
-  { name: "design", className: "bg-purple-500" },
-  { name: "sales", className: "bg-red-500" },
-  { name: "stakeholder", className: "bg-indigo-500" },
-  { name: "marketting", className: "bg-yellow-500" },
-  { name: "product", className: "bg-blue-500" },
-  { name: "Development", className: "bg-green-500" },
-  { name: "design", className: "bg-purple-500" },
-  { name: "sales", className: "bg-red-500" },
-  { name: "stakeholder", className: "bg-indigo-500" },
+  { className: "bg-red-500" },
+  { className: "bg-orange-500" },
+  { className: "bg-yellow-400" },
+  { className: "bg-green-600" },
+  { className: "bg-blue-600" },
+  { className: "bg-purple-600" },
+  { className: "bg-pink-500" },
+  { className: "bg-teal-500" },
+  { className: "bg-indigo-600" },
+  { className: "bg-gray-500" },
+  { className: "bg-lime-500" },
+  { className: "bg-cyan-500" },
 ].map((i, idx) => ({
   ...i,
   id: idx + 1,
 }));
+
+const explosionSizes = [2, 4, 6, 8, 10, 12];
 
 const bgVariants: Variants = {
   initial: {
@@ -51,9 +52,30 @@ const bgVariants: Variants = {
   },
 };
 
+function getRandomPositions(
+  radius: number,
+  count: number = 6,
+): { x: number; y: number }[] {
+  const positions: { x: number; y: number }[] = [];
+  const centerX = radius;
+  const centerY = radius;
+
+  for (let i = 0; i < count; i++) {
+    const angle = Math.random() * Math.PI * 2; // Random angle in radians
+    const x = centerX + radius * Math.cos(angle);
+    const y = centerY + radius * Math.sin(angle);
+    positions.push({ x, y });
+  }
+
+  return positions;
+}
 const ProfileEdit = () => {
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState<Item>(list[0]);
+  const positions = getRandomPositions(128, explosionSizes.length);
+
+  console.log({ positions });
+
   const toggleOpen = () => setOpen((prev) => !prev);
 
   return (
@@ -74,22 +96,31 @@ const ProfileEdit = () => {
             </button>
           </div>
           <div className="p-10 flex flex-col gap-4">
-            <div className="border rounded-md p-5 flex gap-10">
-              <AnimatePresence mode="popLayout">
-                <m.div
-                  variants={bgVariants}
-                  initial="initial"
-                  animate="animate"
-                  exit="initial"
-                  key={active.id}
-                  className={cn(
-                    "size-32 bg-red-500 rounded-full center relative",
-                    active.className,
-                  )}
-                >
-                  <Snail className="size-10 text-white absolute inset-0 m-auto" />
-                </m.div>
-              </AnimatePresence>
+            <div className="border rounded-md p-5 flex gap-10 overflow-hidden">
+              <div className="size-32 relative">
+                <AnimatePresence mode="popLayout">
+                  <m.div
+                    variants={bgVariants}
+                    initial="initial"
+                    animate="animate"
+                    exit="initial"
+                    key={active.id}
+                    className={cn(
+                      "size-32 bg-red-500 rounded-full center relative",
+                      active.className,
+                    )}
+                  ></m.div>
+                </AnimatePresence>
+                <Snail className="size-10 inset-0 m-auto absolute text-white" />
+                {Array.from({ length: explosionSizes.length }).map((_, idx) => (
+                  <Explosion
+                    key={idx}
+                    size={explosionSizes[idx]}
+                    color={active.className}
+                    position={positions[idx]}
+                  />
+                ))}
+              </div>
               <div className="flex-1 grid grid-cols-4 gap-1">
                 {list.map((i, idx) => (
                   <div
@@ -138,6 +169,27 @@ const ProfileEdit = () => {
         </m.button>
       )}
     </MotionConfig>
+  );
+};
+
+const Explosion = ({
+  size,
+  color,
+  position,
+}: {
+  size: number;
+  color: string;
+  position: { x: number; y: number };
+}) => {
+  return (
+    <m.div
+      className={cn(
+        "absolute inset-0 m-auto rounded-full center bg-sky-800",
+        color,
+      )}
+      layoutId="edit-profile-explosion"
+      style={{ width: size, height: size, left: position.x, top: position.y }}
+    />
   );
 };
 

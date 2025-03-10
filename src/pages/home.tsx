@@ -60,7 +60,7 @@ const Home = () => {
   const images = ["/succession.jpeg", "/mirror.jpeg", "/dune.jpg"];
 
   return (
-    <div className="min-h-screen flex flex-col gap-20 items-center justify-center lg:px-0 px-10 overflow-x-clip z-0">
+    <div className="min-h-screen flex flex-col gap-20 items-center justify-center lg:px-0 px-10 overflow-x-clip">
       <div className="h-screen fixed top-0 max-w-screen-lg inset-x-0 w-full mx-auto border-x border -z-10 candy-bg hidden md:block" />
       <Hero hidden={isHidden} />
       <Feedback hidden={isHidden} />

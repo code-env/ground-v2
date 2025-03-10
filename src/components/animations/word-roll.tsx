@@ -1,3 +1,4 @@
+import { useMounted } from "@/hooks/use-mounted";
 import { Search } from "lucide-react";
 import { AnimatePresence, motion as m } from "motion/react";
 import { useEffect, useState } from "react";
@@ -11,6 +12,10 @@ const words = [
 ];
 
 const WordRoll = () => {
+  const mounted = useMounted();
+
+  if (!mounted) return null;
+
   return (
     <div className="full p-10 pb-0">
       <div className="w-[400px] border-[10px] h-full border-b-0 rounded-[55px] p-4 rounded-b-none border-primary dark:border-muted flex flex-col mx-auto gap-10">

@@ -23,7 +23,7 @@ const ComponentPreview = ({
       <div className="w-full border-y relative flex items-center justify-center">
         <div
           className={cn(
-            "max-w-screen-lg w-full flex items-center justify-center relative p-2 bg-muted z-0 border-x",
+            "max-w-screen-lg w-full flex items-center justify-center relative p-2 bg-muted border-x",
             className,
           )}
           style={{
