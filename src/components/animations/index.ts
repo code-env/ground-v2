@@ -11,6 +11,7 @@ import DropdownNav from "@/components/animations/dropdown";
 import DynamicIsland from "@/components/animations/dynamic-island";
 import AnimatedFeedback from "@/components/animations/feedback";
 import Fellaz from "@/components/animations/fellaz";
+import FigmaLayout from "@/components/animations/figma-layout";
 import Uploader from "@/components/animations/file-uploader";
 import AnimatedCounter from "@/components/animations/followers-count";
 import InputCheck from "@/components/animations/input-check";
@@ -22,6 +23,7 @@ import MagneticLines from "@/components/animations/magnetic-tiles";
 import MovieGallery from "@/components/animations/movie-gallery";
 import MusicSheet from "@/components/animations/music-shit";
 import PeerListBar from "@/components/animations/peerlist-bar";
+import ProfileEdit from "@/components/animations/profile-edit";
 import { PromptBox } from "@/components/animations/prompt-box";
 import SearchUser from "@/components/animations/search-user";
 import SignIn from "@/components/animations/sign-in";
@@ -38,7 +40,6 @@ import YearsTabs from "@/components/animations/years-tabs";
 import Feedback from "@/components/shared/feedback";
 import Footer from "@/components/shared/footer";
 import Hero from "@/components/shared/hero";
-import ProfileEdit from "./profile-edit";
 
 export {
   AmieAction,
@@ -54,6 +55,7 @@ export {
   DynamicIsland,
   Feedback,
   Fellaz,
+  FigmaLayout,
   Footer,
   Hero,
   ImageCarousel,

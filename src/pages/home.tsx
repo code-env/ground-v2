@@ -15,6 +15,7 @@ import {
   DynamicIsland,
   Feedback,
   Fellaz,
+  FigmaLayout,
   Footer,
   Hero,
   ImageCarousel,
@@ -64,6 +65,9 @@ const Home = () => {
       <div className="h-screen fixed top-0 max-w-screen-lg inset-x-0 w-full mx-auto border-x border -z-10 candy-bg hidden md:block" />
       <Hero hidden={isHidden} />
       <Feedback hidden={isHidden} />
+      <ComponentPreview notReady>
+        <FigmaLayout />
+      </ComponentPreview>
       <ComponentPreview notReady>
         <ProfileEdit />
       </ComponentPreview>
