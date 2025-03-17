@@ -1,11 +1,12 @@
-import { Routes, Route } from "react-router";
-import { Home, NotFound, PhoneShowcase } from "./pages";
+import { Route, Routes } from "react-router";
+import { BackgroundChange, Home, NotFound, PhoneShowcase } from "./pages";
 
 const App = () => {
   return (
     <Routes>
       <Route index element={<Home />} />
       <Route path="phone" element={<PhoneShowcase />} />
+      <Route path="bg" element={<BackgroundChange />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   );

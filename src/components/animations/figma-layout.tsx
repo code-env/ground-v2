@@ -16,7 +16,7 @@ const particleVariants: Variants = {
 };
 
 const TRANSITION: Transition = {
-  duration: 0.2,
+  duration: 0.1,
   ease: "easeInOut",
 };
 
@@ -42,7 +42,7 @@ const FigmaLayout = () => {
       <div className="flex items-center gap-6 max-w-xs w-full">
         <div
           className={cn(
-            "flex items-center relative gap-4 transition-all duration-200 flex-1",
+            "flex items-center relative gap-4 transition-all duration-100 flex-1",
             {
               "gap-0": gap,
             },
@@ -50,7 +50,7 @@ const FigmaLayout = () => {
         >
           <button
             className={cn(
-              "!transition-all !duration-200 flex-1",
+              "!transition-all !duration-100 flex-1",
               buttonVariants(),
               {
                 "rounded-r-none": gap,
@@ -61,7 +61,7 @@ const FigmaLayout = () => {
           </button>
           <button
             className={cn(
-              "!transition-all !duration-200 flex-1",
+              "!transition-all !duration-100 flex-1",
               buttonVariants(),
               {
                 "rounded-l-none": gap,
@@ -77,9 +77,11 @@ const FigmaLayout = () => {
                 initial="hidden"
                 animate="animate"
                 exit="hidden"
-                transition={{
-                  delay: gap ? 0.2 : 0,
-                }}
+                transition={
+                  {
+                    // delay: gap ? 0.1 : 0,
+                  }
+                }
                 className="size-4 bg-primary absolute inset-0 m-auto"
               >
                 <div className="size-4 bg-muted absolute -top-2.5 rounded-b-full" />

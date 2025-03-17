@@ -1,5 +1,6 @@
+import BackgroundChange from "./bg";
 import Home from "./home";
-import PhoneShowcase from "./phone-showcase";
 import NotFound from "./not-found";
+import PhoneShowcase from "./phone-showcase";
 
-export { Home, NotFound, PhoneShowcase };
+export { BackgroundChange, Home, NotFound, PhoneShowcase };

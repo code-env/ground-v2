@@ -40,6 +40,8 @@ import YearsTabs from "@/components/animations/years-tabs";
 import Feedback from "@/components/shared/feedback";
 import Footer from "@/components/shared/footer";
 import Hero from "@/components/shared/hero";
+import IslandMode from "./island-mode";
+import StackClick from "./stacked-click";
 
 export {
   AmieAction,
@@ -61,6 +63,7 @@ export {
   ImageCarousel,
   InputCheck,
   InputShotcut,
+  IslandMode,
   JoiDownloadButton,
   LinearTab,
   LiveBlogs,
@@ -74,6 +77,7 @@ export {
   SearchUser,
   SignIn,
   Slider,
+  StackClick,
   TabBars,
   TelegramInput,
   Typer,
