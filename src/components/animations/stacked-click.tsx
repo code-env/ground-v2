@@ -109,8 +109,8 @@ function VerticalTimeline({
             )}
           </div>
           <div
-            className={cn("ml-4", {
-              "pb-5": index < items.length - 1,
+            className={cn("ml-4 ", {
+              "pb-5 bg-red-500": index < items.length - 1,
             })}
           >
             <span

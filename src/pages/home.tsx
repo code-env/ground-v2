@@ -46,6 +46,7 @@ import {
   WordRoll,
   YearsTabs,
 } from "@/components/animations";
+import View from "@/components/animations/view";
 
 const Home = () => {
   const [isHidden, setIsHidden] = useState(false);
@@ -67,6 +68,9 @@ const Home = () => {
       <Hero hidden={isHidden} />
       <Feedback hidden={isHidden} />
 
+      <ComponentPreview notReady>
+        <View />
+      </ComponentPreview>
       <ComponentPreview notReady>
         <StackClick />
       </ComponentPreview>
