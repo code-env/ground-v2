@@ -1,12 +1,18 @@
 import { cn } from "@/lib/utils";
 import { useTheme } from "@/providers/theme";
-import { AnimatePresence, motion as m, Variants } from "motion/react";
+import {
+  AnimatePresence,
+  motion as m,
+  Variants,
+  Transition,
+  MotionConfig,
+} from "motion/react";
 
 const bgVariant: Variants = {
   hidden: {
-    height: 24,
-    width: 448,
-    borderRadius: 12,
+    height: 30,
+    width: 400,
+    borderRadius: 10,
     top: 12,
     left: 0,
     right: 0,
@@ -21,53 +27,63 @@ const bgVariant: Variants = {
   },
 };
 
+const TRANSITION: Transition = {
+  duration: 0.3,
+  ease: "easeInOut",
+};
+
 const IslandMode = () => {
   const { setTheme, theme } = useTheme();
 
   const toggleActive = () => setTheme(theme === "light" ? "dark" : "light");
 
   return (
-    <div className="relative p-2 z-0 overflow-hidden min-h-screen">
-      <div
-        className={cn(
-          "max-w-md  mx-auto z-10 p-2 rounded-full bg-black border transition-all duration-300",
-          {
-            "bg-muted/50": theme === "dark",
-          },
-        )}
-      >
-        <div
-          className={cn(
-            "bg-muted h-3 w-8 rounded-full ml-auto relative transition-colors duration-300",
-            {
-              "bg-orange-500": theme === "dark",
-            },
-          )}
-          onClick={toggleActive}
-        >
+    <MotionConfig transition={TRANSITION}>
+      <div>
+        <div className="fixed w-full z-50">
           <div
             className={cn(
-              "size-5 bg-muted-foreground absolute rounded-full top-0 bottom-0 my-auto transition-all duration-300",
+              "max-w-md  mx-auto p-2 h-14 rounded-md bg-black border transition-all duration-300 backdrop-blur flex items-center",
               {
-                "left-[calc(100%-20px)]": theme === "dark",
-                "left-0": theme === "light",
-              },
+                "bg-muted/50": theme === "dark",
+              }
             )}
-          />
+          >
+            <div className="size-10 bg-red-500 rounded-sm"></div>
+            <div
+              className={cn(
+                "bg-muted h-3 w-8 rounded-full ml-auto relative transition-colors duration-300 cursor-pointer",
+                {
+                  "bg-orange-500": theme === "dark",
+                }
+              )}
+              onClick={toggleActive}
+            >
+              <div
+                className={cn(
+                  "size-5 bg-muted-foreground absolute rounded-full top-0 bottom-0 my-auto transition-all duration-300",
+                  {
+                    "left-[calc(100%-20px)]": theme === "dark",
+                    "left-0": theme === "light",
+                  }
+                )}
+              />
+            </div>
+          </div>
         </div>
+        <AnimatePresence>
+          {theme === "dark" && (
+            <m.div
+              variants={bgVariant}
+              initial="hidden"
+              animate="animate"
+              exit="hidden"
+              className="!fixed z-30 bg-black inset-0 size-full"
+            />
+          )}
+        </AnimatePresence>
       </div>
-      <AnimatePresence>
-        {theme === "dark" && (
-          <m.div
-            variants={bgVariant}
-            initial="hidden"
-            animate="animate"
-            exit="hidden"
-            className="fixed -z-10 bg-black"
-          />
-        )}
-      </AnimatePresence>
-    </div>
+    </MotionConfig>
   );
 };
 
