@@ -42,7 +42,7 @@ import Footer from "@/components/shared/footer";
 import Hero from "@/components/shared/hero";
 import IslandMode from "./island-mode";
 import StackClick from "./stacked-click";
-
+import DotMatrixClock from "./dotted-matric-clock";
 export {
   AmieAction,
   AnimatedCounter,
@@ -88,4 +88,5 @@ export {
   Wheel,
   WordRoll,
   YearsTabs,
+  DotMatrixClock,
 };
