@@ -73,7 +73,7 @@ const Home = () => {
         <DotMatrixClock />
       </ComponentPreview>
 
-      <ComponentPreview notReady>
+      <ComponentPreview>
         <View />
       </ComponentPreview>
       <ComponentPreview notReady>
