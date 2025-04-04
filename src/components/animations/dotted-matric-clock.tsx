@@ -1,6 +1,11 @@
 "use client";
 
-import { motion as m, MotionConfig } from "motion/react";
+import {
+  AnimatePresence,
+  motion as m,
+  MotionConfig,
+  Transition,
+} from "motion/react";
 import { useEffect, useState } from "react";
 
 const digitPatterns = {
@@ -96,6 +101,11 @@ const digitPatterns = {
   ],
 };
 
+const TRANSITION: Transition = {
+  duration: 0.3,
+  ease: "easeInOut",
+};
+
 export default function DotMatrixClock() {
   const [time, setTime] = useState("");
 
@@ -115,7 +125,7 @@ export default function DotMatrixClock() {
   }, []);
 
   return (
-    <MotionConfig transition={{ duration: 0.5 }}>
+    <MotionConfig transition={TRANSITION}>
       <div className="flex items-center justify-center full  p-4 bg-[#141414]">
         <div className="flex gap-4">
           {time.split("").map((char, charIndex) => {
@@ -127,17 +137,13 @@ export default function DotMatrixClock() {
                 >
                   {Array.from({ length: 2 }).map((_, rowIndex) => (
                     <m.div
-                      key={rowIndex}
+                      key={`${time}-${charIndex}-${rowIndex}`}
                       className="flex bg-[rgb(251,233,43)] size-3 rounded-full"
-                      initial={{ opacity: 0 }}
+                      initial={{ backgroundColor: `#141414` }}
                       animate={{
-                        opacity: [0, 0, 1, 0, 0],
+                        backgroundColor: `rgb(251,233,43)`,
                       }}
-                      transition={{
-                        duration: 1,
-                        repeat: Infinity,
-                        repeatDelay: 0,
-                      }}
+                      exit={{ backgroundColor: `#141414` }}
                     />
                   ))}
                 </div>
@@ -153,11 +159,7 @@ export default function DotMatrixClock() {
                           <Dot
                             key={dotIndex}
                             active={dot === 1}
-                            delay={
-                              charIndex * 0.05 +
-                              rowIndex * 0.01 +
-                              dotIndex * 0.01
-                            }
+                            index={dotIndex}
                           />
                         ))}
                       </div>
@@ -175,18 +177,20 @@ export default function DotMatrixClock() {
 
 interface DotProps {
   active: boolean;
-  delay: number;
+  index: number;
 }
 
-function Dot({ active }: DotProps) {
+function Dot({ active, index }: DotProps) {
   return (
-    <m.div
-      initial={{ backgroundColor: "rgb(32,32,32)" }}
-      animate={{
-        backgroundColor: active ? "rgb(251,233,43)" : "rgb(32,32,32)",
-      }}
-      transition={{ duration: 1 }}
-      className="size-3 rounded-full"
-    />
+    <AnimatePresence mode="wait">
+      <m.div
+        initial={{ backgroundColor: "rgb(32,32,32)" }}
+        animate={{
+          backgroundColor: active ? "rgb(251,233,43)" : "rgb(32,32,32)",
+        }}
+        key={index}
+        className="size-3 rounded-full"
+      />
+    </AnimatePresence>
   );
 }
