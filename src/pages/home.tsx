@@ -69,7 +69,7 @@ const Home = () => {
       <Hero hidden={isHidden} />
       <Feedback hidden={isHidden} />
 
-      <ComponentPreview notReady>
+      <ComponentPreview>
         <DotMatrixClock />
       </ComponentPreview>
 
