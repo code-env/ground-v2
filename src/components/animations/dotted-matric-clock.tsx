@@ -1,11 +1,6 @@
 "use client";
 
-import {
-  AnimatePresence,
-  motion as m,
-  MotionConfig,
-  Transition,
-} from "motion/react";
+import { motion as m, MotionConfig, Transition } from "motion/react";
 import { useEffect, useState } from "react";
 
 const digitPatterns = {
