@@ -182,15 +182,13 @@ interface DotProps {
 
 function Dot({ active, index }: DotProps) {
   return (
-    <AnimatePresence mode="wait">
-      <m.div
-        initial={{ backgroundColor: "rgb(32,32,32)" }}
-        animate={{
-          backgroundColor: active ? "rgb(251,233,43)" : "rgb(32,32,32)",
-        }}
-        key={index}
-        className="size-3 rounded-full"
-      />
-    </AnimatePresence>
+    <m.div
+      initial={false}
+      animate={{
+        backgroundColor: active ? "rgb(251,233,43)" : "rgb(32,32,32)",
+      }}
+      key={`dot-${active ? "on" : "off"}-${index}`}
+      className="size-3 rounded-full"
+    />
   );
 }
