@@ -40,9 +40,11 @@ import YearsTabs from "@/components/animations/years-tabs";
 import Feedback from "@/components/shared/feedback";
 import Footer from "@/components/shared/footer";
 import Hero from "@/components/shared/hero";
-import IslandMode from "./island-mode";
-import StackClick from "./stacked-click";
 import DotMatrixClock from "./dotted-matric-clock";
+import IslandMode from "./island-mode";
+import Map from "./map";
+import StackClick from "./stacked-click";
+
 export {
   AmieAction,
   AnimatedCounter,
@@ -53,6 +55,7 @@ export {
   ComponentPreview,
   Counter,
   Cursor,
+  DotMatrixClock,
   DropdownNav,
   DynamicIsland,
   Feedback,
@@ -68,6 +71,7 @@ export {
   LinearTab,
   LiveBlogs,
   MagneticLines,
+  Map,
   MovieGallery,
   MusicSheet,
   NewHero,
@@ -88,5 +92,4 @@ export {
   Wheel,
   WordRoll,
   YearsTabs,
-  DotMatrixClock,
 };
