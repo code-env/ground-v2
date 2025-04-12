@@ -1,5 +1,4 @@
 import Test from "@/components/shared/test";
-import React from "react";
 
 const TestPage = () => {
   return (
