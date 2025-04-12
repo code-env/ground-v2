@@ -17,6 +17,7 @@ import {
   Feedback,
   Fellaz,
   FigmaLayout,
+  FluidButton,
   Footer,
   Hero,
   ImageCarousel,
@@ -26,6 +27,7 @@ import {
   LinearTab,
   LiveBlogs,
   MagneticLines,
+  Map,
   MovieGallery,
   MusicSheet,
   NewHero,
@@ -46,7 +48,6 @@ import {
   Wheel,
   WordRoll,
   YearsTabs,
-  Map,
 } from "@/components/animations";
 import View from "@/components/animations/view";
 
@@ -71,6 +72,9 @@ const Home = () => {
       <Feedback hidden={isHidden} />
 
       <ComponentPreview>
+        <FluidButton />
+      </ComponentPreview>
+      <ComponentPreview notReady>
         <Map />
       </ComponentPreview>
 

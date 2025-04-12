@@ -44,6 +44,7 @@ import DotMatrixClock from "./dotted-matric-clock";
 import IslandMode from "./island-mode";
 import Map from "./map";
 import StackClick from "./stacked-click";
+import FluidButton from "./fluid-button";
 
 export {
   AmieAction,
@@ -92,4 +93,5 @@ export {
   Wheel,
   WordRoll,
   YearsTabs,
+  FluidButton,
 };
