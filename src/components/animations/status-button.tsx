@@ -1,5 +1,4 @@
 import { cn } from "@/lib/utils";
-import { Loader } from "lucide-react";
 import {
   AnimatePresence,
   motion as m,
@@ -8,7 +7,6 @@ import {
   Variants,
 } from "motion/react";
 import { useEffect, useState } from "react";
-import { Icons } from "../shared/icons";
 
 type Status = "Loading" | "Success" | "Error";
 
@@ -25,22 +23,10 @@ const rightSpanVariant: Variants = {
   visible: { scale: 1, opacity: 1, x: 0 },
 };
 
-const buttonTransition: Transition = {
-  type: "spring",
-  bounce: 0,
-  duration: 0.6,
-};
-
 const spanTransition: Transition = {
   type: "spring",
   bounce: 0,
   duration: 0.3,
-};
-
-const widthVariants = {
-  loading: { width: 220 },
-  success: { width: 180 },
-  error: { width: 210 },
 };
 
 const StatusButton = () => {

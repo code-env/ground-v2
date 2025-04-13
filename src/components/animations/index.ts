@@ -97,4 +97,5 @@ export {
   YearsTabs,
   FluidButton,
   DynamicStatusButton,
+  StatusButton,
 };
