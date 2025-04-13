@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { buttonVariants } from "../ui/button";
+import { buttonVariants } from "@/components/ui/button";
 import Logo from "./logo";
 // import { Icons } from "./icons";
 // import { Star } from "lucide-react";

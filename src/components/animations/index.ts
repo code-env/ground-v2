@@ -45,6 +45,8 @@ import IslandMode from "./island-mode";
 import Map from "./map";
 import StackClick from "./stacked-click";
 import FluidButton from "./fluid-button";
+import DynamicStatusButton from "./dynamic-status-button";
+import StatusButton from "./status-button";
 
 export {
   AmieAction,
@@ -94,4 +96,5 @@ export {
   WordRoll,
   YearsTabs,
   FluidButton,
+  DynamicStatusButton,
 };

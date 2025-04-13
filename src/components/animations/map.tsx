@@ -136,12 +136,21 @@ const Map = () => {
         transition={{ duration: 0.5 }}
         className="flex items-center bg-muted/10 p-4 rounded-lg mt-10 gap-10 border border-muted-foreground/20"
       >
-        <button
+        <motion.button
           onClick={handlePlayPause}
           className={cn(buttonVariants({ variant: "outline" }))}
+          initial={{ width: 80 }}
+          animate={{
+            width: isPlaying ? 90 : 80,
+          }}
+          transition={{
+            duration: 0.3,
+            type: "spring",
+            bounce: 0,
+          }}
         >
           {isPlaying ? "Pause" : "Play"}
-        </button>
+        </motion.button>
         <div className="flex items-center gap-2">
           <span className="text-zinc-400">Volume</span>
           <input
