@@ -76,7 +76,7 @@ const Home = () => {
         <StatusButton />
       </ComponentPreview>
 
-      <ComponentPreview notReady>
+      <ComponentPreview>
         <DynamicStatusButton />
       </ComponentPreview>
       <ComponentPreview>
