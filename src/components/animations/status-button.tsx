@@ -5,6 +5,7 @@ import {
   motion as m,
   Transition,
   useAnimate,
+  Variants,
 } from "motion/react";
 import { useEffect, useState } from "react";
 import { Icons } from "../shared/icons";
@@ -13,6 +14,16 @@ type Status = "Loading" | "Success" | "Error";
 
 const sequences: Status[] = ["Loading", "Success", "Loading", "Error"];
 const SEQUENCEDURATION = 2000;
+
+const leftSpanVariant: Variants = {
+  hidden: { scale: 0.9, opacity: 0, x: -10 },
+  visible: { scale: 1, opacity: 1, x: 0 },
+};
+
+const rightSpanVariant: Variants = {
+  hidden: { scale: 0.9, opacity: 0, x: 10 },
+  visible: { scale: 1, opacity: 1, x: 0 },
+};
 
 const buttonTransition: Transition = {
   type: "spring",
@@ -24,6 +35,12 @@ const spanTransition: Transition = {
   type: "spring",
   bounce: 0,
   duration: 0.3,
+};
+
+const widthVariants = {
+  loading: { width: 220 },
+  success: { width: 180 },
+  error: { width: 210 },
 };
 
 const StatusButton = () => {
@@ -52,8 +69,6 @@ const StatusButton = () => {
     return () => clearInterval(interval);
   }, []);
 
-  const text = "Analyzing Transaction Safe";
-
   return (
     <div className="full center">
       <m.button
@@ -66,10 +81,48 @@ const StatusButton = () => {
             "bg-red-100 shadow-none text-destructive hover:bg-red-100",
           "rounded-full overflow-hidden flex items-center gap-2 px-4 py-2"
         )}
-        key={status}
+        layout
+        layoutId="status-button"
+        transition={{
+          type: "spring",
+          stiffness: 300,
+          damping: 30,
+          mass: 0.5,
+        }}
       >
-        <m.span className="whitespace-pre" transition={spanTransition}>
-          {text}
+        <m.span
+          className="whitespace-pre flex items-center gap-1"
+          transition={spanTransition}
+        >
+          <AnimatePresence initial={false} mode="wait">
+            {status === "Loading" && (
+              <m.span
+                variants={leftSpanVariant}
+                initial="hidden"
+                animate="visible"
+              >
+                Analyzing
+              </m.span>
+            )}
+            {status === "Success" && (
+              <m.span
+                variants={rightSpanVariant}
+                initial="hidden"
+                animate="visible"
+              >
+                Safe
+              </m.span>
+            )}
+            {status === "Error" && (
+              <m.span
+                variants={rightSpanVariant}
+                initial="hidden"
+                animate="visible"
+              >
+                Warning
+              </m.span>
+            )}
+          </AnimatePresence>
         </m.span>
       </m.button>
     </div>
