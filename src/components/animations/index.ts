@@ -41,11 +41,12 @@ import Feedback from "@/components/shared/feedback";
 import Footer from "@/components/shared/footer";
 import Hero from "@/components/shared/hero";
 import DotMatrixClock from "./dotted-matric-clock";
+import DynamicStatusButton from "./dynamic-status-button";
+import FluidButton from "./fluid-button";
 import IslandMode from "./island-mode";
 import Map from "./map";
+import Plan from "./plan";
 import StackClick from "./stacked-click";
-import FluidButton from "./fluid-button";
-import DynamicStatusButton from "./dynamic-status-button";
 import StatusButton from "./status-button";
 import TodoList from "./todo-list";
 
@@ -62,9 +63,11 @@ export {
   DotMatrixClock,
   DropdownNav,
   DynamicIsland,
+  DynamicStatusButton,
   Feedback,
   Fellaz,
   FigmaLayout,
+  FluidButton,
   Footer,
   Hero,
   ImageCarousel,
@@ -80,14 +83,17 @@ export {
   MusicSheet,
   NewHero,
   PeerListBar,
+  Plan,
   ProfileEdit,
   PromptBox,
   SearchUser,
   SignIn,
   Slider,
   StackClick,
+  StatusButton,
   TabBars,
   TelegramInput,
+  TodoList,
   Typer,
   Uploader,
   UserSearch,
@@ -96,8 +102,4 @@ export {
   Wheel,
   WordRoll,
   YearsTabs,
-  FluidButton,
-  DynamicStatusButton,
-  StatusButton,
-  TodoList,
 };
