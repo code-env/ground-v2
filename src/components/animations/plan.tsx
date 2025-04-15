@@ -40,7 +40,7 @@ const Plan = () => {
   };
 
   return (
-    <div className="flex items-center justify-center w-full">
+    <div className="full center">
       <div className="w-full max-w-lg mx-auto">
         <div className="bg-background border-2 rounded-full shadow-md p-1 flex gap-2 h-16">
           {plans.map((plan) => (
