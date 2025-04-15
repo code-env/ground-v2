@@ -71,7 +71,7 @@ const Plan = () => {
                       initial={{ opacity: 0, scale: 0 }}
                       animate={{ opacity: 1, scale: 1 }}
                       exit={{ opacity: 0, scale: 0 }}
-                      transition={{ duration: 0.1 }}
+                      transition={{ duration: 0.05 }}
                       className={cn("text-sm text-center font-bold", {
                         "text-primary-foreground": activeIdx === plan.id,
                       })}
@@ -113,13 +113,16 @@ const Subscriptions = ({
       {activeIdx !== 2 ? (
         <motion.div key="collapsed-subs" className="flex gap-2">
           {subscriptions.map((sub) => (
-            <motion.p
-              key={`sub-${sub}`}
-              className="text-sm size-full rounded-full flex items-center justify-center relative"
-              layoutId={`sub-${sub}`}
-            >
-              {sub}
-            </motion.p>
+            <>
+              <motion.p
+                key={`sub-${sub}`}
+                className="text-sm size-full rounded-full flex items-center justify-center relative"
+                layoutId={`sub-${sub}`}
+              >
+                {sub}
+              </motion.p>
+              <span>{" . "}</span>
+            </>
           ))}
         </motion.div>
       ) : (
