@@ -113,16 +113,16 @@ const Subscriptions = ({
       {activeIdx !== 2 ? (
         <motion.div key="collapsed-subs" className="flex gap-2">
           {subscriptions.map((sub) => (
-            <>
-              <motion.p
-                key={`sub-${sub}`}
-                className="text-sm size-full rounded-full flex items-center justify-center relative"
-                layoutId={`sub-${sub}`}
-              >
-                {sub}
-              </motion.p>
-              <span>{" . "}</span>
-            </>
+            <motion.p
+              key={`sub-${sub}`}
+              className="text-sm size-full rounded-full flex items-center justify-center relative gap-2"
+              layoutId={`sub-${sub}`}
+            >
+              <span>{sub}</span>
+              {sub !== subscriptions[subscriptions.length - 1] && (
+                <span>{" . "}</span>
+              )}
+            </motion.p>
           ))}
         </motion.div>
       ) : (
