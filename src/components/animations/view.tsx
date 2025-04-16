@@ -1,38 +1,38 @@
 import { cn } from "@/lib/utils";
-import { Layers2, LayoutGrid, List, LucideIcon, Star } from "lucide-react";
 import { AnimatePresence, motion, MotionConfig } from "motion/react";
 import React from "react";
-import { buttonVariants } from "../ui/button";
+import { Icons } from "../shared/icons";
 
 type Views = "List" | "Grid" | "Stacked";
 
 type ViewItem = {
-  icon: LucideIcon;
+  icon: (props: React.ComponentProps<"svg">) => JSX.Element;
   name: string;
   view: Views;
 };
 
 type Item = {
   name: string;
-  description: string;
   image: string;
   angle?: number;
+  rate: number;
+  position: number;
 };
 
 const views: ViewItem[] = [
   {
     name: "List view",
-    icon: List,
+    icon: Icons.list,
     view: "List",
   },
   {
     name: "Card view",
-    icon: LayoutGrid,
+    icon: Icons.grid,
     view: "Grid",
   },
   {
     name: "Pack view",
-    icon: Layers2,
+    icon: Icons.stacked,
     view: "Stacked",
   },
 ];
@@ -45,18 +45,20 @@ const TRANSITION = {
   duration: 0.5,
 };
 
-const items = [
+const items: Item[] = [
   {
-    name: "Succession",
-    description: "Tv show - Comedy",
-    image: "/succession.jpeg",
+    name: "Skilled Fingers Series",
+    image: "/first.svg",
     angle: -10,
+    rate: 0.855,
+    position: 209,
   },
   {
-    name: "Dune 2",
-    description: "Movie - Sci-fi",
-    image: "/dune.jpg",
+    name: "Vibrant Vibes Series",
+    image: "/second.svg",
     angle: 15,
+    rate: 0.209,
+    position: 803,
   },
 ];
 
@@ -67,19 +69,19 @@ const View = () => {
   };
   return (
     <MotionConfig transition={TRANSITION}>
-      <div className="center full">
-        <div className="max-w-sm w-full space-y-4">
+      <div className="center full ">
+        <div className="max-w-xs w-full space-y-4 overflow-hidden">
           <div className="h-14 border-b flex gap-2">
             {views.map((item) => (
               <button
                 key={item.name}
-                className={buttonVariants({
-                  variant: item.view === view ? "default" : "secondary",
-                  className: "flex-1",
-                })}
+                className={cn(
+                  "flex items-center gap-1 h-8 px-[10px] rounded-full bg-muted text-muted-foreground text-sm font-medium outline-none",
+                  item.view === view && "bg-[#00b3ff] text-white"
+                )}
                 onClick={() => handleClick(item.view)}
               >
-                <item.icon className="w-4 h-4" />
+                <item.icon className="size-4" />
                 {item.name}
               </button>
             ))}
@@ -116,7 +118,7 @@ const ListView = ({ view }: { view: Views }) => {
 
 const GridView = ({ view }: { view: Views }) => {
   return (
-    <div className="grid grid-cols-2 gap-6">
+    <div className="grid grid-cols-2 gap-4">
       {items.map((item, idx) => (
         <ItemView key={idx} item={item} idx={idx} view={view} />
       ))}
@@ -134,12 +136,27 @@ const StackedView = ({ view }: { view: Views }) => {
             item={item}
             idx={idx}
             view={view}
-            className="absolute "
+            className="absolute"
           />
         ))}
       </div>
       <div className="text-center mt-2">
-        <p className="clas">{items.length} Movies</p>
+        <AnimatePresence>
+          {view === "Stacked" && (
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="flex items-center gap-2 justify-center flex-col text-sm"
+            >
+              <span>{items.length} Collectibles</span>
+              <span>
+                {items.reduce((acc, item) => acc + item.rate, 0)}{" "}
+                <span className="text-muted-foreground">ETH</span>
+              </span>
+            </motion.p>
+          )}
+        </AnimatePresence>
       </div>
     </div>
   );
@@ -158,7 +175,7 @@ const ItemView = ({
 }) => {
   return (
     <motion.div
-      className={cn("flex flex-col gap-2 ", className)}
+      className={cn("flex flex-col gap-2", className)}
       layoutId={`view-item-container-${idx}`}
       style={{
         rotate: view === "Stacked" ? item.angle : 0,
@@ -170,39 +187,64 @@ const ItemView = ({
         src={item.image}
         alt={item.name}
         className={cn(
-          "w-full h-auto",
           view === "Grid"
-            ? "w-full h-44"
+            ? "size-40 rounded-xl"
             : view === "List"
-            ? "size-16"
-            : "size-20",
-          "object-cover rounded-2xl border"
+            ? "size-14 rounded-md"
+            : "size-20 rounded-xl",
+          "object-cover "
         )}
       />
       <AnimatePresence>
         {view !== "Stacked" && (
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -50 }}
-            className="flex-1"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className={cn(
+              "flex items-center gap-2",
+              view === "List" && "flex-1"
+            )}
           >
-            <motion.h3
-              layoutId={`view-item-title-${idx}`}
-              className="text-lg font-bold"
+            <div
+              className={cn(
+                "flex flex-col gap-1 text-sm font-medium",
+                view === "List" && "flex-1"
+              )}
             >
-              {item.name}
-            </motion.h3>
-            <motion.p
-              layoutId={`view-item-description-${idx}`}
-              className="text-sm flex items-center gap-2 justify-between"
-            >
-              <span>{item.description}</span>
-              <span className="flex items-center gap-1">
-                <Star className="size-3 text-muted-foreground fill-muted-foreground" />{" "}
-                3
-              </span>
-            </motion.p>
+              <motion.h3 layoutId={`view-item-title-${idx}`} className="">
+                {item.name}
+              </motion.h3>
+              <motion.p
+                layoutId={`view-item-description-${idx}`}
+                className="text-xs flex items-center justify-between"
+              >
+                <span className="flex items-center gap-1">
+                  <span>{item.rate}</span>{" "}
+                  <span className="text-muted-foreground">ETH</span>
+                </span>
+                {view === "Grid" && (
+                  <motion.span
+                    layoutId={`view-item-position-${idx}`}
+                    className="flex items-center gap-1"
+                  >
+                    <Icons.square className="size-4" />
+                    <span className="text-muted-foreground">
+                      #{item.position}
+                    </span>
+                  </motion.span>
+                )}
+              </motion.p>
+            </div>
+            {view === "List" && (
+              <motion.span
+                layoutId={`view-item-position-${idx}`}
+                className="flex items-center gap-1"
+              >
+                <Icons.square className="size-4" />
+                <span className="text-muted-foreground">#{item.position}</span>
+              </motion.span>
+            )}
           </motion.div>
         )}
       </AnimatePresence>

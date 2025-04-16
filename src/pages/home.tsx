@@ -74,6 +74,9 @@ const Home = () => {
       <Hero hidden={isHidden} />
       <Feedback hidden={isHidden} />
       <ComponentPreview>
+        <View />
+      </ComponentPreview>
+      <ComponentPreview>
         <Plan />
       </ComponentPreview>
       <ComponentPreview>
@@ -92,10 +95,6 @@ const Home = () => {
 
       <ComponentPreview>
         <DotMatrixClock />
-      </ComponentPreview>
-
-      <ComponentPreview>
-        <View />
       </ComponentPreview>
       <ComponentPreview notReady>
         <StackClick />
