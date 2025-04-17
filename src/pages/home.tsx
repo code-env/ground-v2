@@ -29,6 +29,7 @@ import {
   LiveBlogs,
   MagneticLines,
   Map,
+  ModeToggle,
   MovieGallery,
   MusicSheet,
   NewHero,
@@ -51,8 +52,9 @@ import {
   Wheel,
   WordRoll,
   YearsTabs,
+  View,
+  Volume,
 } from "@/components/animations";
-import View from "@/components/animations/view";
 
 const Home = () => {
   const [isHidden, setIsHidden] = useState(false);
@@ -73,6 +75,15 @@ const Home = () => {
       <div className="h-screen fixed top-0 max-w-screen-lg inset-x-0 w-full mx-auto border-x border -z-10 candy-bg hidden md:block" />
       <Hero hidden={isHidden} />
       <Feedback hidden={isHidden} />
+      <ComponentPreview notReady>
+        <Volume />
+      </ComponentPreview>
+      <ComponentPreview>
+        <Map />
+      </ComponentPreview>
+      <ComponentPreview notReady>
+        <ModeToggle />
+      </ComponentPreview>
       <ComponentPreview>
         <View />
       </ComponentPreview>
@@ -89,10 +100,6 @@ const Home = () => {
       <ComponentPreview>
         <FluidButton />
       </ComponentPreview>
-      <ComponentPreview notReady>
-        <Map />
-      </ComponentPreview>
-
       <ComponentPreview>
         <DotMatrixClock />
       </ComponentPreview>

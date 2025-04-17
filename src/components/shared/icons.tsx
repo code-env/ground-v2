@@ -224,4 +224,41 @@ export const Icons = {
       </defs>
     </svg>
   ),
+  dark: (props: IconProps) => (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="100"
+      height="100"
+      viewBox="0 0 100 100"
+      fill="none"
+      {...props}
+    >
+      <rect width="100" height="100"></rect>
+      <path
+        d="M50 18C58.4869 18 66.6262 21.3714 72.6274 27.3726C78.6286 33.3737 82 41.513 82 50C82 58.4869 78.6286 66.6262 72.6275 72.6274C66.6263 78.6286 58.487 82 50.0001 82L50 50L50 18Z"
+        className="will-change-transform"
+        fill="currentColor"
+      ></path>
+      <circle
+        cx="50"
+        cy="50"
+        r="30"
+        className="will-change-transform"
+        strokeWidth="4"
+        stroke="currentColor"
+      ></circle>
+      <circle
+        cx="50"
+        cy="50"
+        r="12"
+        className="will-change-transform"
+        fill="currentColor"
+      ></circle>
+      <path
+        d="M50 62C53.1826 62 56.2348 60.7357 58.4853 58.4853C60.7357 56.2348 62 53.1826 62 50C62 46.8174 60.7357 43.7652 58.4853 41.5147C56.2348 39.2643 53.1826 38 50 38L50 50L50 62Z"
+        className="will-change-transform"
+        fill="currentColor"
+      ></path>
+    </svg>
+  ),
 };

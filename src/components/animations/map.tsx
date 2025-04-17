@@ -1,7 +1,12 @@
 import { cn } from "@/lib/utils";
-import { motion } from "motion/react";
+import { AnimatePresence, motion, Variants } from "motion/react";
 import { useEffect, useRef, useState } from "react";
-import { buttonVariants } from "../ui/button";
+import { Pause, Play } from "lucide-react";
+
+const playingVariants: Variants = {
+  hidden: { opacity: 0, scale: 0.3, filter: "blur(4px)" },
+  visible: { opacity: 1, scale: 1, filter: "blur(0px)" },
+};
 
 const Map = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -134,25 +139,41 @@ const Map = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="flex items-center bg-muted/10 p-4 rounded-lg mt-10 gap-10 border border-muted-foreground/20"
+        className="flex gap-10"
       >
         <motion.button
           onClick={handlePlayPause}
-          className={cn(buttonVariants({ variant: "outline" }))}
-          initial={{ width: 80 }}
-          animate={{
-            width: isPlaying ? 90 : 80,
-          }}
-          transition={{
-            duration: 0.3,
-            type: "spring",
-            bounce: 0,
-          }}
+          className="center h-10 max-w-10 w-10 min-w-10 border rounded-full"
         >
-          {isPlaying ? "Pause" : "Play"}
+          <AnimatePresence mode="wait" initial={false}>
+            {isPlaying ? (
+              <motion.span
+                variants={playingVariants}
+                initial="hidden"
+                animate="visible"
+                exit="hidden"
+                key="pause"
+                className="center size-full rounded-full"
+              >
+                <Pause className="size-4" />
+              </motion.span>
+            ) : (
+              <motion.span
+                variants={playingVariants}
+                initial="hidden"
+                animate="visible"
+                exit="hidden"
+                key="play"
+                className="center  rounded-full"
+              >
+                <Play className="size-4" />
+              </motion.span>
+            )}
+          </AnimatePresence>
+          <span className="sr-only">{isPlaying ? "Pause" : "Play"}</span>
         </motion.button>
         <div className="flex items-center gap-2">
-          <span className="text-zinc-400">Volume</span>
+          <span className="text-zinc-400 sr-only">Volume</span>
           <input
             type="range"
             min="0"

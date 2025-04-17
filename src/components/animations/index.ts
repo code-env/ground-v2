@@ -45,10 +45,13 @@ import DynamicStatusButton from "./dynamic-status-button";
 import FluidButton from "./fluid-button";
 import IslandMode from "./island-mode";
 import Map from "./map";
+import ModeToggle from "./mode-toggle";
 import Plan from "./plan";
 import StackClick from "./stacked-click";
 import StatusButton from "./status-button";
 import TodoList from "./todo-list";
+import View from "./view";
+import Volume from "./volume";
 
 export {
   AmieAction,
@@ -79,6 +82,7 @@ export {
   LiveBlogs,
   MagneticLines,
   Map,
+  ModeToggle,
   MovieGallery,
   MusicSheet,
   NewHero,
@@ -98,8 +102,10 @@ export {
   Uploader,
   UserSearch,
   UserStacked,
+  View,
   Wants,
   Wheel,
   WordRoll,
   YearsTabs,
+  Volume,
 };
