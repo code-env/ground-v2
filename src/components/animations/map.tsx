@@ -2,6 +2,7 @@ import { cn } from "@/lib/utils";
 import { AnimatePresence, motion, Variants, useInView } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import { Pause, Play } from "lucide-react";
+import audioFile from "@/assets/audio.mp3";
 
 const playingVariants: Variants = {
   hidden: { opacity: 0, scale: 0.3, filter: "blur(4px)" },
@@ -22,7 +23,7 @@ const Map = () => {
 
   useEffect(() => {
     const initializeAudio = async () => {
-      const audio = new Audio("/audio.mp3");
+      const audio = new Audio(audioFile);
       audio.volume = volume;
       audioRef.current = audio;
 
