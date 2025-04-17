@@ -78,7 +78,7 @@ const Home = () => {
       <ComponentPreview notReady>
         <Volume />
       </ComponentPreview>
-      <ComponentPreview>
+      <ComponentPreview notReady>
         <Map />
       </ComponentPreview>
       <ComponentPreview notReady>

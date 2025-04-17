@@ -22,9 +22,7 @@ const Map = () => {
 
   useEffect(() => {
     const initializeAudio = async () => {
-      const audio = new Audio(
-        "https://m2zg3gnlx4.ufs.sh/f/y0BW9aS79eWlwCfj1PWkHFCsi6GlEKjS3ycvLpk0gJzRTnVQ"
-      );
+      const audio = new Audio("/audio.mp3");
       audio.volume = volume;
       audioRef.current = audio;
 
