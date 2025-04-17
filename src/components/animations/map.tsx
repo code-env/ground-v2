@@ -35,6 +35,11 @@ const Map = () => {
 
       audioContextRef.current = audioContext;
       analyserRef.current = analyser;
+
+      // Add event listener for when audio ends
+      audio.addEventListener("ended", () => {
+        setIsPlaying(false);
+      });
     };
 
     initializeAudio();
