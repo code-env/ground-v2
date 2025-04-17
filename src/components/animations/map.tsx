@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import { AnimatePresence, motion, Variants } from "motion/react";
+import { AnimatePresence, motion, Variants, useInView } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import { Pause, Play } from "lucide-react";
 
@@ -18,6 +18,7 @@ const Map = () => {
   const animationFrameRef = useRef<number>();
   const [isPlaying, setIsPlaying] = useState(false);
   const [volume, setVolume] = useState(0.5);
+  const isInView = useInView(containerRef);
 
   useEffect(() => {
     const initializeAudio = async () => {
@@ -110,6 +111,21 @@ const Map = () => {
       audioRef.current.volume = newVolume;
     }
   };
+
+  useEffect(() => {
+    const handleKeyPress = (event: KeyboardEvent) => {
+      if (event.code === "Space" && isInView) {
+        event.preventDefault();
+        handlePlayPause();
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyPress);
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyPress);
+    };
+  }, [isInView, handlePlayPause]);
 
   return (
     <div className="full center relative flex flex-col gap-8">
