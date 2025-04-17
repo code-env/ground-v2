@@ -21,7 +21,7 @@ const BD = () => {
               key={index}
               className="absolute size-20 p-1 cursor-pointer shadow-lg shadow-black/10 rounded-lg bg-[url(/pic.png)] bg-cover bg-center"
               style={{ x, y, rotate: rotation }}
-            ></m.div>
+            />
           );
         })}
         <p className="text-2xl font-bold">Happy Birthday PiC</p>

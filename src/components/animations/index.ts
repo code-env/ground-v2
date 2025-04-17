@@ -40,7 +40,6 @@ import YearsTabs from "@/components/animations/years-tabs";
 import Feedback from "@/components/shared/feedback";
 import Footer from "@/components/shared/footer";
 import Hero from "@/components/shared/hero";
-import CirclingElements from "./circle";
 import DotMatrixClock from "./dotted-matric-clock";
 import DynamicStatusButton from "./dynamic-status-button";
 import FluidButton from "./fluid-button";
@@ -60,7 +59,6 @@ export {
   AnimatedFeedback,
   Bolt,
   Cashflow,
-  CirclingElements,
   ClickSelect,
   ComponentPreview,
   Counter,
