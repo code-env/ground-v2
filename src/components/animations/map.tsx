@@ -164,7 +164,7 @@ const Map = () => {
       >
         <motion.button
           onClick={handlePlayPause}
-          className="center h-10 max-w-10 w-10 min-w-10 border rounded-full"
+          className="center h-10 max-w-10 w-10 min-w-10 border rounded-full outline-none"
         >
           <AnimatePresence mode="wait" initial={false}>
             {isPlaying ? (
