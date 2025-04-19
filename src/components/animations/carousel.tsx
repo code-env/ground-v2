@@ -6,9 +6,9 @@ import { AnimatePresence, motion, useMotionValue } from "motion/react";
 import { useState } from "react";
 
 const ImageCarousel: React.FC<{
-  images: string[];
   className?: string;
-}> = ({ images, className }) => {
+}> = ({ className }) => {
+  const images = ["/succession.jpeg", "/mirror.jpeg", "/dune.jpg"];
   const [imgIndex, setImgIndex] = useState(0);
 
   const dragX = useMotionValue(0);
@@ -27,7 +27,7 @@ const ImageCarousel: React.FC<{
     <div
       className={cn(
         "group/hover relative aspect-square size-96 overflow-hidden rounded-lg",
-        className,
+        className
       )}
     >
       <div className="pointer-events-none absolute top-1/2 z-10 flex w-full -translate-y-1/2 justify-between px-5 ">

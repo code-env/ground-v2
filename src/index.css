@@ -86,7 +86,7 @@
   }
 
   .full {
-    @apply size-full rounded-xl bg-background;
+    @apply size-full bg-background;
   }
 
   .center {
