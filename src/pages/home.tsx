@@ -75,7 +75,7 @@ const Home = () => {
       <div className="h-screen fixed top-0 max-w-screen-lg inset-x-0 w-full mx-auto border-x border -z-10 candy-bg hidden md:block" />
       <Hero hidden={isHidden} />
       <Feedback hidden={isHidden} />
-      <ComponentPreview>
+      <ComponentPreview href="https://x.com/jakubkrehel/status/1911816000107901308">
         <ModeToggle />
       </ComponentPreview>
       <ComponentPreview notReady>
@@ -84,23 +84,23 @@ const Home = () => {
       <ComponentPreview notReady>
         <Map />
       </ComponentPreview>
-      <ComponentPreview>
+      <ComponentPreview href="https://x.com/gobennovela/status/1902773494158406036">
         <View />
       </ComponentPreview>
-      <ComponentPreview>
+      <ComponentPreview href="https://x.com/KumailNanji/status/1904512842684145854">
         <Plan />
       </ComponentPreview>
-      <ComponentPreview>
+      <ComponentPreview href="https://x.com/raunofreiberg/status/1578344374055751680">
         <TodoList />
       </ComponentPreview>
 
-      <ComponentPreview>
+      <ComponentPreview href="https://x.com/lochieaxon/status/1700192743576973633">
         <DynamicStatusButton />
       </ComponentPreview>
-      <ComponentPreview>
+      <ComponentPreview href="https://x.com/nonzeroexitcode/status/1883605350701826090">
         <FluidButton />
       </ComponentPreview>
-      <ComponentPreview>
+      <ComponentPreview href="https://showcase.saran13raj.com/desk-clock">
         <DotMatrixClock />
       </ComponentPreview>
       <ComponentPreview notReady>
@@ -115,20 +115,20 @@ const Home = () => {
       <ComponentPreview notReady>
         <Uploader />
       </ComponentPreview>
-      <ComponentPreview>
+      <ComponentPreview href="https://x.com/joebell_/status/1892549833946226770">
         <UserStacked />
       </ComponentPreview>
-      <ComponentPreview>
+      <ComponentPreview href="https://x.com/KumailNanji/status/1856692491702902929">
         <ClickSelect />
       </ComponentPreview>
 
       <ComponentPreview notReady>
         <UserSearch />
       </ComponentPreview>
-      <ComponentPreview>
+      <ComponentPreview href="https://x.com/raunofreiberg/status/1848279346785488939">
         <InputShotcut />
       </ComponentPreview>
-      <ComponentPreview>
+      <ComponentPreview href="https://x.com/bollmann0x/status/1892963996174581913">
         <WordRoll />
       </ComponentPreview>
       <ComponentPreview notReady>
@@ -141,28 +141,31 @@ const Home = () => {
       <ComponentPreview notReady>
         <LiveBlogs />
       </ComponentPreview>
-      <ComponentPreview>
+      <ComponentPreview href="https://x.com/victorwelander_/status/1889364334561648988">
         <InputCheck />
       </ComponentPreview>
       <ComponentPreview>
         <AnimatedCounter />
       </ComponentPreview>
-      <ComponentPreview height={15}>
+      <ComponentPreview
+        height={15}
+        href="https://x.com/nonzeroexitcode/status/1883120034131943830"
+      >
         <YearsTabs />
       </ComponentPreview>
-      <ComponentPreview>
+      <ComponentPreview href="https://joi.software/">
         <JoiDownloadButton />
       </ComponentPreview>
-      <ComponentPreview>
+      <ComponentPreview href="https://linear.app">
         <LinearTab />
       </ComponentPreview>
       <ComponentPreview>
         <TabBars />
       </ComponentPreview>
-      <ComponentPreview>
+      <ComponentPreview href="https://peerlist.io/scroll">
         <PeerListBar />
       </ComponentPreview>
-      <ComponentPreview>
+      <ComponentPreview href="https://ground.bossadizenith.me/">
         <NewHero />
       </ComponentPreview>
       <ComponentPreview>
@@ -174,31 +177,34 @@ const Home = () => {
       <ComponentPreview notReady>
         <DropdownNav />
       </ComponentPreview>
-      <ComponentPreview>
+      <ComponentPreview href="https://x.com/emilkowalski_/status/1782392557692948747">
         <AnimatedFeedback />
       </ComponentPreview>
-      <ComponentPreview>
+      <ComponentPreview href="https://x.com/Ibelick">
         <AmieAction />
       </ComponentPreview>
-      <ComponentPreview>
+      <ComponentPreview href="https://x.com/jakubkrehel/status/1797712038019633362">
         <Fellaz />
       </ComponentPreview>
-      <ComponentPreview>
+      <ComponentPreview href="https://x.com/jakubkrehel">
         <MovieGallery />
       </ComponentPreview>
-      <ComponentPreview>
+      <ComponentPreview href="https://x.com/nitishkmrk/status/1866733655227605156">
         <Wants />
       </ComponentPreview>
-      <ComponentPreview>
+      <ComponentPreview href="https://x.com/nitishkmrk/status/1816724129619558518">
         <Wheel />
       </ComponentPreview>
-      <ComponentPreview>
+      <ComponentPreview href="https://x.com/nitishkmrk/status/1804132896766308587">
         <Counter />
       </ComponentPreview>
-      <ComponentPreview>
+      <ComponentPreview href="https://www.aceternity.com/">
         <Bolt />
       </ComponentPreview>
-      <ComponentPreview height={200}>
+      <ComponentPreview
+        height={200}
+        href="https://x.com/KumailNanji/status/1857125863210225865"
+      >
         <Cashflow />
       </ComponentPreview>
       <ComponentPreview>
@@ -210,13 +216,13 @@ const Home = () => {
       <ComponentPreview notReady>
         <ImageCarousel images={images} />
       </ComponentPreview>
-      <ComponentPreview>
+      <ComponentPreview href="https://x.com/60fpsdesign/status/1820813051538333889">
         <Slider />
       </ComponentPreview>
       <ComponentPreview height={200} notReady>
         <DynamicIsland />
       </ComponentPreview>
-      <ComponentPreview>
+      <ComponentPreview href="https://x.com/nitishkmrk/status/1780849995635474492">
         <SignIn />
       </ComponentPreview>
       <ComponentPreview notReady>
