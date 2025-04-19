@@ -42,8 +42,7 @@ const ComponentPreview = ({
               href={href}
               target="_blank"
               className={cn(
-                "absolute top-0 right-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 border border-t-0 border-r-0 bg-red-50/80 px-2 py-0.5",
-                "flex items-center gap-2 gradient text-white"
+                "absolute top-0 right-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 border border-t-0 border-r-0 px-2 py-0.5 flex items-center gap-2 gradient text-white"
               )}
             >
               <p className="flex items-center gap-2 text-sm">
