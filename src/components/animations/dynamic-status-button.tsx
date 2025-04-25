@@ -64,7 +64,6 @@ const DynamicStatusButton = () => {
             "bg-red-100 shadow-none text-destructive hover:bg-red-100",
           "rounded-full overflow-hidden flex items-center gap-2 px-4 py-2"
         )}
-        key={status}
         animate={{
           width: status === "Loading" ? 220 : status === "Success" ? 180 : 210,
         }}

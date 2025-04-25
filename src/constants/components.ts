@@ -2,6 +2,11 @@ import * as Animated from "@/components/animations";
 
 export const COMPONENTS = [
   {
+    name: "Management bottom bar",
+    component: Animated.ManagementBottomBar,
+    href: "https://x.com/i/status/1915019518813851985",
+  },
+  {
     name: "ModeToggle",
     component: Animated.ModeToggle,
     href: "https://x.com/jakubkrehel/status/1911816000107901308",

@@ -44,6 +44,7 @@ import DotMatrixClock from "./dotted-matric-clock";
 import DynamicStatusButton from "./dynamic-status-button";
 import FluidButton from "./fluid-button";
 import IslandMode from "./island-mode";
+import ManagementBottomBar from "./management-bottom-bar";
 import Map from "./map";
 import ModeToggle from "./mode-toggle";
 import Plan from "./plan";
@@ -81,6 +82,7 @@ export {
   LinearTab,
   LiveBlogs,
   MagneticLines,
+  ManagementBottomBar,
   Map,
   ModeToggle,
   MovieGallery,
