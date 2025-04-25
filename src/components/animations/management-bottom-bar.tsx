@@ -161,7 +161,10 @@ const Counter: React.FC<CounterProps> = ({
   };
 
   return (
-    <div ref={scope} className="flex text-primary-foreground overflow-clip">
+    <div
+      ref={scope}
+      className="flex text-primary-foreground overflow-clip text-white"
+    >
       <button
         onClick={() => counter("decrease")}
         className={cn(
@@ -216,7 +219,7 @@ const Separator = () => (
 const ManagementBottomBar = () => {
   return (
     <div className="center full">
-      <div className="flex flex-wrap items-center gap-2 rounded-lg border p-1.5 bg-primary shadow-[inset_0_0_0_2px_rgba(256,256,256,0.2)]">
+      <div className="flex flex-wrap items-center gap-2 rounded-lg border p-1.5 bg-black shadow-[inset_0_0_0_2px_rgba(256,256,256,0.2)]">
         <Counter />
         <Separator />
         <ExpandableTabs />
