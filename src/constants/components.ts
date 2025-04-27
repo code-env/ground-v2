@@ -2,6 +2,17 @@ import * as Animated from "@/components/animations";
 
 export const COMPONENTS = [
   {
+    name: "Task View",
+    component: Animated.Tasks,
+    href: "",
+  },
+  {
+    name: "Management bottom bar",
+    component: Animated.CustomTextarea,
+    href: "",
+    notReady: true,
+  },
+  {
     name: "Management bottom bar",
     component: Animated.ManagementBottomBar,
     href: "https://x.com/i/status/1915019518813851985",

@@ -30,7 +30,6 @@ const JoiDownloadButton = () => {
         <motion.span animate={{ x: hovered ? -22 : 0 }} transition={TRANSITION}>
           Download for IOS
         </motion.span>
-
         <motion.span
           animate={{ x: hovered ? -12 : 20, opacity: hovered ? 1 : 0 }}
           transition={TRANSITION}

@@ -102,7 +102,7 @@ const ClickSelect = () => {
                   layoutId={select.name}
                   className={cn(
                     "flex cursor-pointer items-center gap-2 rounded-full w-fit py-1 px-2 capitalize relative",
-                    select.className,
+                    select.className
                   )}
                 >
                   <span>{select.name}</span>
@@ -141,7 +141,7 @@ const ClickSelect = () => {
                     onClick={() => handleAdd(item)}
                     className={cn(
                       "flex cursor-pointer items-center gap-4 rounded-full w-fit p-1 px-2 capitalize z-0 relative",
-                      item.className,
+                      item.className
                     )}
                   >
                     <span>{item.name}</span>

@@ -40,6 +40,7 @@ import YearsTabs from "@/components/animations/years-tabs";
 import Feedback from "@/components/shared/feedback";
 import Footer from "@/components/shared/footer";
 import Hero from "@/components/shared/hero";
+import CustomTextarea from "./custom-textarea";
 import DotMatrixClock from "./dotted-matric-clock";
 import DynamicStatusButton from "./dynamic-status-button";
 import FluidButton from "./fluid-button";
@@ -50,6 +51,7 @@ import ModeToggle from "./mode-toggle";
 import Plan from "./plan";
 import StackClick from "./stacked-click";
 import StatusButton from "./status-button";
+import Tasks from "./tasks";
 import TodoList from "./todo-list";
 import View from "./view";
 import Volume from "./volume";
@@ -64,6 +66,7 @@ export {
   ComponentPreview,
   Counter,
   Cursor,
+  CustomTextarea,
   DotMatrixClock,
   DropdownNav,
   DynamicIsland,
@@ -98,6 +101,7 @@ export {
   StackClick,
   StatusButton,
   TabBars,
+  Tasks,
   TelegramInput,
   TodoList,
   Typer,
