@@ -4,7 +4,7 @@ export const COMPONENTS = [
   {
     name: "Task View",
     component: Animated.Tasks,
-    href: "",
+    href: "https://x.com/alisamadi__/status/1914333366394212708",
   },
   {
     name: "Management bottom bar",
