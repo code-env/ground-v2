@@ -41,7 +41,7 @@ const Hero = ({ hidden, count }: { hidden: boolean; count: number }) => {
         <a
           href={siteConfig.link.githubRepo}
           target="_blank"
-          className="absolute top-0 right-0 flex items-center gap-2 border border-r-0 border-t-0 border-muted-foreground/20 p-2 text-sm font-medium"
+          className="absolute top-0 right-0 md:flex items-center gap-2 border border-r-0 border-t-0 border-muted-foreground/20 p-2 text-sm font-medium hidden"
         >
           <Icons.github className="w-4 h-4 fill-primary" />
           <span>Star on GitHub</span>

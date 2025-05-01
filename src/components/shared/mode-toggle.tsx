@@ -34,14 +34,14 @@ const ThemeSwitcher = () => {
   if (!mouted) return;
 
   return (
-    <div className="fixed border bottom-0 left-0 p-1 border-l-0 border-b-0 !z-[999] bg-muted/40 rounded-tr-xl flex items-center gap-2">
+    <div className="fixed hidden md:flex border bottom-0 left-0 p-1 border-l-0 border-b-0 !z-[999] bg-muted/40 rounded-tr-xl items-center gap-2">
       {themes.map((theme, index) => {
         // something
         return (
           <button
             key={index + theme.name}
             className={cn(
-              "size-6 flex items-center justify-center relative outline-none ring-0",
+              "size-6 flex items-center justify-center relative outline-none ring-0"
             )}
             onClick={() => setTheme(theme.name)}
           >
