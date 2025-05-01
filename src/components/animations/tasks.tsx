@@ -138,9 +138,9 @@ const Tasks = () => {
                 key={date.date}
                 layoutId={`day-${date.date}`}
                 className={cn(
-                  "flex flex-col gap-1 items-center hover:bg-muted-foreground/10 rounded-xl p-2 cursor-pointer text-primary/70",
+                  "flex flex-col items-center hover:bg-muted-foreground/10 rounded-xl p-2 cursor-pointer text-primary/70 relative",
                   selected?.date === date.date &&
-                    "bg-muted-foreground/10 text-primary"
+                    "bg-background text-primary border hover:bg-background/80"
                 )}
                 onClick={() => setSelected(date)}
                 whileHover={{ scale: 1.03 }}
@@ -149,6 +149,12 @@ const Tasks = () => {
                 <h2>{date.month}</h2>
                 <p className="font-bold">{date.date}</p>
                 <p>{date.day}</p>
+                {selected?.date === date.date && (
+                  <m.div
+                    className="absolute size-2 bg-red-500 -top-1 rounded-xl bg-background"
+                    layoutId="day-selected-active"
+                  />
+                )}
               </m.div>
             ))}
           </div>

@@ -1,11 +1,10 @@
 import { buttonVariants } from "@/components/ui/button";
-import { COMPONENTS } from "@/constants/components";
 import { siteConfig } from "@/lib/config";
 import { motion } from "motion/react";
 import { Icons } from "./icons";
 import Logo from "./logo";
 
-const Hero = ({ hidden }: { hidden: boolean }) => {
+const Hero = ({ hidden, count }: { hidden: boolean; count: number }) => {
   return (
     <div className="w-full md:border-b bg-background">
       <div className="flex flex-col items-center justify-center pt-40 pb-20 gap-10 mx-auto w-full max-w-screen-lg bg-background md:border-x relative">
@@ -25,7 +24,7 @@ const Hero = ({ hidden }: { hidden: boolean }) => {
             className={buttonVariants({ size: "lg", className: "!rounded-md" })}
           >
             <motion.span layoutId="home-chat-button-text">
-              Browse {COMPONENTS.filter((c) => !c.notReady).length} Components
+              Browse {count} Components
             </motion.span>
           </motion.button>
         ) : (

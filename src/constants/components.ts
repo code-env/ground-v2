@@ -1,8 +1,17 @@
 import * as Animated from "@/components/animations";
 
-export const COMPONENTS = [
+type Component = {
+  name: string;
+  component: React.ComponentType<any>;
+  href: string;
+  notReady?: boolean;
+  height?: number;
+};
+
+export const COMPONENTS: Component[] = [
   {
     name: "Task View",
+    notReady: false,
     component: Animated.Tasks,
     href: "https://x.com/alisamadi__/status/1914333366394212708",
   },
