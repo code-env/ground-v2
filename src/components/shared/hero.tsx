@@ -1,9 +1,9 @@
-import { motion } from "motion/react";
 import { buttonVariants } from "@/components/ui/button";
+import { COMPONENTS } from "@/constants/components";
+import { siteConfig } from "@/lib/config";
+import { motion } from "motion/react";
+import { Icons } from "./icons";
 import Logo from "./logo";
-// import { Icons } from "./icons";
-// import { Star } from "lucide-react";
-// import { siteConfig } from "@/lib/config";
 
 const Hero = ({ hidden }: { hidden: boolean }) => {
   return (
@@ -25,7 +25,7 @@ const Hero = ({ hidden }: { hidden: boolean }) => {
             className={buttonVariants({ size: "lg", className: "!rounded-md" })}
           >
             <motion.span layoutId="home-chat-button-text">
-              Scroll to browse Components
+              Browse {COMPONENTS.filter((c) => !c.notReady).length} Components
             </motion.span>
           </motion.button>
         ) : (
@@ -39,15 +39,14 @@ const Hero = ({ hidden }: { hidden: boolean }) => {
           </button>
         )}
 
-        {/* <a
+        <a
           href={siteConfig.link.githubRepo}
           target="_blank"
           className="absolute top-0 right-0 flex items-center gap-2 border border-r-0 border-t-0 border-muted-foreground/20 p-2 text-sm font-medium"
         >
           <Icons.github className="w-4 h-4 fill-primary" />
           <span>Star on GitHub</span>
-          <Star className="w-4 h-4 fill-primary/50" />
-        </a> */}
+        </a>
       </div>
     </div>
   );
