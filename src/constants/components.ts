@@ -27,7 +27,7 @@ export const COMPONENTS: Component[] = [
     href: "https://x.com/alisamadi__/status/1914333366394212708",
   },
   {
-    name: "Management bottom bar",
+    name: "Custom Textarea",
     component: Animated.CustomTextarea,
     href: "",
     notReady: true,

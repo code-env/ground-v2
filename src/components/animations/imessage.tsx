@@ -1,9 +1,11 @@
 "use client";
 
-import { Mic, PlusIcon, Sticker } from "lucide-react";
-import { AnimatePresence, motion, Variants } from "motion/react";
+import { cn } from "@/lib/utils";
 import { EditorContent, useEditor } from "@tiptap/react";
+import Placeholder from "@tiptap/extension-placeholder";
 import Starter from "@tiptap/starter-kit";
+import { Mic, PlusIcon, Sticker, X } from "lucide-react";
+import { AnimatePresence, motion, Variants } from "motion/react";
 import { useState } from "react";
 
 const transitionDebug = {
@@ -11,6 +13,14 @@ const transitionDebug = {
   duration: 0.2,
 };
 
+const selectedMessageVariants: Variants = {
+  initial: {
+    y: 50,
+  },
+  animate: {
+    y: 0,
+  },
+};
 const Imessage = () => {
   const [messages, setMessages] = useState<
     {
@@ -18,6 +28,8 @@ const Imessage = () => {
       text: string;
     }[]
   >([]);
+  const [selectedMessage, setSelectedMessage] = useState<string | null>(null);
+
   const [newMessage, setNewMessage] = useState<string>("");
 
   const handleSubmit = () => {
@@ -33,69 +45,100 @@ const Imessage = () => {
       <div className="flex flex-col justify-end items-end gap-0.5 flex-1 h-full w-full overflow-hidden">
         <AnimatePresence mode="wait">
           {messages.map((message) => (
-            <motion.div
+            <div
               key={message.id}
-              layout="position"
-              className="z-10 max-w-[80%] break-words rounded  bg-background"
-              layoutId={`container-[${messages.length - 1}]`}
-              transition={transitionDebug}
+              className="flex flex-col items-end w-full"
+              onDoubleClick={() => setSelectedMessage(message.text)}
             >
-              <div className="px-3 py-2 text-base ">{message.text}</div>
-            </motion.div>
+              <motion.div
+                layoutId={`container-[${messages.length - 1}]`}
+                transition={transitionDebug}
+                layout="position"
+                className="px-3 py-2 text-base max-w-[80%] bg-background z-10 break-words rounded"
+              >
+                {message.text}
+              </motion.div>
+            </div>
           ))}
         </AnimatePresence>
       </div>
-      <div className="flex w-full items-end bg-background rounded-[22px] p-1">
-        <div className="flex gap-0.5">
-          <Button>
-            <PlusIcon className="size-5" />
-          </Button>
-          <Button>
-            <Sticker className="size-5" />
+      <motion.div
+        className="w-full flex flex-col bg-background p-2 gap-2 relative overflow-hidden"
+        animate={{
+          borderRadius: selectedMessage ? "10px 10px 22px 22px" : "28px",
+        }}
+      >
+        <AnimatePresence>
+          {selectedMessage && (
+            <motion.div
+              variants={selectedMessageVariants}
+              initial="initial"
+              animate="animate"
+              exit="initial"
+              className="w-full bg-muted h-20 rounded-md relative p-2 z-0"
+            >
+              <p className="text-sm line-clamp-2 w-full text-muted-foreground">
+                {selectedMessage}
+              </p>
+              <Button
+                className="absolute top-0 right-0 size-6 center"
+                onClick={() => setSelectedMessage(null)}
+              >
+                <X className="size-4" />
+              </Button>
+            </motion.div>
+          )}
+        </AnimatePresence>
+        <div className="flex w-full items-end z-[9999999] bg-background">
+          <div className="flex gap-0.5">
+            <Button>
+              <PlusIcon className="size-5" />
+            </Button>
+            <Button>
+              <Sticker className="size-5" />
+            </Button>
+          </div>
+          <Input setMessage={setNewMessage} handleSubmit={handleSubmit} />
+          <motion.div
+            key={messages.length}
+            layout="position"
+            className="pointer-events-none absolute z-10 flex h-9 w-[80%] items-center overflow-hidden break-words rounded-full  [word-break:break-word] "
+            layoutId={`container-[${messages.length}]`}
+            transition={transitionDebug}
+            initial={{ opacity: 0.6, zIndex: -1 }}
+            animate={{ opacity: 0.6, zIndex: -1 }}
+            exit={{ opacity: 1, zIndex: 1 }}
+          >
+            <div className="">{newMessage}</div>
+          </motion.div>
+          <Button className="size-10 group hover:bg-[#1daa61] rounded-full center transition-all duration-300">
+            <Mic className="" />
           </Button>
         </div>
-        <Input setMessage={setNewMessage} handleSubmit={handleSubmit} />
-        <motion.div
-          key={messages.length}
-          layout="position"
-          className="pointer-events-none absolute z-10 flex h-9 w-[80%] items-center overflow-hidden break-words rounded-full  [word-break:break-word] "
-          layoutId={`container-[${messages.length}]`}
-          transition={transitionDebug}
-          initial={{ opacity: 0.6, zIndex: -1 }}
-          animate={{ opacity: 0.6, zIndex: -1 }}
-          exit={{ opacity: 1, zIndex: 1 }}
-        >
-          <div className="">{newMessage}</div>
-        </motion.div>
-        <Button>
-          <Mic className="size-5" />
-        </Button>
-      </div>
+      </motion.div>
     </div>
   );
 };
 
 const Button = ({
   children,
-  onClick,
-}: {
+  className,
+  ...props
+}: React.ButtonHTMLAttributes<HTMLButtonElement> & {
   children: React.ReactNode;
-  onClick?: () => void;
 }) => {
   return (
     <button
       type="submit"
-      className="flex size-10 items-center justify-center bg-background rounded-full hover:bg-muted transition-all duration-300"
-      onClick={onClick}
+      className={cn(
+        "flex size-10 items-center justify-center bg-background rounded-full hover:bg-muted transition-all duration-300",
+        className
+      )}
+      {...props}
     >
       {children}
     </button>
   );
-};
-
-const paragraphVariants: Variants = {
-  hidden: { opacity: 0, x: 10, filter: "blur(10px)" },
-  visible: { opacity: 1, x: 0, filter: "blur(0px)" },
 };
 
 const Input = ({
@@ -107,10 +150,12 @@ const Input = ({
 }) => {
   const editor = useEditor({
     extensions: [
-      Starter.configure({
-        italic: false,
+      Starter,
+      Placeholder.configure({
+        placeholder: "Type a message",
       }),
     ],
+
     onUpdate: ({ editor }) => {
       setMessage(editor.getText());
     },
@@ -127,19 +172,9 @@ const Input = ({
     <div className="flex flex-1 relative">
       <EditorContent
         editor={editor}
-        className="max-h-96 overflow-y-auto min-h-10 outline-none py-2 w-full px-1"
+        className="max-h-96 overflow-y-auto min-h-10 outline-none py-2 w-full px-1 bg-background"
         onKeyDown={handleKeyDown}
-        starter-kit
       />
-      <motion.p
-        variants={paragraphVariants}
-        animate={editor?.getText().length === 0 ? "visible" : "hidden"}
-        exit="hidden"
-        initial="hidden"
-        className="absolute left-1 top-0 bottom-0 my-auto h-fit text-neutral-500"
-      >
-        Type a message
-      </motion.p>
     </div>
   );
 };
