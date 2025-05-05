@@ -15,7 +15,7 @@ const transitionDebug = {
 
 const selectedMessageVariants: Variants = {
   initial: {
-    y: 50,
+    y: 100,
   },
   animate: {
     y: 0,

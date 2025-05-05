@@ -13,10 +13,11 @@ export const COMPONENTS: Component[] = [
     name: "iMessage",
     component: Animated.Imessage,
     href: "",
+    notReady: true,
   },
   {
     name: "New Member",
-    notReady: false,
+    notReady: true,
     component: Animated.NewMember,
     href: "",
   },
