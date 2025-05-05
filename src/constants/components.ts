@@ -10,6 +10,17 @@ type Component = {
 
 export const COMPONENTS: Component[] = [
   {
+    name: "iMessage",
+    component: Animated.Imessage,
+    href: "",
+  },
+  {
+    name: "New Member",
+    notReady: false,
+    component: Animated.NewMember,
+    href: "",
+  },
+  {
     name: "Task View",
     notReady: false,
     component: Animated.Tasks,

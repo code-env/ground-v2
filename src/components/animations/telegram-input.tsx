@@ -200,7 +200,7 @@ function Editor({ setInput, handleSubmit, messages }: EditorProps) {
     <div className="flex flex-col gap-4 flex-1 relative">
       <EditorContent
         editor={editor}
-        className="max-h-96  overflow-y-auto py-3 outline-none rounded-lg min-h-full"
+        className="max-h-96 overflow-y-auto py-3 outline-none rounded-lg min-h-full"
         onKeyDown={handleKeyDown}
         starter-kit
       />
