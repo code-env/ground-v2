@@ -32,6 +32,7 @@ import Map from "@/components/animations/map";
 import ModeToggle from "@/components/animations/mode-toggle";
 import MovieGallery from "@/components/animations/movie-gallery";
 import MusicSheet from "@/components/animations/music-shit";
+import Passwords from "@/components/animations/password";
 import PeerListBar from "@/components/animations/peerlist-bar";
 import Plan from "@/components/animations/plan";
 import ProfileEdit from "@/components/animations/profile-edit";
@@ -95,6 +96,7 @@ export {
   MusicSheet,
   NewHero,
   NewMember,
+  Passwords,
   PeerListBar,
   Plan,
   ProfileEdit,
