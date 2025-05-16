@@ -12,8 +12,7 @@ export const COMPONENTS: Component[] = [
   {
     name: "Passwords",
     component: Animated.Passwords,
-    href: "",
-    notReady: true,
+    href: "https://x.com/Praha37v/status/1923197766534300093",
   },
   {
     name: "iMessage",
