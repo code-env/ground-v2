@@ -10,6 +10,12 @@ type Component = {
 
 export const COMPONENTS: Component[] = [
   {
+    name: "MusicSheet",
+    component: Animated.MusicSheet,
+    href: "",
+    height: 200,
+  },
+  {
     name: "Passwords",
     component: Animated.Passwords,
     href: "https://x.com/Praha37v/status/1923197766534300093",
@@ -145,12 +151,6 @@ export const COMPONENTS: Component[] = [
     component: Animated.Cursor,
     href: "",
     notReady: true,
-  },
-  {
-    name: "MusicSheet",
-    component: Animated.MusicSheet,
-    href: "",
-    height: 200,
   },
   {
     name: "LiveBlogs",
