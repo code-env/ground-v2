@@ -1,20 +1,23 @@
-import { cn } from "@/lib/utils";
 import { motion } from "motion/react";
 import { useState } from "react";
 
-interface CardData {
+// Types
+interface JobItem {
   id: number;
   title: string;
   subtitle: string;
   description: string;
   image: string;
+  angle: number;
+  hoverAngle: number;
   salary: {
     amount: string;
     className: string;
   };
 }
 
-const INITIAL_CARDS = [
+// Data
+const JOBS: JobItem[] = [
   {
     id: 1,
     title: "Developer",
@@ -22,6 +25,8 @@ const INITIAL_CARDS = [
     description:
       "I'm a software engineer with a passion for building web and mobile applications.",
     image: "/things/dev.png",
+    angle: -5,
+    hoverAngle: -10,
     salary: {
       amount: "100,000",
       className: "text-green-500 bg-green-500/10 border border-green-500",
@@ -33,6 +38,8 @@ const INITIAL_CARDS = [
     subtitle: "Medical Assistant",
     description: "I'm a nurse with a passion for helping people.",
     image: "/things/nurse.png",
+    angle: -10,
+    hoverAngle: -5,
     salary: {
       amount: "50,000",
       className: "text-blue-500 bg-blue-500/10 border border-blue-500",
@@ -44,6 +51,8 @@ const INITIAL_CARDS = [
     subtitle: "Camera Man",
     description: "I'm a photographer with a passion for capturing moments.",
     image: "/things/photographer.png",
+    angle: -15,
+    hoverAngle: 5,
     salary: {
       amount: "30,000",
       className: "text-yellow-500 bg-yellow-500/10 border border-yellow-500",
@@ -55,137 +64,119 @@ const INITIAL_CARDS = [
     subtitle: "Restaurant Staff",
     description: "I'm a waiter with a passion for serving people.",
     image: "/things/waiter.png",
+    angle: -20,
+    hoverAngle: 10,
     salary: {
       amount: "20,000",
-      className: "text-blue-500 bg-blue-500/10 border border-blue-500",
+      className: "text-orange-500 bg-orange-500/10 border border-orange-500",
     },
   },
-] as const;
+];
 
-const ANIMATION_CONFIG = {
-  stacked: {
-    rotate: (index: number) => -5 * (index + 1),
-    y: 0,
-  },
-  revealed: {
-    rotate: (index: number) => {
-      const angles = [-10, -5, 5, 10];
-      return angles[index] || 0;
-    },
-    y: (index: number, total: number) => {
-      if (index === 0) return 20;
-      if (index === total - 1) return 20;
-      return 0;
-    },
-  },
-};
+// Animation configurations
+const SPRING_CONFIG = { type: "spring", stiffness: 200, damping: 20 } as const;
+const CARD_OVERLAP = -30;
+const EDGE_CARD_OFFSET = 50;
 
-export default function CareerCards() {
-  const [isRevealed, setIsRevealed] = useState(false);
-  const [hoveredId, setHoveredId] = useState<number | null>(null);
+// Utility function to combine class names
+const cn = (...classes: (string | undefined)[]) =>
+  classes.filter(Boolean).join(" ");
 
-  return (
-    <div
-      className="relative size-full flex items-center justify-center rounded-xl bg-background"
-      onMouseEnter={() => setIsRevealed(true)}
-      onMouseLeave={() => {
-        setIsRevealed(false);
-        setHoveredId(null);
-      }}
-    >
-      <div
-        className={cn("relative", isRevealed ? "w-full h-full" : "w-56 h-72")}
-      >
-        {INITIAL_CARDS.map((card, index) => (
-          <Card
-            key={card.id}
-            data={card}
-            index={index}
-            total={INITIAL_CARDS.length}
-            isRevealed={isRevealed}
-            isHovered={hoveredId === card.id}
-            onHover={(id) => setHoveredId(id)}
-            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
-          />
-        ))}
-      </div>
-    </div>
-  );
-}
-
-interface CardProps {
-  data: CardData;
+// Components
+interface JobCardProps {
+  item: JobItem;
   index: number;
-  total: number;
   isRevealed: boolean;
-  isHovered: boolean;
-  onHover: (id: number | null) => void;
-  className?: string;
 }
 
-function Card({
-  data,
-  index,
-  total,
-  isRevealed,
-  isHovered,
-  onHover,
-  className,
-}: CardProps) {
-  const config = isRevealed
-    ? ANIMATION_CONFIG.revealed
-    : ANIMATION_CONFIG.stacked;
-  const rotateValue = config.rotate(index);
-  const yOffset =
-    typeof config.y === "function" ? config.y(index, total) : config.y;
+const JobCard = ({ item, index, isRevealed }: JobCardProps) => {
+  const isEdgeCard = index === 0 || index === JOBS.length - 1;
 
   return (
     <motion.div
-      layoutId={`career-card-${data.id}`}
       className={cn(
-        "w-80 h-96 bg-muted rounded-2xl shadow-lg overflow-hidden cursor-pointer",
-        className
+        "w-80 h-96 border bg-background p-1 rounded-2xl shadow-lg overflow-hidden min-w-80",
+        !isRevealed ? "absolute" : undefined
       )}
+      layoutId={`job-card-${item.id}`}
       animate={{
-        rotate: rotateValue,
-        y: yOffset,
-        x: isRevealed ? index * -30 : 0,
-        scale: isHovered ? 1.02 : 1,
-        zIndex: isHovered ? 50 : total - index,
+        rotate: isRevealed ? item.hoverAngle : item.angle,
+        zIndex: JOBS.length - index,
+        marginLeft: isRevealed ? index * CARD_OVERLAP : "auto",
+        marginTop: isRevealed && isEdgeCard ? EDGE_CARD_OFFSET : 0,
       }}
-      onMouseEnter={() => onHover(data.id)}
-      onMouseLeave={() => onHover(null)}
-      transition={{
-        type: "spring",
-        stiffness: 200,
-        damping: 20,
-      }}
+      transition={SPRING_CONFIG}
     >
-      <div className="size-full bg-background p-4 flex flex-col gap-4">
-        <div className="relative aspect-square rounded-lg overflow-hidden bg-muted">
+      <div className="size-full bg-background rounded-xl p-4 relative">
+        <div className="flex flex-col gap-2">
           <img
-            src={data.image}
-            alt={data.title}
-            className="size-full object-cover"
+            src={item.image}
+            alt={item.title}
+            width={200}
+            height={200}
+            className="mx-auto object-cover"
           />
-          <div
-            className={cn(
-              "absolute top-2 right-2 px-2 py-1 rounded-lg text-sm font-medium",
-              data.salary.className
-            )}
-          >
-            ${data.salary.amount}
+          <div>
+            <h3 className="text-2xl font-bold">{item.title}</h3>
+            <p className="text-lg text-muted-foreground">{item.subtitle}</p>
+            <p className="text-sm text-muted-foreground/60 mt-2 line-clamp-3">
+              {item.description}
+            </p>
+            <span
+              className={cn(
+                item.salary.className,
+                "text-sm font-bold absolute top-2 right-2 px-2 py-1 rounded-lg"
+              )}
+            >
+              ${item.salary.amount}
+            </span>
           </div>
-        </div>
-
-        <div className="flex-1 flex flex-col">
-          <h3 className="text-2xl font-bold">{data.title}</h3>
-          <p className="text-muted-foreground">{data.subtitle}</p>
-          <p className="text-sm text-muted-foreground/80 mt-2 line-clamp-3">
-            {data.description}
-          </p>
         </div>
       </div>
     </motion.div>
   );
+};
+
+interface CardStackProps {
+  items: JobItem[];
+  isRevealed: boolean;
 }
+
+const CardStack = ({ items, isRevealed }: CardStackProps) => (
+  <div
+    className={
+      isRevealed
+        ? "size-full flex items-center justify-center relative"
+        : "size-56 flex items-center justify-center"
+    }
+  >
+    {items.map((item, index) => (
+      <JobCard
+        key={item.id}
+        item={item}
+        index={index}
+        isRevealed={isRevealed}
+      />
+    ))}
+  </div>
+);
+
+// Main component
+const MusicSheet = () => {
+  const [isRevealed, setIsRevealed] = useState(false);
+
+  const handleMouseEnter = () => setIsRevealed(true);
+  const handleMouseLeave = () => setIsRevealed(false);
+
+  return (
+    <div
+      className="relative size-full flex items-center justify-center rounded-xl min-h-96"
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
+      <CardStack items={JOBS} isRevealed={isRevealed} />
+    </div>
+  );
+};
+
+export default MusicSheet;
