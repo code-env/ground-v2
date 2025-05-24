@@ -150,7 +150,6 @@ export const COMPONENTS: Component[] = [
     name: "MusicSheet",
     component: Animated.MusicSheet,
     href: "",
-    notReady: true,
     height: 200,
   },
   {
