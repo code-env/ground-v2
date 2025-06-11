@@ -58,6 +58,8 @@ import YearsTabs from "@/components/animations/years-tabs";
 import Feedback from "@/components/shared/feedback";
 import Footer from "@/components/shared/footer";
 import Hero from "@/components/shared/hero";
+import Otp from "./otp";
+import MagneticDoc from "./magnetic-doc";
 
 export {
   AmieAction,
@@ -96,6 +98,7 @@ export {
   MusicSheet,
   NewHero,
   NewMember,
+  Otp,
   Passwords,
   PeerListBar,
   Plan,
@@ -120,4 +123,5 @@ export {
   Wheel,
   WordRoll,
   YearsTabs,
+  MagneticDoc,
 };

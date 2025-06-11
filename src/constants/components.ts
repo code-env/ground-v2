@@ -10,6 +10,18 @@ type Component = {
 
 export const COMPONENTS: Component[] = [
   {
+    name: "MagneticDoc",
+    component: Animated.MagneticDoc,
+    href: "https://x.com/markoilico/status/1924948054681256136",
+    height: 200,
+  },
+  {
+    name: "Otp",
+    component: Animated.Otp,
+    href: "https://x.com/markoilico/status/1924948054681256136",
+    height: 200,
+  },
+  {
     name: "MusicSheet",
     component: Animated.MusicSheet,
     href: "https://x.com/markoilico/status/1924948054681256136",
