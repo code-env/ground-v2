@@ -21,6 +21,7 @@ export const COMPONENTS: Component[] = [
     component: Animated.Otp,
     href: "https://x.com/markoilico/status/1924948054681256136",
     height: 200,
+    notReady: true,
   },
   {
     name: "MusicSheet",
