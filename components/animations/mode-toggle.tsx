@@ -4,7 +4,7 @@ import {
   MotionConfig,
   Variants,
 } from "motion/react";
-import { useTheme } from "@/providers/theme";
+import { useTheme } from "next-themes";
 import { useState } from "react";
 
 const modeVariants: Variants = {
@@ -54,7 +54,7 @@ const ModeToggle = () => {
   return (
     <MotionConfig
       transition={{
-        easings: [0.1, 0.9, 0.2, 1],
+        ease: [0.1, 0.9, 0.2, 1],
         duration: 0.5,
       }}
     >

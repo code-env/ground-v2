@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import { useTheme } from "@/providers/theme";
+import { useTheme } from "next-themes";
 import {
   AnimatePresence,
   motion as m,
