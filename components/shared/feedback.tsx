@@ -1,6 +1,6 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { motion, MotionConfig, type Transition } from "motion/react";
-import { Dispatch, SetStateAction, useRef, useState } from "react";
+import { Dispatch, RefObject, SetStateAction, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 
@@ -36,7 +36,9 @@ const Feedback = ({ hidden }: { hidden: boolean }) => {
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
-  useClickOutside(ref, () => setOpen(false));
+  useClickOutside(ref as RefObject<HTMLElement>, () => setOpen(false));
+
+  if (process.env.NODE_ENV === "development") return null;
 
   return (
     <MotionConfig transition={TRANSITION}>

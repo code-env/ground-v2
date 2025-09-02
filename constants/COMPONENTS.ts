@@ -10,6 +10,12 @@ type Component = {
 
 export const COMPONENTS: Component[] = [
   {
+    name: "Timer",
+    component: Animated.Timer,
+    href: "https://x.com/i/status/1962570382864425018",
+    notReady: true,
+  },
+  {
     name: "MagneticDoc",
     component: Animated.MagneticDoc,
     href: "https://x.com/markoilico/status/1924948054681256136",

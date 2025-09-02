@@ -173,11 +173,11 @@ export const Icons = {
     >
       <g filter="url(#filter0_i_14_2337)">
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M11.751 4.72464L8.44634 1.41797C7.18501 0.155303 5.45101 0.192637 4.12965 1.51197L1.01498 4.62597C-0.302354 5.94927 -0.34102 7.68394 0.920313 8.9426L4.22498 12.2493C4.84098 12.8639 5.56901 13.1706 6.30567 13.1706C7.08034 13.1706 7.86567 12.8313 8.54167 12.1559L11.6557 9.0366C12.3097 8.38394 12.669 7.5886 12.669 6.7966C12.669 6.04127 12.351 5.32394 11.751 4.72464Z"
-          fill="#FEBE02"
-          fill-opacity="0.15"
+          fill="currentColor"
+          fillOpacity="0.15"
         ></path>
       </g>
       <defs>
@@ -188,9 +188,9 @@ export const Icons = {
           width="12.6689"
           height="12.6746"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
+          <feFlood floodOpacity="0" result="BackgroundImageFix"></feFlood>
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -258,6 +258,22 @@ export const Icons = {
         d="M50 62C53.1826 62 56.2348 60.7357 58.4853 58.4853C60.7357 56.2348 62 53.1826 62 50C62 46.8174 60.7357 43.7652 58.4853 41.5147C56.2348 39.2643 53.1826 38 50 38L50 50L50 62Z"
         className="will-change-transform"
         fill="currentColor"
+      ></path>
+    </svg>
+  ),
+  clock: (props: IconProps) => (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      {...props}
+    >
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22ZM13 8C13 7.44772 12.5523 7 12 7C11.4477 7 11 7.44772 11 8V12C11 12.2652 11.1054 12.5196 11.2929 12.7071L13.7929 15.2071C14.1834 15.5976 14.8166 15.5976 15.2071 15.2071C15.5976 14.8166 15.5976 14.1834 15.2071 13.7929L13 11.5858V8Z"
       ></path>
     </svg>
   ),

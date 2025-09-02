@@ -58,8 +58,9 @@ import YearsTabs from "@/components/animations/years-tabs";
 import Feedback from "@/components/shared/feedback";
 import Footer from "@/components/shared/footer";
 import Hero from "@/components/shared/hero";
-import Otp from "./otp";
 import MagneticDoc from "./magnetic-doc";
+import Otp from "./otp";
+import Timer from "./timer";
 
 export {
   AmieAction,
@@ -90,6 +91,7 @@ export {
   JoiDownloadButton,
   LinearTab,
   LiveBlogs,
+  MagneticDoc,
   MagneticLines,
   ManagementBottomBar,
   Map,
@@ -112,6 +114,7 @@ export {
   TabBars,
   Tasks,
   TelegramInput,
+  Timer,
   TodoList,
   Typer,
   Uploader,
@@ -123,5 +126,4 @@ export {
   Wheel,
   WordRoll,
   YearsTabs,
-  MagneticDoc,
 };

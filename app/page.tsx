@@ -24,8 +24,8 @@ const Home = () => {
   });
 
   return (
-    <div className="min-h-screen flex flex-col gap-20 items-center justify-center lg:px-0 px-10 overflow-x-clip">
-      <div className="h-screen fixed top-0 max-w-screen-lg inset-x-0 w-full mx-auto border-x border -z-10 candy-bg hidden md:block" />
+    <div className="min-h-screen flex flex-col gap-5 items-center justify-center lg:px-0 px-10 overflow-x-clip">
+      <div className="h-screen fixed top-0 max-w-screen-lg inset-x-0 w-full mx-auto border-x -z-10 candy-bg hidden md:block" />
       <Hero hidden={isHidden} count={readyComponents.length} />
       <Feedback hidden={isHidden} />
       {COMPONENTS.map((component) => (
